@@ -14,7 +14,7 @@ const Banner = (props: BannerProps) => {
   return (
     <div
       className={clsx(
-        "bg-background-default shadow-primary-main/20 border-primary-100/20 grid w-full overflow-hidden rounded-md border-1 shadow-md md:grid-cols-2 md:rounded-2xl lg:grid-cols-4",
+        "bg-background-default shadow-primary-main/20 border-primary-100/20 grid w-full overflow-hidden rounded-md border-1 shadow-md md:grid-cols-2 lg:rounded-2xl xl:grid-cols-4",
         className,
       )}
       {...rest}
