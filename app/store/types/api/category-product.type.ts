@@ -33,7 +33,7 @@ interface Datum {
 
 interface Image {
   id: number;
-  alt: null | null | string;
+  alt: null | string;
   position: number;
   product_id: number;
   created_at: string;
