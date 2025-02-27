@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import svgR from "vite-plugin-svgr";
 import tailwindcss from "@tailwindcss/vite";
-import { type Productions, productions } from "./app/utils/enviroment.server";
+import { type Productions, productions } from "./app/utils/environment";
 
 export default defineConfig(({ mode }) => {
   return {
