@@ -1,17 +1,8 @@
-import {
-  isRouteErrorResponse,
-  Links,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useNavigate,
-} from "react-router";
-import type { Route } from "./+types/root";
-import { type PropsWithChildren, useEffect, useState } from "react";
+import { Outlet } from "react-router";
 import "./styles/global.css";
 import StoreProvider from "~/store/Provider";
-import { doubleSlashRemover } from "~/utils/request";
+import GlobalErrorBoundary from "~/components/pages/global-error-boundary";
+import GlobalLayout from "~/components/pages/global-layout";
 
 export function links() {
   return [
@@ -23,24 +14,9 @@ export function links() {
   ];
 }
 
-export function Layout({ children }: PropsWithChildren) {
-  return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Amrutam</title>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
-  );
-}
+export const ErrorBoundary = GlobalErrorBoundary;
+
+export const Layout = GlobalLayout;
 
 export default function App() {
   return (
@@ -49,45 +25,3 @@ export default function App() {
     </StoreProvider>
   );
 }
-
-export const ErrorBoundary = ({ error }: Route.ErrorBoundaryProps) => {
-  const navigate = useNavigate();
-  const [isMounted, setIsMounted] = useState(false);
-  useEffect(() => {
-    if (isRouteErrorResponse(error)) {
-      const pathName = error.data.split(" ").at(-1) ?? "";
-      if (pathName) {
-        const finalPath = String(pathName).replaceAll('"', "");
-        const { doubleSlashCount, url } = doubleSlashRemover(finalPath);
-        if (doubleSlashCount > 0) {
-          navigate(url, { replace: true });
-        }
-      }
-    }
-    setIsMounted(true);
-  }, [error, navigate]);
-  if (!isMounted) {
-    return null;
-  }
-  if (isRouteErrorResponse(error)) {
-    return (
-      <>
-        <h1>
-          {error.status} {error.statusText}
-        </h1>
-        <p>{error.data}</p>
-      </>
-    );
-  } else if (error instanceof Error) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <p>{error.message}</p>
-        <p>The stack trace is:</p>
-        <pre>{error.stack}</pre>
-      </div>
-    );
-  } else {
-    return <h1>Unknown Error</h1>;
-  }
-};
