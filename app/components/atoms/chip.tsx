@@ -1,12 +1,12 @@
 import clsx from "clsx";
 import {
-  type ComponentProps,
+  type ComponentPropsWithoutRef,
   type ElementType,
   type HTMLAttributes,
   type ReactNode,
 } from "react";
 
-export type ChipProps<T extends ElementType> = ComponentProps<T> & {
+export type ChipProps<T extends ElementType> = ComponentPropsWithoutRef<T> & {
   label?: ReactNode;
   as?: T;
 };
@@ -14,7 +14,7 @@ export type ChipProps<T extends ElementType> = ComponentProps<T> & {
 const className =
   "px-4 py-1 rounded-full bg-gray-200 text-gray-800 border border-primary-main cursor-pointer";
 
-const Chip = <T extends ElementType>(props: ChipProps<T>) => {
+const Chip = <T extends ElementType = "button">(props: ChipProps<T>) => {
   const { label, as: Wrapper = "button", children, ...rest } = props;
 
   return (

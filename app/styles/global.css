@@ -1,13 +1,15 @@
 @import "tailwindcss";
 @import "./link.css";
 @import "./button.css";
-@import "./typographt.css";
+@import "./typography.css";
 
 @theme {
     --color-primary-main: #3A643B;
     --color-primary-50: #EAF2EA;
     --color-primary-100: #9DB29D;
     --color-background-default: #EDE4D0;
+
+
 }
 
 @layer base {
@@ -20,4 +22,3 @@
         @apply z-10;
     }
 }
-

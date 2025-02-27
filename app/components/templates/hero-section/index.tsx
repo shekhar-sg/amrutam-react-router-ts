@@ -7,10 +7,15 @@ import { MdEditDocument } from "react-icons/md";
 
 const HeroSection = () => {
   return (
-    <SectionWrapper className={"relative flex"}>
+    <SectionWrapper
+      className={"relative flex h-100"}
+      WrapperProps={{
+        className: "bg-yellow-100",
+      }}
+    >
       <div></div>
       <div></div>
-      <Banner features={features} className={"absolute bottom-0 mx-auto"} />
+      <Banner features={features} className={"h-fit"} />
     </SectionWrapper>
   );
 };
