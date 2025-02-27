@@ -10,5 +10,3 @@ export const logger = {
     console.error(...args);
   },
 };
-
-

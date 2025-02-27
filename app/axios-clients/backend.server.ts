@@ -2,7 +2,7 @@ import axios from "axios";
 import { logger } from "~/utils/logger";
 
 export const backendClient = axios.create({
-    baseURL: `${process.env.BACKEND_BASE_URL}/api/v1`,
+  baseURL: `${process.env.BACKEND_BASE_URL}/api/v1`,
 });
 
 backendClient.interceptors.request.use((config) => {
@@ -20,4 +20,3 @@ backendClient.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-

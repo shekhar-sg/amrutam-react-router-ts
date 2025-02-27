@@ -47,11 +47,7 @@ const Banner = () => {
               "text-primary-main flex items-center gap-4 border-r-amber-300"
             }
           >
-            <div
-              className={
-                "flex aspect-square p-3 rounded-full border"
-              }
-            >
+            <div className={"flex aspect-square rounded-full border p-3"}>
               <Icon className={"size-10"} />
             </div>
             <p>{feature.about}</p>
