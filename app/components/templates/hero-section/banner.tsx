@@ -14,7 +14,7 @@ const Banner = (props: BannerProps) => {
   return (
     <div
       className={clsx(
-        "bg-background-default shadow-primary-main/20 grid rounded-2xl shadow-md md:grid-cols-2 lg:grid-cols-4",
+        "bg-background-default shadow-primary-main/20 border-primary-100/20 grid w-full overflow-hidden rounded-md border-1 shadow-md md:grid-cols-2 md:rounded-2xl lg:grid-cols-4",
         className,
       )}
       {...rest}
@@ -25,15 +25,13 @@ const Banner = (props: BannerProps) => {
           <div
             key={index}
             className={
-              "text-primary-main border-primary-100/20 flex items-center gap-7.5 border-r-3 p-4 last-of-type:border-none md:gap-3 md:px-6 md:py-8"
+              "text-primary-main border-primary-100/20 flex items-center gap-7.5 border-1 p-4 md:gap-3 md:px-6 md:py-8"
             }
           >
             <div className={"flex aspect-square rounded-full border p-3"}>
               <Icon className={"size-10"} />
             </div>
-            <Typography variant={"body-xsmall"} className={"font-semibold"}>
-              {feature.about}
-            </Typography>
+            <Typography className={"font-semibold"}>{feature.about}</Typography>
           </div>
         );
       })}

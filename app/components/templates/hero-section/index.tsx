@@ -15,7 +15,12 @@ const HeroSection = () => {
     >
       <div></div>
       <div></div>
-      <Banner features={features} className={"h-fit"} />
+      <Banner
+        features={features}
+        className={
+          "absolute bottom-0 h-fit max-w-[calc(100%_-_32px)] translate-y-9/10 md:translate-y-3/5 lg:max-w-[calc(100%_-_48px)] xl:max-w-[calc(100%_-_200px)]"
+        }
+      />
     </SectionWrapper>
   );
 };
