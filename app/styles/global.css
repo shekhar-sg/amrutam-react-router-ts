@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary-main: #3A643B;
+    --color-primary-50: #EAF2EA;
+    --color-primary-100: #9DB29D;
+    --color-background-default: #EDE4D0;
+}
+
+@layer utilities {
+    html,
+    body {
+        @apply bg-background-default;
+    }
+
+    header {
+        @apply z-10;
+    }
+
+    a {
+        @apply inline-block;
+
+        &.active {
+            @apply bg-primary-main text-white;
+        }
+
+        &.pending {
+            @apply bg-primary-100 text-primary-main;
+        }
+
+        &.transitioning {
+            @apply bg-primary-50 text-neutral-800;
+        }
+    }
+}
+
+@layer components {
+    button {
+        @apply btn;
+    }
+}
+
+@utility btn {
+    --color-base: var(--color-primary-main);
+    --local-color: var(--color-base, var(--color-primary-main));
+    @apply cursor-pointer px-4 py-2 rounded-lg text-base border text-center text-white w-fit;
+    background-color: var(--local-color);
+    border-color: var(--local-color);
+
+    @variant disabled {
+        --local-color: --alpha(var(--color-base)/50%);
+        cursor: not-allowed;
+    }
+    @variant hover {
+        @variant not-disabled {
+            @variant not-active {
+                --local-color: --alpha(var(--color-base)/90%);
+            }
+        }
+    }
+}
+
+@utility btn-* {
+    --color-base: --value(--color-*);
+}
+
