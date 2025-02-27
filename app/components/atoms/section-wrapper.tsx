@@ -19,7 +19,7 @@ const SectionWrapper = <T extends ElementType>(
       <div
         {...rest}
         className={clsx(
-          "mx-auto w-full max-w-[1440px] px-4 lg:px-6",
+          "mx-auto w-full max-w-[1440px] px-4 lg:px-6 xl:px-25",
           rest.className,
         )}
       />
