@@ -8,7 +8,7 @@ export function links() {
   return [
     {
       rel: "icon",
-      href: "/favicon.png",
+      href: "/favicon.ico",
       type: "image/png",
     },
   ];

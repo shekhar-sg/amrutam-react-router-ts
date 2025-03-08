@@ -1,5 +1,6 @@
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import Navbar from "~/components/organisms/navbar";
+import "swiper/css"
 
 const Layout = () => {
   return (
