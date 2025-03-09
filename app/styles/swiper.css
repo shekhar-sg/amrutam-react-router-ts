@@ -1,0 +1,17 @@
+/*.swiper-pagination {*/
+/*    display: flex !important;*/
+/*    gap: 1rem !important;*/
+/*    justify-content: center !important;*/
+/*    align-items: center !important;*/
+
+/*}*/
+
+.swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    margin-inline: 15px !important;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #3A643B !important;
+}

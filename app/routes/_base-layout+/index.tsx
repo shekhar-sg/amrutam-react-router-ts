@@ -1,5 +1,6 @@
 import DiscoverAyurveda from "~/components/templates/discover-ayurveda";
 import Stats from "~/components/templates/stats";
+import Experts from "~/components/templates/experts";
 
 const HomePage = () => {
   return (
@@ -7,6 +8,7 @@ const HomePage = () => {
       {/*<HeroSection />*/}
       <DiscoverAyurveda />
       <Stats />
+      <Experts />
     </>
   );
 };
