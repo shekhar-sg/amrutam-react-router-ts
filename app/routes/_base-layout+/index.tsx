@@ -3,6 +3,7 @@ import Stats from "~/components/templates/stats";
 import Experts from "~/components/templates/experts";
 import Video from "~/components/templates/video";
 import DownloadApp from "~/components/templates/download-app";
+import Testimonials from "~/components/templates/testimonials";
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <Stats />
       <Experts />
       <Video />
+      <Testimonials />
       <DownloadApp />
     </>
   );

@@ -15,10 +15,10 @@ const Video = () => {
       >
         How Ayurveda Transformed My life ?
       </h2>
-      <div className={"video relative flex items-center justify-center"}>
+      <div className={"relative w-full aspect-video flex items-center justify-center"}>
         <button
           className={
-            "absolute z-10 rounded-full border-none bg-transparent p-0"
+            "rounded-full z-1 border-none bg-transparent p-0"
           }
         >
           <RiPlayCircleLine className={"size-20.5"} />
@@ -26,7 +26,7 @@ const Video = () => {
         <img
           src={GIF}
           alt={"GIF"}
-          className={"aspect-video w-full brightness-50"}
+          className={"absolute z-0 size-full brightness-50"}
         />
       </div>
     </SectionWrapper>
