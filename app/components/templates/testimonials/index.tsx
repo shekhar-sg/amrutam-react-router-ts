@@ -79,7 +79,7 @@ const Testimonials = () => {
       <Link
         to={"/"}
         className={
-          "text-primary-main mx-auto hidden items-center gap-2 rounded-lg px-6.25 py-4 text-center text-2xl capitalize shadow-[0_2px_6px_0] shadow-black/25 md:inline-flex"
+          "text-primary-main mx-auto inline-flex items-center gap-2 rounded-lg px-6.25 py-4 text-center text-2xl capitalize shadow-[0_2px_6px_0] shadow-black/25"
         }
       >
         See More Reviews <IoChevronForward className={"mt-1"} />
