@@ -1,6 +1,7 @@
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import Navbar from "~/components/organisms/navbar";
-import "swiper/css"
+import "swiper/css";
+import Footer from "~/components/templates/footer";
 
 const Layout = () => {
   return (
@@ -9,6 +10,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 };
