@@ -1,0 +1,36 @@
+import SectionWrapper from "~/components/atoms/section-wrapper";
+import GIF from "./assets/yt-video.gif";
+import { RiPlayCircleLine } from "react-icons/ri";
+
+const VIDEO_EMBED_URL =
+  "https://www.youtube.com/embed/ZkBWy2flIUI?si=lUpsp8GrnBFVelHr";
+
+const Video = () => {
+  return (
+    <SectionWrapper className={"space-y-10 text-center"}>
+      <h2
+        className={
+          "text-primary-main border-primary-200 mx-auto w-fit px-6 leading-none font-bold capitalize sm:border-b-8 sm:leading-10 md:leading-16"
+        }
+      >
+        How Ayurveda Transformed My life ?
+      </h2>
+      <div className={"video relative flex items-center justify-center"}>
+        <button
+          className={
+            "absolute z-10 rounded-full border-none bg-transparent p-0"
+          }
+        >
+          <RiPlayCircleLine className={"size-20.5"} />
+        </button>
+        <img
+          src={GIF}
+          alt={"GIF"}
+          className={"aspect-video w-full brightness-50"}
+        />
+      </div>
+    </SectionWrapper>
+  );
+};
+
+export default Video;
