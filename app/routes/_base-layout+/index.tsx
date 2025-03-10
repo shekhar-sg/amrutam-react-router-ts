@@ -9,7 +9,7 @@ import ConsultationProcess from "~/components/templates/consultation-process";
 
 const HomePage = () => {
   return (
-    <>
+    <div className={"space-y-26"}>
       <HeroSection />
       <DiscoverAyurveda />
       <Stats />
@@ -18,7 +18,7 @@ const HomePage = () => {
       <ConsultationProcess />
       <Testimonials />
       <DownloadApp />
-    </>
+    </div>
   );
 };
 

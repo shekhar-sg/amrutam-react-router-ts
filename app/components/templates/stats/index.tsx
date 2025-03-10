@@ -5,7 +5,7 @@ const Stats = () => {
   return (
     <SectionWrapper
       WrapperProps={{
-        className: "shadow-xl  sm:border-2 border-secondary-200",
+        className: "sm:border-2 border-secondary-200",
       }}
       className={
         "grid grid-cols-1 gap-y-14 py-17 sm:grid-cols-2 lg:grid-cols-4"

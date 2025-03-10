@@ -18,8 +18,8 @@ const Experts = () => {
     [swiper],
   );
   return (
-    <SectionWrapper className={"mb-2 flex h-screen flex-col text-center"}>
-      <h2 className={"py-20 md:py-14"}>title</h2>
+    <SectionWrapper className={"mb-2 flex flex-col text-center"}>
+      <h2 className={"py-20 md:py-14 font-bold text-primary-main capitalize"}>top ayurvedic experts for</h2>
       <div className={"flex items-center gap-12.5"}>
         <button
           className={

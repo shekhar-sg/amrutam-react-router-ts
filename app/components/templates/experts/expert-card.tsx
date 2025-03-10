@@ -9,7 +9,7 @@ const ExpertCard = () => {
   return (
     <div
       className={
-        "flex h-[446px] w-[295px] flex-col items-center gap-7 overflow-hidden rounded-[40px] pt-10.5 shadow-[0_0_10px_0] shadow-stone-300"
+        "flex h-[446px] w-[295px] flex-col items-center gap-7 overflow-hidden rounded-[40px] pt-10.5 border-2 border-secondary-200"
       }
     >
       <div

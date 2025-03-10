@@ -13,14 +13,14 @@ const DiscoverAyurveda = () => {
       WrapperProps={{
         className: "pt-30",
       }}
-      className={"flex flex-col items-center justify-center gap-5"}
+      className={"flex flex-col mt-54 md:mt-10 items-center justify-center gap-5"}
     >
       <div
         className={
           "flex flex-col items-center justify-center gap-5 text-center"
         }
       >
-        <h2>{heading.split("wisdom,")}</h2>
+        <h2 className={"border-b-8 text-primary-main px-6 font-bold leading-15"}>{heading.split("wisdom,")}</h2>
         <p className={"max-w-2xl"}>{description}</p>
       </div>
       <div className={"flex flex-col items-center justify-center gap-5 lg:flex-row"}>

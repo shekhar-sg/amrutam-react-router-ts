@@ -51,7 +51,7 @@ const ExpertSlider = <T extends { id: string }>(
         },
       }}
       // cssMode
-      wrapperClass={"space-x-12 px-2 py-4"}
+      wrapperClass={"space-x-12 py-4"}
       {...rest}
     >
       {Array.from({ length: 15 }).map((_, index) => {
