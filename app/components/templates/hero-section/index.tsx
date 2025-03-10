@@ -12,11 +12,13 @@ const HeroSection = () => {
     <SectionWrapper
       className={"relative flex py-28 md:pb-34 lg:py-28"}
       WrapperProps={{
-        className: "bg-yellow-100",
+        className: "hero-background relative",
       }}
     >
       <div className={"w-full space-y-4 md:w-[60%]"}>
-        <h6 className={"body-small"}>Namaste, Welcome to Amrutam </h6>
+        <h6 className={"body-small text-stone-500"}>
+          Namaste, Welcome to Amrutam{" "}
+        </h6>
         <h2 className={"heading-large leading-[140%] font-bold"}>
           Struggling with Lifestyle Disorders?
           <br /> Get Expert Ayurvedic Help Today.

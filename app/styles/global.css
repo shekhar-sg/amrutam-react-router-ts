@@ -13,6 +13,7 @@
     --color-background-default: #FFF7E2;
     --color-secondary-100: #E9DFCA;
     --color-secondary-200: #EADFC3;
+    --color-secondary-300: #FBEECC;
 
 }
 
@@ -30,4 +31,9 @@
 
 .custom-gradient-1 {
     background: linear-gradient(180deg, #0B0B0B 0%, rgba(11, 11, 11, 0.79) 100%);
+}
+
+.hero-background {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 53.85%, rgba(208, 168, 61, 0.2) 100%),
+    linear-gradient(0deg, #FBEECC, #FBEECC);
 }
