@@ -4,11 +4,12 @@ import Experts from "~/components/templates/experts";
 import Video from "~/components/templates/video";
 import DownloadApp from "~/components/templates/download-app";
 import Testimonials from "~/components/templates/testimonials";
+import HeroSection from "~/components/templates/hero-section";
 
 const HomePage = () => {
   return (
     <>
-      {/*<HeroSection />*/}
+      <HeroSection />
       <DiscoverAyurveda />
       <Stats />
       <Experts />

@@ -2,18 +2,39 @@ import SectionWrapper from "~/components/atoms/section-wrapper";
 import Banner from "./banner";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsShieldCheck } from "react-icons/bs";
-import { FaUserDoctor } from "react-icons/fa6";
+import { FaPhone, FaUserDoctor } from "react-icons/fa6";
 import { MdEditDocument } from "react-icons/md";
+import { Link } from "react-router";
+import HeroStats from "~/components/templates/hero-section/hero-stats";
 
 const HeroSection = () => {
   return (
     <SectionWrapper
-      className={"relative flex h-100"}
+      className={"relative flex py-28 md:pb-34 lg:py-28"}
       WrapperProps={{
         className: "bg-yellow-100",
       }}
     >
-      <div></div>
+      <div className={"w-full space-y-4 md:w-[60%]"}>
+        <h6 className={"body-small"}>Namaste, Welcome to Amrutam </h6>
+        <h2 className={"heading-large leading-[140%] font-bold"}>
+          Struggling with Lifestyle Disorders?
+          <br /> Get Expert Ayurvedic Help Today.
+        </h2>
+        <p className={"heading-xsmall text-stone-700"}>
+          Speak to Certified & Trusted Ayurvedic Doctors for personalized care.
+        </p>
+        <Link
+          to={"/"}
+          className={
+            "btn heading-xsmall flex w-[65%] max-w-137.25 items-center justify-center gap-2.5 rounded-2xl py-4 font-bold md:w-[85%] md:py-5.5"
+          }
+        >
+          <FaPhone />
+          Instant Call for FREE
+        </Link>
+        <HeroStats />
+      </div>
       <div></div>
       <Banner
         features={features}
