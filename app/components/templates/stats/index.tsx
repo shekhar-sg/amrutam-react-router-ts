@@ -11,17 +11,23 @@ const Stats = () => {
         "grid grid-cols-1 gap-y-14 py-17 sm:grid-cols-2 lg:grid-cols-4"
       }
     >
-      {stats.map((stat, index) => (
-        <Counter
-          key={index}
-          end={parseInt(stat.title)}
-          className={
-            "text-primary-main flex flex-col justify-center text-center text-[26px] font-bold"
-          }
-        >
-          <p className={"text-[26px] font-normal"}>{stat.description}</p>
-        </Counter>
-      ))}
+      {stats.map((stat) => {
+        const { title, description } = stat;
+        return (
+          <Counter
+            key={title}
+            end={title}
+            className={
+              "text-primary-main flex flex-col justify-center text-center text-[26px] font-bold"
+            }
+            ViewPortProps={{
+              once: true,
+            }}
+          >
+            <p className={"text-[26px] font-normal"}>{description}</p>
+          </Counter>
+        );
+      })}
     </SectionWrapper>
   );
 };
@@ -30,19 +36,19 @@ export default Stats;
 
 const stats = [
   {
-    title: "500+",
+    title: 500,
     description: "Happy Users",
   },
   {
-    title: "38+",
+    title: 38,
     description: "Verified Doctors",
   },
   {
-    title: "25+",
+    title: 25,
     description: "Specialities",
   },
   {
-    title: "200+",
+    title: 200,
     description: "Success Stories",
   },
 ];

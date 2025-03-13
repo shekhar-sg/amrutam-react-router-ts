@@ -1,44 +1,56 @@
-import { useInView } from "framer-motion";
+import {
+  type SpringOptions,
+  useInView,
+  type UseInViewOptions,
+  useSpring,
+} from "framer-motion";
 import { type HTMLAttributes, useEffect, useRef, useState } from "react";
 
 interface CountUpProps extends HTMLAttributes<HTMLDivElement> {
   start?: number;
   end: number;
-  duration?: number;
-  delay?: number;
+  SpringProps?: SpringOptions;
   countProps?: HTMLAttributes<HTMLElement>;
+  ViewPortProps?: UseInViewOptions;
 }
 
 const CountUp = (props: CountUpProps) => {
   const {
     start = 0,
     end,
-    duration = 1,
-    delay = 0,
+    SpringProps,
     countProps,
+    ViewPortProps,
     ...rest
   } = props;
   const [count, setCount] = useState(start);
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, {
+    ...ViewPortProps,
+  });
+  const countSpring = useSpring(count, {
+    stiffness: 100,
+    damping: 100,
+    ...SpringProps,
+  });
 
   useEffect(() => {
     if (isInView) {
-      const startTime = performance.now();
-      const step = (currentTime: number) => {
-        const elapsedTime = currentTime - startTime;
-        const progress = Math.min(elapsedTime / (duration * 1000), 1);
-        setCount(start + Math.round((end - start) * progress));
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-      };
-      requestAnimationFrame(step);
+      countSpring.set(end);
+    } else {
+      countSpring.set(start);
     }
-  }, [isInView, start, end, duration]);
+  }, [countSpring, end, isInView, start]);
+
+  useEffect(() => {
+    countSpring.on("change", (latestValue) => {
+      setCount(Math.round(latestValue));
+    });
+  }, [countSpring]);
+
   return (
     <div ref={ref} {...rest}>
-      <span {...countProps}>{Math.round(count)}+</span>
+      <span {...countProps}>{count}+</span>
       {rest.children}
     </div>
   );

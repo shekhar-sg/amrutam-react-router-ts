@@ -23,11 +23,11 @@ const ConsultationProcess = () => {
           const { title, time, description, icon } = step;
           return (
             <motion.div
+              key={title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
               viewport={{ once: true }}
-              key={index}
               className={clsx("flex flex-col items-center gap-3 text-center", {
                 "md:self-end": index % 2,
                 "md:self-start": !(index % 2),
@@ -38,7 +38,7 @@ const ConsultationProcess = () => {
                   "flex items-center gap-3 text-3xl font-semibold capitalize"
                 }
               >
-                {index + 1}. {title}{" "}
+                {index + 1}. {title}
                 <Chip
                   as={"span"}
                   label={time}
