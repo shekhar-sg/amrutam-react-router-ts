@@ -4,13 +4,15 @@ import icon_3 from "./assets/disc-3.png";
 import icon_4 from "./assets/disc-4.png";
 import icon_5 from "./assets/disc-5.png";
 import icon_6 from "./assets/disc-6.png";
-import main_image from "./assets/yoga.png";
+import chakra from "./assets/chakra.png";
+import meditation from "./assets/meditation.png";
 
 const DiscoverSectionData = {
   heading: "Discover Ayurveda’s magic with us",
   description:
     "Ayurvedic treatment aims to balance your body and mind, bringing harmony and vitality. It's like a journey to better health using ancient wisdom, a totally effective approach for a better life.",
-  image: main_image,
+  chakra,
+  meditation,
   cards: [
     {
       title: "Personalized Wellness",

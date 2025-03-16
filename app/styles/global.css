@@ -3,6 +3,7 @@
 @import "./button.css";
 @import "./typography.css";
 @import "./swiper.css";
+@import "./components.css";
 
 @theme {
     --color-primary-main: #3A643B;
@@ -15,18 +16,21 @@
     --color-secondary-200: #EADFC3;
     --color-secondary-300: #FBEECC;
 
+    --header-height: 74px;
+
 }
+
 
 @layer base {
     html,
     body {
         @apply bg-background-default;
     }
+}
 
-    header {
-        @apply z-10;
-    }
-
+@utility calc-height-* {
+    --total-height: calc(--value(integer) * 1vh);
+    height: calc(var(--total-height) - var(--header-height));
 }
 
 .custom-gradient-1 {

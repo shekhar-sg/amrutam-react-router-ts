@@ -2,7 +2,6 @@
     button {
         @apply btn;
     }
-
 }
 
 @utility btn {

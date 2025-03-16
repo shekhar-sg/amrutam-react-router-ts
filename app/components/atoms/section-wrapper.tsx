@@ -1,18 +1,26 @@
-import type { ElementType, HTMLAttributes } from "react";
+import {
+  type ComponentProps,
+  type ComponentPropsWithoutRef,
+  type ElementType,
+  forwardRef,
+  type Ref,
+} from "react";
 import clsx from "clsx";
 
-interface SectionWrapperProps<T extends ElementType>
-  extends HTMLAttributes<HTMLDivElement> {
-  WrapperProps?: HTMLAttributes<HTMLElement>;
-  as?: T;
-}
+type SectionWrapperProps<T extends ElementType = "section"> =
+  ComponentProps<T> & {
+    WrapperProps?: ComponentPropsWithoutRef<T>;
+    as?: T;
+  };
 
-const SectionWrapper = <T extends ElementType>(
+const SectionWrapper = <T extends ElementType = "section">(
   props: SectionWrapperProps<T>,
+  ref: Ref<HTMLElement>,
 ) => {
   const { WrapperProps, as: Wrapper = "section", ...rest } = props;
   return (
     <Wrapper
+      ref={ref}
       {...WrapperProps}
       className={clsx("w-full", WrapperProps?.className)}
     >
@@ -27,4 +35,4 @@ const SectionWrapper = <T extends ElementType>(
   );
 };
 
-export default SectionWrapper;
+export default forwardRef(SectionWrapper);
