@@ -19,18 +19,28 @@ const DiscoverAyurveda = () => {
 
   const chakraOpacity = useTransform(
     scrollYProgress,
-    [0.2, 0.35, 0.6],
+    [0.2, 0.55, 0.6],
     [0, 0.4, 1],
   );
   const chakraScale = useTransform(scrollYProgress, [0.1, 0.6], [20, 1]);
   const chakraYPosition = useTransform(
     scrollYProgress,
-    [0.55, 0.8],
-    ["-100%", "0%"],
+    [0.55, 0.7],
+    [isMobile ? "-10%" : "-100%", "0%"],
+  );
+
+  const meditationBoxPositionY = useTransform(
+    scrollYProgress,
+    [0.7, 0.8],
+    ["10%", "0%"],
   );
 
   const yogaCardScale = useTransform(scrollYProgress, [0.6, 0.9], [0, 1]);
-  const yogaCardOpacity = useTransform(scrollYProgress, [0.6, 0.9], [0, 1]);
+  const yogaCardOpacity = useTransform(
+    scrollYProgress,
+    [0.6, 0.8, 0.9],
+    [0, 0, 1],
+  );
   const yogaCardLeftXPosition = useTransform(
     scrollYProgress,
     [0.6, 0.9],
@@ -49,11 +59,11 @@ const DiscoverAyurveda = () => {
   );
 
   return (
-    <div ref={ref} className={"h-[400vh]"}>
+    <div ref={ref} className={"h-[400vh] "}>
       <SectionWrapper
         WrapperProps={{
           className:
-            "h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
+            "xl:h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
         }}
         className={"flex h-full flex-col items-center gap-5"}
       >
@@ -63,7 +73,9 @@ const DiscoverAyurveda = () => {
           }
         >
           <h2
-            className={"text-primary-main border-b-8 border-primary-100/20 px-6 leading-15 font-bold"}
+            className={
+              "text-primary-main border-primary-100/20 border-b-8 px-6 leading-15 font-bold"
+            }
           >
             {heading}
           </h2>
@@ -95,10 +107,13 @@ const DiscoverAyurveda = () => {
               );
             })}
           </div>
-          <div
+          <motion.div
             className={
               "relative max-h-[50vw] w-[50vw] flex-1 lg:h-auto lg:w-auto"
             }
+            style={{
+              y: meditationBoxPositionY,
+            }}
           >
             <motion.img
               src={chakra}
@@ -122,7 +137,7 @@ const DiscoverAyurveda = () => {
               alt={"yoga"}
               className={"absolute -bottom-1/6 -left-2"}
             />
-          </div>
+          </motion.div>
           <div
             className={
               "flex flex-row flex-wrap justify-center gap-5 lg:flex-1 lg:flex-col lg:gap-15"

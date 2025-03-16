@@ -4,58 +4,155 @@ import chooseDoctor from "./assets/choose-doctor.png";
 import bookConsultation from "./assets/book-consultation.png";
 import getPrescription from "./assets/prescription.png";
 import followUp from "./assets/follow-up.png";
-import clsx from "clsx";
-import { motion } from "framer-motion";
+import {
+  motion,
+  type MotionStyle,
+  type MotionValue,
+  type TargetAndTransition,
+  useScroll,
+  useTransform,
+  type VariantLabels,
+} from "framer-motion";
 import Chip from "~/components/atoms/chip";
+import { useMemo, useRef } from "react";
 
 const ConsultationProcess = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
   return (
-    <SectionWrapper className={"relative space-y-12 md:space-y-20"}>
-      <h2
-        className={
-          "text-primary-main border-b-primary-200 mx-auto w-fit border-b-8 px-6 font-bold"
-        }
+    <div ref={containerRef} className={"h-[400vh]"}>
+      <SectionWrapper
+        WrapperProps={{
+          className: "h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
+        }}
+        className={"h-full"}
       >
-        Consultation Process
-      </h2>
-      <div className={"flex flex-col gap-10 px-4 md:gap-3"}>
-        {process.map((step, index) => {
-          const { title, time, description, icon } = step;
-          return (
-            <motion.div
-              key={title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              viewport={{ once: true }}
-              className={clsx("flex flex-col items-center gap-3 text-center", {
-                "md:self-end": index % 2,
-                "md:self-start": !(index % 2),
-              })}
-            >
-              <div
-                className={
-                  "flex items-center gap-3 text-3xl font-semibold capitalize"
-                }
-              >
-                {index + 1}. {title}
-                <Chip
-                  as={"span"}
-                  label={time}
-                  className={"bg-primary-200 rounded-lg text-base font-bold"}
-                />
-              </div>
-              <img src={icon} alt={title} />
-              <p className={"w-[70%] text-base"}>{description}</p>
-            </motion.div>
-          );
-        })}
-      </div>
-    </SectionWrapper>
+        <h2
+          className={
+            "text-primary-main border-primary-100/20 mx-auto w-fit border-b-8 px-6 leading-15 font-bold"
+          }
+        >
+          Consultation Process
+        </h2>
+        <motion.div className={"relative flex h-full w-full"}>
+          {process.map((step, index) => {
+            return (
+              <AnimatedCard
+                key={step.title}
+                data={step}
+                position={index + 1}
+                scrollYProgress={scrollYProgress}
+              />
+            );
+          })}
+        </motion.div>
+      </SectionWrapper>
+    </div>
   );
 };
 
 export default ConsultationProcess;
+
+const initial: Record<number, TargetAndTransition | VariantLabels> = {
+  1: {
+    opacity: 0,
+  },
+  2: {
+    opacity: 0,
+  },
+  3: {
+    opacity: 0,
+  },
+  4: {
+    opacity: 0,
+  },
+  5: {
+    opacity: 0,
+  },
+};
+
+const AnimatedCard = (props: {
+  data: {
+    title: string;
+    time: string;
+    description: string;
+    icon: string;
+  };
+  position: number;
+  scrollYProgress: MotionValue<number>;
+}) => {
+  const { data, position, scrollYProgress } = props;
+  const { title, time, icon, description } = data;
+
+  const card1Opacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1, 0]);
+  const card2Opacity = useTransform(
+    scrollYProgress,
+    [0.2, 0.3, 0.4],
+    [0, 1, 0],
+  );
+  const card3Opacity = useTransform(
+    scrollYProgress,
+    [0.4, 0.5, 0.6],
+    [0, 1, 0],
+  );
+  const card4Opacity = useTransform(
+    scrollYProgress,
+    [0.6, 0.7, 0.8],
+    [0, 1, 0],
+  );
+  const card5Opacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]);
+
+  const styles = useMemo<Record<number, MotionStyle>>(() => {
+    return {
+      1: {
+        opacity: card1Opacity,
+      },
+      2: {
+        opacity: card2Opacity,
+      },
+      3: {
+        opacity: card3Opacity,
+      },
+      4: {
+        opacity: card4Opacity,
+      },
+      5: {
+        opacity: card5Opacity,
+      },
+    };
+  }, [card1Opacity, card2Opacity, card3Opacity, card4Opacity, card5Opacity]);
+
+  return (
+    <motion.div
+      initial={initial[position]}
+      style={styles[position]}
+      className={
+        "absolute flex h-full w-full flex-col items-center justify-center gap-y-3 text-center"
+      }
+    >
+      <div
+        className={
+          "heading-large flex items-center gap-3 text-center font-semibold capitalize"
+        }
+      >
+        {position}. {title}
+        <Chip
+          as={"span"}
+          label={time}
+          className={
+            "bg-primary-200 md:body-xsmall rounded-lg text-[8px] font-bold whitespace-nowrap"
+          }
+        />
+      </div>
+      <img src={icon} alt={title} className={"w-1/2"} />
+      <p className={"text-base"}>{description}</p>
+    </motion.div>
+  );
+};
 
 const process = [
   {
