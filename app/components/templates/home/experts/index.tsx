@@ -1,6 +1,6 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import { MdEast, MdWest } from "react-icons/md";
-import ExpertSlider from "~/components/templates/experts/expert-slider";
+import ExpertSlider from "~/components/templates/home/experts/expert-slider";
 import { useCallback, useState } from "react";
 import type { Swiper as SwiperClass } from "swiper/types";
 import { Link } from "react-router";

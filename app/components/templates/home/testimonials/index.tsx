@@ -2,11 +2,11 @@ import SectionWrapper from "~/components/atoms/section-wrapper";
 import {
   testimonialReviews,
   testimonialVideos,
-} from "~/components/templates/testimonials/testimonials";
-import TestimonialCard from "~/components/templates/testimonials/testimonial-card";
+} from "~/components/templates/home/testimonials/testimonials";
+import TestimonialCard from "~/components/templates/home/testimonials/testimonial-card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "../../../../node_modules/swiper/swiper-bundle.min.css";
+import "swiper/swiper-bundle.min.css";
 import { RiPlayCircleLine } from "react-icons/ri";
 import { IoChevronForward } from "react-icons/io5";
 import { Link } from "react-router";

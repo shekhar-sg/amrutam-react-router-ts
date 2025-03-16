@@ -1,6 +1,6 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import { Link } from "react-router";
-import { FooterData } from "~/components/templates/footer/footer-data";
+import { FooterData } from "~/components/organisms/footer/footer-data";
 
 const { title, follow_us, otherLinkTitle, otherLinks } = FooterData;
 

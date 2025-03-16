@@ -1,8 +1,8 @@
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import Navbar from "~/components/organisms/navbar";
 import "swiper/css";
-import Footer from "~/components/templates/footer";
-import DownloadApp from "~/components/templates/download-app";
+import Footer from "app/components/organisms/footer";
+import DownloadApp from "app/components/organisms/download-app";
 
 const Layout = () => {
   return (

@@ -5,7 +5,7 @@ import { BsShieldCheck } from "react-icons/bs";
 import { FaPhone, FaUserDoctor } from "react-icons/fa6";
 import { MdEditDocument } from "react-icons/md";
 import { Link } from "react-router";
-import HeroStats from "~/components/templates/hero-section/hero-stats";
+import HeroStats from "~/components/templates/home/hero-section/hero-stats";
 
 const HeroSection = () => {
   return (

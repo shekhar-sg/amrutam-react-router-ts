@@ -1,5 +1,5 @@
 import { MdStar } from "react-icons/md";
-import { testimonialReviews } from "~/components/templates/testimonials/testimonials";
+import { testimonialReviews } from "~/components/templates/home/testimonials/testimonials";
 
 interface TestimonialCardProps {
   data: (typeof testimonialReviews)[number];

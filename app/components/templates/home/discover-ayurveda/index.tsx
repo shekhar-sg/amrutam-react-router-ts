@@ -1,5 +1,5 @@
-import DiscoverSectionData from "~/components/templates/discover-ayurveda/constants";
-import YogaCards from "~/components/templates/discover-ayurveda/yoga-cards";
+import DiscoverSectionData from "~/components/templates/home/discover-ayurveda/constants";
+import YogaCards from "~/components/templates/home/discover-ayurveda/yoga-cards";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
