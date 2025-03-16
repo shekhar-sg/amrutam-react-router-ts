@@ -1,27 +1,83 @@
-import { type ComponentPropsWithoutRef, type ElementType } from "react";
+import {
+  createPolymorphicComponent,
+  Text,
+  type TextProps,
+} from "@mantine/core";
 import clsx from "clsx";
+import { forwardRef } from "react";
 
-export type TypographyVariant =
-  | "heading-xxlarge"
-  | "heading-xlarge"
-  | "heading-large"
-  | "heading-medium"
-  | "heading-small"
-  | "heading-xsmall"
-  | "body"
-  | "body-small"
-  | "body-xsmall";
+const TypographyResponsive = {
+  "heading-xxlarge": {
+    base: "h3",
+    md: "h2",
+    lg: "h1",
+  },
+  "heading-xlarge": {
+    base: "h5",
+    md: "h3",
+    lg: "h2",
+  },
+  "heading-large": {
+    base: "h6",
+    md: "h4",
+    lg: "h3",
+  },
+  "heading-medium": {
+    base: "lg",
+    md: "h5",
+    lg: "h4",
+  },
+  "heading-small": {
+    base: "base",
+    md: "h6",
+    lg: "h5",
+  },
+  "heading-xsmall": {
+    base: "sm",
+    md: "lg",
+    lg: "h6",
+  },
+  body: {
+    base: "sm",
+    md: "base",
+    lg: "lg",
+  },
+  "body-small": {
+    base: "xs",
+    md: "sm",
+    lg: "base",
+  },
+  "body-xsmall": {
+    base: "xs",
+    md: "sm",
+    lg: "sm",
+  },
+} as const satisfies Record<string, TextProps["fz"]>;
 
-export type TypographyProps<T extends ElementType> =
-  ComponentPropsWithoutRef<T> & {
-    as?: T;
-    variant?: TypographyVariant;
-  };
+export type TypographyVariant = keyof typeof TypographyResponsive;
 
-const Typography = <T extends ElementType = "p">(props: TypographyProps<T>) => {
-  const { as: Wrapper = "p", variant = "body", className, ...rest } = props;
+export type TypographyProps = {
+  fontVariant?: TypographyVariant;
+} & TextProps;
 
-  return <Wrapper className={clsx(variant, className)} {...rest} />;
-};
+const TypographyCustom = forwardRef<HTMLParagraphElement, TypographyProps>(
+  (props, ref) => {
+    const { fontVariant = "body", className, ...rest } = props;
+
+    return (
+      <Text
+        ref={ref}
+        fz={TypographyResponsive[fontVariant]}
+        className={clsx(fontVariant, className)}
+        {...rest}
+      />
+    );
+  },
+);
+TypographyCustom.displayName = "Typography";
+
+const Typography = createPolymorphicComponent<"p", TypographyProps>(
+  TypographyCustom,
+);
 
 export default Typography;

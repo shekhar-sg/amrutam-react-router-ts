@@ -31,7 +31,7 @@ const Banner = (props: BannerProps) => {
             <div className={"flex aspect-square rounded-full border p-3"}>
               <Icon className={"size-10"} />
             </div>
-            <Typography className={"font-semibold"}>{feature.about}</Typography>
+            <Typography fw={"bold"}>{feature.about}</Typography>
           </div>
         );
       })}
