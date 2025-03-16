@@ -63,7 +63,7 @@ const DiscoverAyurveda = () => {
           }
         >
           <h2
-            className={"text-primary-main border-b-8 px-6 leading-15 font-bold"}
+            className={"text-primary-main border-b-8 border-primary-100/20 px-6 leading-15 font-bold"}
           >
             {heading}
           </h2>

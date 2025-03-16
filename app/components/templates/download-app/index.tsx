@@ -10,7 +10,7 @@ import { Link } from "react-router";
 
 const DownloadApp = () => {
   return (
-    <SectionWrapper className={"flex mb-24"}>
+    <SectionWrapper className={"mb-24 flex py-19"}>
       <div
         className={
           "flex w-full flex-col items-center space-y-5 text-center lg:w-[45%] lg:items-start lg:text-start"

@@ -13,10 +13,12 @@ import { Link } from "react-router";
 
 const Testimonials = () => {
   return (
-    <SectionWrapper className={"space-y-16.75 text-center"}>
+    <SectionWrapper className={"space-y-16.75 text-center"} WrapperProps={{
+      className:"mb-17"
+    }}>
       <h2
         className={
-          "border-b-primary-200 text-primary-main mx-auto w-fit border-b-8 px-8 font-bold capitalize"
+          "border-primary-100/20  text-primary-main mx-auto w-fit border-b-8 px-8 font-bold capitalize"
         }
       >
         customer testimonials
@@ -40,7 +42,7 @@ const Testimonials = () => {
       </div>
       <h2
         className={
-          "border-b-primary-200 text-primary-main mx-auto w-fit border-b-8 px-8 font-bold capitalize"
+          "border-primary-100/20  text-primary-main mx-auto w-fit border-b-8 px-8 font-bold capitalize"
         }
       >
         Hear from Our Customers

@@ -18,9 +18,16 @@ const Experts = () => {
     [swiper],
   );
   return (
-    <SectionWrapper className={"mb-2 flex flex-col text-center"}>
-      <h2 className={"py-20 md:py-14 font-bold text-primary-main capitalize"}>top ayurvedic experts for</h2>
-      <div className={"flex items-center gap-12.5"}>
+    <SectionWrapper
+      className={"flex flex-col py-13.5 text-center"}
+      WrapperProps={{
+        className: "mb-25",
+      }}
+    >
+      <h2 className={"text-primary-main mb-20 font-bold capitalize md:mb-13.5"}>
+        top ayurvedic experts for
+      </h2>
+      <div className={"mb-10.75 flex items-center gap-12.5"}>
         <button
           className={
             "hover:text-primary-main hover:border-primary-main hidden aspect-square size-18 items-center justify-center rounded-full border-zinc-400 bg-white text-center text-4xl text-zinc-400 transition-all lg:flex"
@@ -42,10 +49,10 @@ const Experts = () => {
       <Link
         to={"/"}
         className={
-          "text-primary-main mx-auto mt-10.75 hidden items-center gap-2 rounded-lg px-6.25 py-4 text-center text-2xl capitalize shadow-[0_2px_6px_0] shadow-black/25 md:inline-flex"
+          "text-primary-main btn mx-auto hidden items-center gap-2 border-none bg-transparent px-6.25 py-4 text-2xl shadow-[0_2px_6px_0] shadow-black/25 md:inline-flex"
         }
       >
-        Find more Experts
+        Find More Experts
         <IoChevronForward className={"mt-1"} />
       </Link>
     </SectionWrapper>

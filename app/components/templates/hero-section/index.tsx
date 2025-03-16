@@ -12,7 +12,7 @@ const HeroSection = () => {
     <SectionWrapper
       className={"relative flex py-28 md:pb-34 lg:py-28"}
       WrapperProps={{
-        className: "hero-background relative",
+        className: "hero-background relative mb-25",
       }}
     >
       <div className={"w-full space-y-4 md:w-[60%]"}>
