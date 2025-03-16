@@ -14,37 +14,37 @@ const DiscoverAyurveda = () => {
   const { scrollYProgress } = useScroll({
     target: ref,
     axis: "y",
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
 
   const chakraOpacity = useTransform(
     scrollYProgress,
-    [0.1, 0.35, 0.4],
+    [0.1, 0.35, 0.6],
     [0, 0.4, 1],
   );
-  const chakraScale = useTransform(scrollYProgress, [0.1, 0.4], [20, 1]);
+  const chakraScale = useTransform(scrollYProgress, [0.1, 0.6], [20, 1]);
   const chakraYPosition = useTransform(
     scrollYProgress,
-    [0.35, 0.45],
+    [0.55, 0.8],
     ["-100%", "0%"],
   );
 
-  const yogaCardScale = useTransform(scrollYProgress, [0.46, 0.7], [0, 1]);
-  const yogaCardOpacity = useTransform(scrollYProgress, [0.46, 0.7], [0, 1]);
+  const yogaCardScale = useTransform(scrollYProgress, [0.6, 0.9], [0, 1]);
+  const yogaCardOpacity = useTransform(scrollYProgress, [0.6, 0.9], [0, 1]);
   const yogaCardLeftXPosition = useTransform(
     scrollYProgress,
-    [0.46, 0.7],
+    [0.6, 0.9],
     ["100%", "0%"],
   );
   const yogaCardRightXPosition = useTransform(
     scrollYProgress,
-    [0.46, 0.7],
+    [0.6, 0.9],
     ["-100%", "0%"],
   );
 
   const yogaCardMobileYPosition = useTransform(
     scrollYProgress,
-    [0.46, 0.7],
+    [0.6, 0.9],
     ["-100%", "0%"],
   );
 
@@ -52,7 +52,7 @@ const DiscoverAyurveda = () => {
     <SectionWrapper
       ref={ref}
       WrapperProps={{
-        className: `pt-30 calc-height-400`,
+        className: `pt-30 calc-height-200`,
       }}
       className={`calc-height-100 sticky top-[var(--header-height)] mt-54 flex min-h-fit flex-col items-center gap-5 md:mt-10`}
     >
