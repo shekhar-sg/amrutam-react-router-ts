@@ -2,12 +2,12 @@ import SectionWrapper from "~/components/atoms/section-wrapper";
 import { Link } from "react-router";
 import { FooterData } from "~/components/templates/footer/footer-data";
 
-const { title, follow_us, otherLinkTitle, otherLinks, subscribeText } =
-  FooterData;
+const { title, follow_us, otherLinkTitle, otherLinks } = FooterData;
 
 const Footer = () => {
   return (
     <SectionWrapper
+      as={"footer"}
       WrapperProps={{ className: "bg-primary-300" }}
       className={"flex flex-col justify-around gap-4 pt-10 pb-20 sm:flex-row"}
     >
@@ -50,9 +50,7 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className={
-          "flex w-full flex-col space-y-1 text-left md:mb-0 md:w-auto"
-        }
+        className={"flex w-full flex-col space-y-1 text-left md:mb-0 md:w-auto"}
       >
         <h4 className={"heading-small text-primary-main mb-2 font-medium"}>
           {otherLinkTitle}
