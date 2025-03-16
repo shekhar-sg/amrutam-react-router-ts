@@ -2,7 +2,7 @@ import DiscoverSectionData from "~/components/templates/discover-ayurveda/consta
 import YogaCards from "~/components/templates/discover-ayurveda/yoga-cards";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import clsx from "clsx";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 
@@ -10,12 +10,22 @@ const { heading, chakra, meditation, description, cards } = DiscoverSectionData;
 
 const DiscoverAyurveda = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery({ maxWidth: 1024 }, { width: 1024 });
+  const [isMobileView, setIsMobileView] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  useEffect(() => {
+    setIsMobileView(isMobile);
+  }, [isMobile]);
   const { scrollYProgress } = useScroll({
     target: ref,
     axis: "y",
     offset: ["start start", "end end"],
   });
+
+  const headingMarginTop = useTransform(
+    scrollYProgress,
+    [0, 0.2],
+    ["60%", "0%"],
+  );
 
   const chakraOpacity = useTransform(
     scrollYProgress,
@@ -26,7 +36,7 @@ const DiscoverAyurveda = () => {
   const chakraYPosition = useTransform(
     scrollYProgress,
     [0.55, 0.7],
-    [isMobile ? "-10%" : "-100%", "0%"],
+    [isMobileView ? "-10%" : "-100%", "0%"],
   );
 
   const meditationBoxPositionY = useTransform(
@@ -67,20 +77,23 @@ const DiscoverAyurveda = () => {
         }}
         className={"flex h-full flex-col items-center gap-5"}
       >
-        <div
+        <motion.div
           className={
-            "flex flex-col items-center justify-center gap-5 text-center"
+            "flex flex-col items-center justify-center gap-5 text-center sm:!mt-0"
           }
+          style={{
+            marginTop: headingMarginTop,
+          }}
         >
           <h2
             className={
-              "text-primary-main border-primary-100/20 border-b-8 px-6 leading-15 font-bold"
+              "text-primary-main border-primary-100/20 border-b-8 px-6 font-bold"
             }
           >
             {heading}
           </h2>
           <p className={"max-w-2xl"}>{description}</p>
-        </div>
+        </motion.div>
         <div
           className={
             "flex h-full flex-col items-center justify-center gap-y-10 lg:flex-row xl:gap-5"
@@ -162,8 +175,8 @@ const DiscoverAyurveda = () => {
                     },
                   )}
                   style={{
-                    y: isMobile ? yogaCardMobileYPosition : 0,
-                    x: isMobile ? 0 : yogaCardRightXPosition,
+                    y: isMobileView ? yogaCardMobileYPosition : 0,
+                    x: isMobileView ? 0 : yogaCardRightXPosition,
                     scale: yogaCardScale,
                     opacity: yogaCardOpacity,
                   }}
