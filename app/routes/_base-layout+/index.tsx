@@ -17,7 +17,6 @@ const HomePage = () => {
       <Video />
       <ConsultationProcess />
       <Testimonials />
-      <DownloadApp />
     </>
   );
 };

@@ -2,6 +2,7 @@ import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import Navbar from "~/components/organisms/navbar";
 import "swiper/css";
 import Footer from "~/components/templates/footer";
+import DownloadApp from "~/components/templates/download-app";
 
 const Layout = () => {
   return (
@@ -10,6 +11,7 @@ const Layout = () => {
       <main>
         <Outlet />
       </main>
+      <DownloadApp />
       <Footer />
     </>
   );
