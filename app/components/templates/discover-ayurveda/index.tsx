@@ -54,7 +54,7 @@ const DiscoverAyurveda = () => {
       WrapperProps={{
         className: `pt-30 calc-height-400`,
       }}
-      className={`calc-height-100 sticky top-18.5 mt-54 flex min-h-fit flex-col items-center gap-5 md:mt-10`}
+      className={`calc-height-100 sticky top-[var(--header-height)] mt-54 flex min-h-fit flex-col items-center gap-5 md:mt-10`}
     >
       <div
         className={

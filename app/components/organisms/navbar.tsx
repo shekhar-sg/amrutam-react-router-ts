@@ -15,7 +15,7 @@ const Navbar = () => {
     <SectionWrapper
       as={AnimatedNavbar}
       WrapperProps={{
-        className: `bg-primary-50 shadow-md relative`,
+        className: `bg-primary-50 shadow-md`,
       }}
       className={"flex items-center justify-between py-4"}
     >
