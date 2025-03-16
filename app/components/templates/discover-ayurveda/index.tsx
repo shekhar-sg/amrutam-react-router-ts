@@ -10,7 +10,7 @@ const { heading, chakra, meditation, description, cards } = DiscoverSectionData;
 
 const DiscoverAyurveda = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const isMobile = useMediaQuery({ maxWidth: 1024 });
+  const isMobile = useMediaQuery({ maxWidth: 1024 }, { width: 1024 });
   const { scrollYProgress } = useScroll({
     target: ref,
     axis: "y",
@@ -59,11 +59,11 @@ const DiscoverAyurveda = () => {
   );
 
   return (
-    <div ref={ref} className={"h-[400vh] "}>
+    <div ref={ref} className={"h-[400vh]"}>
       <SectionWrapper
         WrapperProps={{
           className:
-            "xl:h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
+            "lg:h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
         }}
         className={"flex h-full flex-col items-center gap-5"}
       >
@@ -86,7 +86,11 @@ const DiscoverAyurveda = () => {
             "flex h-full flex-col items-center justify-center gap-y-10 lg:flex-row xl:gap-5"
           }
         >
-          <div className={"hidden flex-1 flex-col items-end gap-15 lg:flex"}>
+          <div
+            className={
+              "hidden flex-1 flex-col items-end gap-5 lg:flex xl:gap-15"
+            }
+          >
             {cards.slice(0, 3).map((card, index) => {
               return (
                 <YogaCards
@@ -140,7 +144,7 @@ const DiscoverAyurveda = () => {
           </motion.div>
           <div
             className={
-              "flex flex-row flex-wrap justify-center gap-5 lg:flex-1 lg:flex-col lg:gap-15"
+              "flex flex-row flex-wrap justify-center gap-5 lg:flex-1 lg:flex-col xl:gap-15"
             }
           >
             {cards.map((card, index) => {
