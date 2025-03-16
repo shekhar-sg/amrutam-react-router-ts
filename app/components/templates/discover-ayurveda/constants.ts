@@ -1,9 +1,9 @@
 import icon_1 from "./assets/disc-1.png";
 import icon_2 from "./assets/disc-2.png";
 import icon_3 from "./assets/disc-3.png";
-import icon_4 from "./assets/disc-4.png";
-import icon_5 from "./assets/disc-5.png";
 import icon_6 from "./assets/disc-6.png";
+import icon_5 from "./assets/disc-5.png";
+import icon_4 from "./assets/disc-4.png";
 import chakra from "./assets/chakra.png";
 import meditation from "./assets/meditation.png";
 
