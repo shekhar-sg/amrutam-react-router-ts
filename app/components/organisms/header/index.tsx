@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Indicator, Stack, ThemeIcon } from "@mantine/core";
+import { Flex, Image, Stack, ThemeIcon } from "@mantine/core";
 import { motion, useScroll } from "framer-motion";
 import {
   type ComponentPropsWithoutRef,
@@ -6,8 +6,6 @@ import {
   useEffect,
   useState,
 } from "react";
-import { BsBell, BsCart2 } from "react-icons/bs";
-import { IoWalletOutline } from "react-icons/io5";
 import { LuPhone } from "react-icons/lu";
 import { Link } from "react-router";
 import SectionWrapper from "~/components/atoms/section-wrapper";
@@ -15,47 +13,10 @@ import Typography from "~/components/atoms/typography";
 import RouteChangeProgressBar from "~/components/molecules/route-change-progress-bar";
 import Amrutam from "./assets/amrutam.png";
 
-const tabs = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Find doctors",
-    link: "/find-doctors",
-  },
-  {
-    name: "Store",
-    link: "/store",
-  },
-  {
-    name: "About us",
-    link: "/about-us",
-  },
-];
-
-const rightSide = [
-  {
-    name: "Cart",
-    link: "/cart",
-    icon: BsCart2,
-  },
-  {
-    name: "wallet",
-    link: "/wallet",
-    icon: IoWalletOutline,
-  },
-  {
-    name: "notifications",
-    link: "/notifications",
-    icon: BsBell,
-  },
-];
-
 const Header = () => {
   return (
     <SectionWrapper
-      as={AnimatedNavbar}
+      component={AnimatedNavbar}
       WrapperProps={{
         className: `bg-primary-50 shadow-md h-fit`,
       }}
@@ -65,9 +26,7 @@ const Header = () => {
         <ThemeIcon variant={"transparent"}>
           <LuPhone className={"text-lg"} />
         </ThemeIcon>
-        <Typography c={"primary.5"} component={Link} to={"/"}>
-          +91 9826352321
-        </Typography>
+        <Typography c={"primary.5"}>+91 9826352321</Typography>
       </Flex>
       <Stack>
         <Stack align={"center"}>
@@ -79,36 +38,8 @@ const Header = () => {
           >
             <Image src={Amrutam} w={208} />
           </Link>
-          <Flex gap={40}>
-            {tabs.map((tab) => (
-              <Box
-                component={Link}
-                fz={"xl"}
-                key={tab.name}
-                to={tab.link}
-                className={"capitalize"}
-              >
-                {tab.name}
-              </Box>
-            ))}
-          </Flex>
         </Stack>
       </Stack>
-      <Flex gap={12} mt={"auto"} align={"center"} justify={"center"}>
-        {rightSide.map((item) => {
-          const { icon: Icon, link } = item;
-          return (
-            <Link to={link} key={item.name}>
-              <Indicator label={13} size={22}>
-                <ThemeIcon variant={"transparent"} size={36}>
-                  <Icon className={"size-6"} />
-                </ThemeIcon>
-              </Indicator>
-            </Link>
-          );
-        })}
-      </Flex>
-      {/*<CartButton />*/}
       <RouteChangeProgressBar className={"!absolute top-auto bottom-0"} />
     </SectionWrapper>
   );

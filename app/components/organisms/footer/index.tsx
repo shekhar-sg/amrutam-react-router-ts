@@ -7,8 +7,8 @@ const { title, follow_us, otherLinkTitle, otherLinks } = FooterData;
 const Footer = () => {
   return (
     <SectionWrapper
-      as={"footer"}
-      WrapperProps={{ className: "bg-primary-300" }}
+      component={"footer"}
+      WrapperProps={{ className: "bg-primary-300", }}
       className={"flex flex-col justify-around gap-4 pt-10 pb-20 sm:flex-row"}
     >
       <div

@@ -3,7 +3,7 @@ import {
   Text,
   type TextProps,
 } from "@mantine/core";
-import { forwardRef } from "react";
+import { forwardRef, type Ref } from "react";
 
 const TypographyResponsive = {
   "heading-xxlarge": {
@@ -59,14 +59,11 @@ export type TypographyProps = {
   fontVariant?: TypographyVariant;
 } & TextProps;
 
-const TypographyCustom = forwardRef<HTMLParagraphElement, TypographyProps>(
-  (props, ref) => {
-    const { fontVariant = "body", ...rest } = props;
+const TypographyCustomBasic = (props:TypographyProps, ref:Ref<HTMLParagraphElement>) => {
+  const { fontVariant = "body", ...rest } = props;
 
-    return <Text ref={ref} fz={TypographyResponsive[fontVariant]} {...rest} />;
-  },
-);
-TypographyCustom.displayName = "Typography";
+  return <Text ref={ref} fz={TypographyResponsive[fontVariant]} {...rest} />;
+};
 
 /**
  *
@@ -87,7 +84,7 @@ TypographyCustom.displayName = "Typography";
  * - xl = 20px
  */
 const Typography = createPolymorphicComponent<"p", TypographyProps>(
-  TypographyCustom,
+  forwardRef(TypographyCustomBasic),
 );
 
 export default Typography;
