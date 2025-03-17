@@ -6,7 +6,6 @@ import {
 import TestimonialCard from "~/components/templates/home/testimonials/testimonial-card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import "swiper/swiper-bundle.min.css";
 import { RiPlayCircleLine } from "react-icons/ri";
 import { IoChevronForward } from "react-icons/io5";
 import { Link } from "react-router";

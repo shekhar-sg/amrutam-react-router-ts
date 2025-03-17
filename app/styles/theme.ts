@@ -82,9 +82,8 @@ const amrutamTheme = createTheme({
     Button: Button.extend({
       defaultProps: {
         variant: "filled",
-        c: "primary",
-        radius: "lg",
-        w: "fit-content",
+        color: "primary",
+        radius: "md",
         fz: "md",
         px: rem(16),
         py: rem(8),

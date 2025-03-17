@@ -8,8 +8,6 @@ import clsx from "clsx";
 import ExpertCard from "~/components/templates/home/experts/expert-card";
 import { Autoplay, Pagination } from "swiper/modules";
 import type { Swiper as swiperType } from "swiper/types";
-// import "swiper/swiper-bundle.css"; // Import Swiper styles
-import "swiper/swiper-bundle.min.css";
 
 export interface ExpertSliderProps<T extends { id: string }>
   extends SwiperProps {

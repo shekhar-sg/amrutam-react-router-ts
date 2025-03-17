@@ -5,6 +5,7 @@ import Video from "app/components/templates/home/video";
 import Testimonials from "app/components/templates/home/testimonials";
 import HeroSection from "app/components/templates/home/hero-section";
 import ConsultationProcess from "app/components/templates/home/consultation-process";
+import "node_modules/swiper/swiper-bundle.min.css";
 
 const HomePage = () => {
   return (

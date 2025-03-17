@@ -1,6 +1,5 @@
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import Navbar from "~/components/organisms/navbar";
-import "swiper/css";
 import Footer from "app/components/organisms/footer";
 import DownloadApp from "app/components/organisms/download-app";
 
