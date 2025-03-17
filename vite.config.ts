@@ -20,6 +20,11 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace("/api/store", "/api"),
         },
+        "/api/backend": {
+          target: process.env.BACKEND_BASE_URL!,
+          changeOrigin: true,
+          rewrite: (path) => path.replace("/api/backend", "/api"),
+        },
       },
     },
   };

@@ -1,13 +1,17 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import backendAPI from "~/store/apis/user.api";
 import userSlice from "~/store/slices/user";
 
 const roodReducer = combineReducers({
   [userSlice.name]: userSlice.reducer,
+  [backendAPI.reducerPath]: backendAPI.reducer,
 });
 
 export const makeStore = () => {
   return configureStore({
     reducer: roodReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat(backendAPI.middleware),
   });
 };
 

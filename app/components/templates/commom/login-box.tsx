@@ -12,11 +12,15 @@ import {
 import { useForm } from "@mantine/form";
 import clsx from "clsx";
 import { type ReactNode, useMemo, useState } from "react";
-import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import PhoneInput, {
+  isValidPhoneNumber,
+  parsePhoneNumber,
+} from "react-phone-number-input";
 import AmrutamLogo from "~/assets/amrutam-logo";
 import "react-phone-number-input/style.css";
 import Typography from "~/components/atoms/typography";
 import useRemainingTime from "~/hooks/useRemainingTime";
+import { useGetOTPMutation, useVerifyOTPMutation } from "~/store/apis/user.api";
 
 type LoginFlowTemplate = Record<
   0 | 1,
@@ -34,6 +38,8 @@ type InitialValues = {
 };
 
 const LoginBox = (props: BoxProps) => {
+  const [getOtp, { isLoading: isSendOtpLoading }] = useGetOTPMutation();
+  const [verifyOTP,{isLoading:isVerifyOtpLoading}] = useVerifyOTPMutation()
   const [step, setStep] = useState<keyof LoginFlowTemplate>(0);
   const [otpCountDownStartTime, setOTPCountDownStartTime] = useState(
     Date.now(),
@@ -108,8 +114,19 @@ const LoginBox = (props: BoxProps) => {
         ),
         onSubmit: ({ phoneNumber }) => {
           if (isValidPhoneNumber(phoneNumber)) {
-            setStep(1);
-            setOTPCountDownStartTime(Date.now());
+            const parsedNumber = parsePhoneNumber(phoneNumber);
+            if (parsedNumber) {
+              const { nationalNumber, countryCallingCode } = parsedNumber;
+              getOtp({
+                phoneNumber: nationalNumber,
+                countryCode: `+${countryCallingCode}`,
+              })
+                .unwrap()
+                .then(() => {
+                  setStep(1);
+                  setOTPCountDownStartTime(Date.now());
+                });
+            }
           }
         },
       },
@@ -130,10 +147,26 @@ const LoginBox = (props: BoxProps) => {
             {...getInputProps("otp")}
           />
         ),
-        onSubmit: () => {},
+        onSubmit: ({phoneNumber,otp}) => {
+          if (isValidPhoneNumber(phoneNumber)) {
+            const parsedNumber = parsePhoneNumber(phoneNumber);
+            if (parsedNumber) {
+              const { nationalNumber, countryCallingCode } = parsedNumber;
+              verifyOTP({
+                phoneNumber: nationalNumber,
+                countryCode: `+${countryCallingCode}`,
+                otpInput:otp
+              })
+                .unwrap()
+                .then((value) => {
+                  console.log("verified",value);
+                });
+            }
+          }
+        },
       },
     };
-  }, [errors.otp, errors.phoneNumber, getInputProps, getValues]);
+  }, [errors.otp, errors.phoneNumber, getInputProps, getOtp, getValues]);
 
   return (
     <Box
@@ -163,7 +196,7 @@ const LoginBox = (props: BoxProps) => {
           {error}
         </Typography>
       )}
-      <Button fullWidth mb={16} type={"submit"}>
+      <Button fullWidth mb={16} type={"submit"} disabled={isSendOtpLoading}>
         {template[step].buttonText}
       </Button>
       {step === 1 && (
@@ -192,7 +225,7 @@ interface OTPCountDown {
 const OTPCountDown = ({ startTime, onResend }: OTPCountDown) => {
   const { isRemaining, message } = useRemainingTime({
     startTime,
-    duration: 10,
+    duration: 90,
     durationUnit: "seconds",
     interval: 1000,
     setCustomMessage: ({ remainingTime, durationUnit, isRemaining }) => {
