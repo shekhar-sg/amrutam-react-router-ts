@@ -5,7 +5,6 @@ import {
 } from "@mantine/core";
 import type { PropsWithChildren } from "react";
 import { Links, Meta, Scripts, ScrollRestoration } from "react-router";
-import "@mantine/core/styles.css";
 import { theme } from "~/styles/theme";
 
 const GlobalLayout = ({ children }: PropsWithChildren) => {

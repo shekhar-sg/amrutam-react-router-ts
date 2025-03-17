@@ -90,10 +90,7 @@ const amrutamTheme = createTheme({
       },
     }),
     Text: Text.extend({
-      defaultProps: {
-        fz: "md",
-        lh:"xs"
-      },
+      defaultProps: {},
     }),
   },
 });
