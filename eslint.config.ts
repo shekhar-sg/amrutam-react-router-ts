@@ -5,9 +5,6 @@ import reactRefresh from "eslint-plugin-react-refresh";
 import prettier from "eslint-config-prettier";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import globals from "globals";
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import reactHooks from "eslint-plugin-react-hooks";
 
 export default tsEslint.config(
@@ -32,7 +29,6 @@ export default tsEslint.config(
       "react-hooks": reactHooks,
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "error",
         {

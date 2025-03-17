@@ -1,20 +1,19 @@
+import { useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
+import clsx from "clsx";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import SectionWrapper from "~/components/atoms/section-wrapper";
 import DiscoverSectionData from "~/components/templates/home/discover-ayurveda/constants";
 import YogaCards from "~/components/templates/home/discover-ayurveda/yoga-cards";
-import SectionWrapper from "~/components/atoms/section-wrapper";
-import clsx from "clsx";
-import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useMediaQuery } from "react-responsive";
 
 const { heading, chakra, meditation, description, cards } = DiscoverSectionData;
 
 const DiscoverAyurveda = () => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isMobileView, setIsMobileView] = useState(false);
-  const isMobile = useMediaQuery({ maxWidth: 1024 });
-  useEffect(() => {
-    setIsMobileView(isMobile);
-  }, [isMobile]);
+  const theme = useMantineTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.md);
+
   const { scrollYProgress } = useScroll({
     target: ref,
     axis: "y",
@@ -36,7 +35,7 @@ const DiscoverAyurveda = () => {
   const chakraYPosition = useTransform(
     scrollYProgress,
     [0.55, 0.7],
-    [isMobileView ? "-10%" : "-100%", "0%"],
+    [isMobile ? "-10%" : "-100%", "0%"],
   );
 
   const meditationBoxPositionY = useTransform(
@@ -175,8 +174,8 @@ const DiscoverAyurveda = () => {
                     },
                   )}
                   style={{
-                    y: isMobileView ? yogaCardMobileYPosition : 0,
-                    x: isMobileView ? 0 : yogaCardRightXPosition,
+                    y: isMobile ? yogaCardMobileYPosition : 0,
+                    x: isMobile ? 0 : yogaCardRightXPosition,
                     scale: yogaCardScale,
                     opacity: yogaCardOpacity,
                   }}

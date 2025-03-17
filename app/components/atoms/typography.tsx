@@ -76,6 +76,24 @@ const TypographyCustom = forwardRef<HTMLParagraphElement, TypographyProps>(
 );
 TypographyCustom.displayName = "Typography";
 
+/**
+ *
+ * Typography component
+ *
+ * Variants:
+ * - h1 = 60px
+ * - h2 = 48px
+ * - h3 = 36px
+ * - h4 = 30px
+ * - h5 = 24px
+ * - h6 = 20px
+ * - base = 16px
+ * - sm = 14px
+ * - xs = 12px
+ * - md = 16px
+ * - lg = 18px
+ * - xl = 20px
+ */
 const Typography = createPolymorphicComponent<"p", TypographyProps>(
   TypographyCustom,
 );
