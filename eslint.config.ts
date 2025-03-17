@@ -29,6 +29,7 @@ export default tsEslint.config(
       "react-hooks": reactHooks,
     },
     rules: {
+      ...reactHooks.configs.recommended.rules,
       "react-refresh/only-export-components": [
         "error",
         {

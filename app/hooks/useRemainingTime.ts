@@ -1,20 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import dayjs from "dayjs";
+import dayjs, { type ManipulateType } from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 
 dayjs.extend(isSameOrAfter);
 
+export interface CalculateRemainingTimeOptions {
+  startTime?: number;
+  duration?: number;
+  durationUnit?: ManipulateType;
+}
+
 /**
- * @param {object | undefined} [props = {
- *   startTime: Date.now(),
- *   duration: 10,
- *   unit: "minute",
- * }] The props object.
- * @param {number} [props.startTime] The start time of the appointment.
- * @param {number} [props.duration] The duration of the appointment.
- * @param {dayjs.QUnitType} [props.unit] The unit of time.
- *
- * @returns {object} {remainingTime, unit}
  * @description
  * This function calculates the remaining time for an appointment.
  * It takes the start time and duration of the appointment as input.
@@ -27,45 +23,37 @@ dayjs.extend(isSameOrAfter);
 export const calculateRemainingTime = ({
   startTime = Date.now(),
   duration = 10,
-  unit = "minute",
-} = {}) => {
+  durationUnit = "minute",
+}: CalculateRemainingTimeOptions) => {
   const now = dayjs();
-  const endTime = dayjs(startTime).add(duration, unit);
-  const diff = endTime.diff(now, unit);
+  const endTime = dayjs(startTime).add(duration, durationUnit);
+  const diff = endTime.diff(now, durationUnit);
   return {
     isRemaining: diff > 0,
     remainingTime: diff,
-    unit,
+    durationUnit,
   };
 };
 
+export interface UseRemainingTimeOptions {
+  startTime?: number;
+  duration?: number;
+  interval?: number;
+  durationUnit?: ManipulateType;
+  enabled?: boolean;
+  enableOnStartTime?: boolean;
+  setCustomMessage?: (option: {
+    remainingTime: number;
+    durationUnit: ManipulateType;
+    isRemaining: boolean;
+    isEnabled: boolean;
+    startTime: number;
+    duration: number;
+    interval: number;
+  }) => string;
+}
+
 /**
- * @param {object | undefined} [props = {
- *  startTime: Date.now(),
- *  duration: 10,
- *  interval: 60000,
- *  unit: "minute",
- *  enabled: true,
- *  enableOnStartTime: true,
- * }] The props object.
- * @param {number} [props.startTime] The start time of the appointment.
- * @param {number} [props.duration] The duration of the appointment.
- * @param {number} [props.interval] The interval in milliseconds
- * @param {dayjs.QUnitType} [props.unit] The unit of time.
- * @param {boolean} [props.enabled] Whether the countdown is enabled.
- * @param {boolean} [props.enableOnStartTime] Whether the countdown is enabled on the start time.
- * @param {({
- *   remainingTime: number,
- *   unit: string,
- *   isRemaining: boolean,
- *   isEnabled: boolean,
- *   startTime: number,
- *   duration: number,
- *   interval: number
- * })=>string} [props.setCustomMessage] Set custom message method.
- *
- *
- * @returns {object} {remainingTime, unit}
  * @description
  * This hook calculates the remaining time for an appointment.
  * It takes the start time and duration of the appointment as input.
@@ -99,69 +87,78 @@ const useRemainingTime = ({
   startTime = Date.now(),
   duration = 10,
   interval = 60000,
-  unit = "minute",
+  durationUnit = "minute",
   enabled = true,
   enableOnStartTime = true,
   setCustomMessage,
-} = {}) => {
+}: UseRemainingTimeOptions) => {
   const [remaining, setRemaining] = useState(
     calculateRemainingTime({
       startTime,
       duration,
-      unit,
+      durationUnit,
     }),
   );
+  const [message, setMessage] = useState("");
 
-  const timerRef = useRef(null);
+  const timerRef = useRef<NodeJS.Timeout>(null);
 
   const isEnabled = useMemo(() => {
-    return (
-      (enableOnStartTime
-        ? dayjs().isSameOrAfter(dayjs(startTime)) && enabled
-        : enabled) && remaining.isRemaining
-    );
-  }, [enableOnStartTime, enabled, remaining.isRemaining, startTime]);
+    return enableOnStartTime
+      ? dayjs().isSameOrAfter(dayjs(startTime)) && enabled
+      : enabled;
+  }, [enableOnStartTime, enabled, startTime]);
 
   useEffect(() => {
-    console.log(
-      "isEnabled",
-      isEnabled,
-      timerRef.current,
-      remaining.isRemaining,
-    );
     if (!remaining.isRemaining && timerRef.current) {
       clearInterval(timerRef.current);
+      timerRef.current = null;
     } else if (isEnabled) {
+      console.log("startTimeDefault", startTime);
       timerRef.current = setInterval(() => {
         setRemaining(
           calculateRemainingTime({
             startTime,
             duration,
-            unit,
+            durationUnit,
           }),
         );
       }, interval);
     }
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [
+    startTime,
+    duration,
+    interval,
+    durationUnit,
+    remaining.isRemaining,
+    isEnabled,
+  ]);
 
-    return () => clearInterval(timerRef.current);
-  }, [startTime, duration, interval, unit, remaining.isRemaining, isEnabled]);
-
-  const message = useMemo(() => {
-    const { isRemaining, remainingTime, unit } = remaining;
+  useEffect(() => {
+    const { isRemaining, remainingTime, durationUnit } = remaining;
     if (setCustomMessage) {
-      return setCustomMessage({
-        remainingTime,
-        unit,
-        isRemaining,
-        isEnabled,
-        startTime,
-        duration,
-        interval,
-      });
+      setMessage(
+        setCustomMessage({
+          remainingTime,
+          durationUnit,
+          isRemaining,
+          isEnabled,
+          startTime,
+          duration,
+          interval,
+        }),
+      );
     } else if (isRemaining) {
-      return `${remainingTime} ${unit}${remainingTime > 1 ? "s" : ""} remaining`;
+      setMessage(
+        `${remainingTime} ${durationUnit} remaining`,
+      );
     } else {
-      return "Time is up!";
+      setMessage("Time is up!");
     }
   }, [duration, interval, isEnabled, remaining, setCustomMessage, startTime]);
 

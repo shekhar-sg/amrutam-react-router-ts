@@ -62,16 +62,9 @@ export type TypographyProps = {
 
 const TypographyCustom = forwardRef<HTMLParagraphElement, TypographyProps>(
   (props, ref) => {
-    const { fontVariant = "body", className, ...rest } = props;
+    const { fontVariant = "body", ...rest } = props;
 
-    return (
-      <Text
-        ref={ref}
-        fz={TypographyResponsive[fontVariant]}
-        className={clsx(fontVariant, className)}
-        {...rest}
-      />
-    );
+    return <Text ref={ref} fz={TypographyResponsive[fontVariant]} {...rest} />;
   },
 );
 TypographyCustom.displayName = "Typography";
