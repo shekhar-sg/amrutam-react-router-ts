@@ -16,14 +16,27 @@ declare module "@mantine/core" {
   }
 
   export interface MantineThemeOther {
-    headerHeight: string;
+    headerHeight: {
+      base: string;
+      lg: string;
+    };
   }
 }
 
 const amrutamTheme = createTheme({
   primaryShade: 5,
   other: {
-    headerHeight: rem(74),
+    headerHeight: {
+      base: "74px",
+      lg: "148px",
+    },
+  },
+  breakpoints: {
+    xs: "512px",
+    sm: "640px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
   },
   colors: {
     primary: [

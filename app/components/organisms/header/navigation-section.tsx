@@ -1,7 +1,17 @@
-import { Box, Flex, Group, Indicator, ThemeIcon } from "@mantine/core";
+import {
+  Anchor,
+  Box,
+  Button,
+  Group,
+  type GroupProps,
+  Indicator,
+  ThemeIcon,
+} from "@mantine/core";
+import clsx from "clsx";
 import { BsBell, BsCart2 } from "react-icons/bs";
 import { IoWalletOutline } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import AmrutamLogo from "~/components/atoms/amrutam-logo";
 
 const tabs = [
   {
@@ -9,18 +19,34 @@ const tabs = [
     link: "/",
   },
   {
-    name: "Find doctors",
+    name: "Find Doctors",
     link: "/find-doctors",
   },
   {
-    name: "Store",
-    link: "/store",
+    name: "Shop",
+    link: "/shop",
   },
   {
-    name: "About us",
+    name: "Forum",
+    link: "/forum",
+  },
+  {
+    name: "About Us",
     link: "/about-us",
   },
 ];
+
+const NavLinks = (props: GroupProps) => {
+  return (
+    <Group gap={40} {...props} visibleFrom={"lg"}>
+      {tabs.map((tab) => (
+        <Anchor key={tab.name} component={NavLink} to={tab.link} fz={"xl"}>
+          {tab.name}
+        </Anchor>
+      ))}
+    </Group>
+  );
+};
 
 const rightSide = [
   {
@@ -40,37 +66,41 @@ const rightSide = [
   },
 ];
 
-const NavigationSection = () => {
+const ProfileRelatedLinks = (props: GroupProps) => {
   return (
-    <Flex>
-      <Group gap={40}>
-        {tabs.map((tab) => (
-          <Box
-            key={tab.name}
-            component={Link}
-            fz={"xl"}
-            to={tab.link}
-            className={"capitalize"}
-          >
-            {tab.name}
-          </Box>
-        ))}
-      </Group>
-      <Group gap={12} mt={"auto"} align={"center"} justify={"center"}>
-        {rightSide.map((item) => {
-          const { icon: Icon, link } = item;
-          return (
-            <Link to={link} key={item.name}>
-              <Indicator label={13} size={22}>
-                <ThemeIcon variant={"transparent"} size={36}>
-                  <Icon className={"size-6"} />
-                </ThemeIcon>
-              </Indicator>
-            </Link>
-          );
-        })}
-      </Group>
-    </Flex>
+    <Group gap={16} {...props}>
+      {rightSide.map((item) => {
+        const { icon: Icon, link } = item;
+        return (
+          <Anchor component={Link} to={link} key={item.name}>
+            <Indicator label={13} size={22}>
+              <ThemeIcon variant={"transparent"} size={36} fz={"h5"}>
+                <Icon />
+              </ThemeIcon>
+            </Indicator>
+          </Anchor>
+        );
+      })}
+      <Button radius={"xl"} ml={"xs"}>
+        Login
+      </Button>
+    </Group>
+  );
+};
+
+const NavigationSection = (props: GroupProps) => {
+  return (
+    <Box
+      {...props}
+      className={clsx(
+        "relative flex items-center justify-between xl:justify-center",
+        props.className,
+      )}
+    >
+      <NavLinks />
+      <AmrutamLogo hiddenFrom={'lg'} />
+      <ProfileRelatedLinks className={"xl:absolute xl:right-10"} />
+    </Box>
   );
 };
 

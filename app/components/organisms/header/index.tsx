@@ -1,4 +1,4 @@
-import { Flex, Image, Stack, ThemeIcon } from "@mantine/core";
+import { Group, ThemeIcon, useMantineTheme } from "@mantine/core";
 import { motion, useScroll } from "framer-motion";
 import {
   type ComponentPropsWithoutRef,
@@ -7,39 +7,44 @@ import {
   useState,
 } from "react";
 import { LuPhone } from "react-icons/lu";
-import { Link } from "react-router";
+import AmrutamLogo from "~/components/atoms/amrutam-logo";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
 import RouteChangeProgressBar from "~/components/molecules/route-change-progress-bar";
-import Amrutam from "./assets/amrutam.png";
+import NavigationSection from "~/components/organisms/header/navigation-section";
 
 const Header = () => {
+  const theme = useMantineTheme();
   return (
     <SectionWrapper
       component={AnimatedNavbar}
       WrapperProps={{
-        className: `bg-primary-50 shadow-md h-fit`,
+        className: `shadow-md h-fit`,
       }}
-      className={"flex max-w-full items-center justify-between !px-10 py-4"}
+      h={theme.other.headerHeight}
+      px={40}
+      pos={"relative"}
     >
-      <Flex gap={6} mb={"auto"} mt={16} visibleFrom={"sm"}>
-        <ThemeIcon variant={"transparent"}>
-          <LuPhone className={"text-lg"} />
-        </ThemeIcon>
-        <Typography c={"primary.5"}>+91 9826352321</Typography>
-      </Flex>
-      <Stack>
-        <Stack align={"center"}>
-          <Link
-            to={"/"}
-            className={
-              "text-primary-main text-2xl font-bold tracking-wide uppercase"
-            }
-          >
-            <Image src={Amrutam} w={208} />
-          </Link>
-        </Stack>
-      </Stack>
+      <Group
+        h={"50%"}
+        justify={"center"}
+        className={"w-fit lg:w-full"}
+        visibleFrom={"lg"}
+      >
+        <Group gap={6} pos={"absolute"} left={40}>
+          <ThemeIcon variant={"transparent"}>
+            <LuPhone className={"text-lg"} />
+          </ThemeIcon>
+          <Typography c={"primary.5"}>+91 9826352321</Typography>
+        </Group>
+        <AmrutamLogo />
+      </Group>
+      <NavigationSection
+        h={{
+          base: "100%",
+          lg: "50%",
+        }}
+      />
       <RouteChangeProgressBar className={"!absolute top-auto bottom-0"} />
     </SectionWrapper>
   );
@@ -71,9 +76,6 @@ const AnimatedNavbar = ({
   return (
     <motion.header
       {...rest}
-      style={{
-        ...rest.style,
-      }}
       animate={{
         y: !isScrolled ? 0 : -100,
         opacity: !isScrolled ? 1 : 0,
