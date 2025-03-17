@@ -90,12 +90,10 @@ const amrutamTheme = createTheme({
       },
     }),
     Text: Text.extend({
-      styles: (theme) => ({
-        root: {
-          fontSize: theme.fontSizes.md,
-          lineHeight: theme.lineHeights.xs,
-        },
-      }),
+      defaultProps: {
+        fz: "md",
+        lh:"xs"
+      },
     }),
   },
 });
