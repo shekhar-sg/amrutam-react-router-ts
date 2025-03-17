@@ -1,5 +1,5 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
-import Counter from "~/components/atoms/counter";
+import Counter from "~/components/atoms/count-up";
 
 const Stats = () => {
   return (

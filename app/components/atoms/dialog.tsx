@@ -1,1 +1,0 @@
-// create a dialog component which will be fully functional and reusable with tailwindcss
