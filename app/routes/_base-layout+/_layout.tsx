@@ -1,12 +1,12 @@
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
-import Navbar from "~/components/organisms/navbar";
+import Header from "~/components/organisms/header";
 import Footer from "app/components/organisms/footer";
 import DownloadApp from "app/components/organisms/download-app";
 
 const Layout = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <main>
         <Outlet />
       </main>
