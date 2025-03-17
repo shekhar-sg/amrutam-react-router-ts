@@ -14,10 +14,17 @@ declare module "@mantine/core" {
   export interface MantineThemeColorsOverride {
     colors: Record<ExtendedCustomColors, MantineColorsTuple>;
   }
+
+  export interface MantineThemeOther {
+    headerHeight: string;
+  }
 }
 
 const amrutamTheme = createTheme({
   primaryShade: 5,
+  other: {
+    headerHeight: rem(74),
+  },
   colors: {
     primary: [
       "#DBE3DC",
