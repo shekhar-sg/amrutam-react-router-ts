@@ -3,7 +3,6 @@ import {
   Text,
   type TextProps,
 } from "@mantine/core";
-import clsx from "clsx";
 import { forwardRef } from "react";
 
 const TypographyResponsive = {

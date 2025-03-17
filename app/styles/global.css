@@ -1,44 +1,12 @@
 @import "@mantine/core/styles.css";
 @import "tailwindcss";
-@import "./link.css";
-@import "./button.css";
-@import "./typography.css";
 @import "./swiper.css";
-@import "./components.css";
 
 @theme {
-    --color-primary-main: #3A643B;
-    --color-primary-50: #EAF2EA;
-    --color-primary-100: #9DB29D;
-    --color-primary-200: #C1F1C5;
-    --color-primary-300: #DBE3DC;
-    --color-background-default: #FFF7E2;
-    --color-secondary-100: #E9DFCA;
-    --color-secondary-200: #EADFC3;
-    --color-secondary-300: #FBEECC;
-
     --header-height: 74px;
-
-}
-
-
-@layer base {
-    html,
-    body {
-        @apply bg-background-default;
-    }
 }
 
 @utility calc-height-* {
     --total-height: calc(--value(integer) * 1vh);
     height: calc(var(--total-height) - var(--header-height));
-}
-
-.custom-gradient-1 {
-    background: linear-gradient(180deg, #0B0B0B 0%, rgba(11, 11, 11, 0.79) 100%);
-}
-
-.hero-background {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 53.85%, rgba(208, 168, 61, 0.2) 100%),
-    linear-gradient(0deg, #FBEECC, #FBEECC);
 }

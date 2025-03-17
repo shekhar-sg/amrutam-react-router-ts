@@ -1,20 +1,19 @@
-import { Link } from "react-router";
-import SectionWrapper from "~/components/atoms/section-wrapper";
-import RouteChangeProgressBar from "~/components/molecules/route-change-progress-bar";
+import { Box, Flex, Image, Indicator, Stack, ThemeIcon } from "@mantine/core";
+import { motion, useScroll } from "framer-motion";
 import {
   type ComponentPropsWithoutRef,
   type PropsWithChildren,
   useEffect,
   useState,
 } from "react";
-import { motion, useScroll } from "framer-motion";
-import { Box, Chip, Flex, Image, Indicator, Stack, ThemeIcon } from "@mantine/core";
-import { LuPhone } from "react-icons/lu";
-import Typography from "~/components/atoms/typography";
-import { BsBell, BsCart2, BsPersonCircle } from "react-icons/bs";
+import { BsBell, BsCart2 } from "react-icons/bs";
 import { IoWalletOutline } from "react-icons/io5";
+import { LuPhone } from "react-icons/lu";
+import { Link } from "react-router";
+import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
+import RouteChangeProgressBar from "~/components/molecules/route-change-progress-bar";
 import Amrutam from "./assets/amrutam.png";
-import { PiCaretDown } from "react-icons/pi";
 
 const tabs = [
   {
@@ -100,10 +99,7 @@ const Header = () => {
           const { icon: Icon, link } = item;
           return (
             <Link to={link} key={item.name}>
-              <Indicator
-                label={13}
-                size={22}
-              >
+              <Indicator label={13} size={22}>
                 <ThemeIcon variant={"transparent"} size={36}>
                   <Icon className={"size-6"} />
                 </ThemeIcon>

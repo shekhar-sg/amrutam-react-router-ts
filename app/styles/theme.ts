@@ -6,7 +6,6 @@ import {
   type MantineColorsTuple,
   mergeMantineTheme,
   rem,
-  Text,
 } from "@mantine/core";
 
 type ExtendedCustomColors = DefaultMantineColor | "primary" | "secondary";
@@ -88,9 +87,6 @@ const amrutamTheme = createTheme({
         px: rem(16),
         py: rem(8),
       },
-    }),
-    Text: Text.extend({
-      defaultProps: {},
     }),
   },
 });
