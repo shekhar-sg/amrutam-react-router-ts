@@ -1,7 +1,7 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import {
   testimonialReviews,
-  testimonialVideos,
+  testimonialVideos
 } from "~/components/templates/home/testimonials/testimonials";
 import TestimonialCard from "~/components/templates/home/testimonials/testimonial-card";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -65,7 +65,7 @@ const Testimonials = () => {
                     className={
                       "absolute inset-0 -z-10 size-full object-cover object-center"
                     }
-                  />
+                    alt={""} />
                   <button
                     className={"rounded-full border-none bg-transparent p-0"}
                   >
