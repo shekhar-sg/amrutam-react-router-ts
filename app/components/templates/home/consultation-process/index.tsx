@@ -1,4 +1,5 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
 import onboarding from "./assets/onboarding.png";
 import chooseDoctor from "./assets/choose-doctor.png";
 import bookConsultation from "./assets/book-consultation.png";
@@ -27,17 +28,19 @@ const ConsultationProcess = () => {
     <div ref={containerRef} className={"h-[400vh]"}>
       <SectionWrapper
         WrapperProps={{
-          className: "h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
+          className: "h-screen sticky top-0 overflow-hidden pt-20",
         }}
         className={"h-full"}
       >
-        <h2
+        <Typography
+          fontVariant={"heading-xlarge"}
+          underline
           className={
             "text-primary-main border-primary-100/20 mx-auto w-fit border-b-8 px-6 leading-15 font-bold"
           }
         >
           Consultation Process
-        </h2>
+        </Typography>
         <motion.div className={"relative flex h-full w-full"}>
           {process.map((step, index) => {
             return (
