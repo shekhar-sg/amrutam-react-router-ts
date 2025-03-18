@@ -6,11 +6,13 @@ import Testimonials from "app/components/templates/home/testimonials";
 import HeroSection from "app/components/templates/home/hero-section";
 import ConsultationProcess from "app/components/templates/home/consultation-process";
 import "node_modules/swiper/swiper-bundle.min.css";
+import Partners from "~/components/templates/home/partners";
 
 const HomePage = () => {
   return (
     <>
       <HeroSection />
+      <Partners/>
       <DiscoverAyurveda />
       <Stats />
       <Experts />
