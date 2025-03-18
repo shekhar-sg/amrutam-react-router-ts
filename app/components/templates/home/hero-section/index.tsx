@@ -1,4 +1,4 @@
-import { Box, Button, Image, useMantineTheme } from "@mantine/core";
+import { Box, Button, Image } from "@mantine/core";
 import { BsShieldCheck } from "react-icons/bs";
 import { FaPhone, FaUserDoctor } from "react-icons/fa6";
 import { IoChatbubblesOutline } from "react-icons/io5";
@@ -9,12 +9,11 @@ import Typography, {
   TypographyResponsive,
 } from "~/components/atoms/typography";
 import HeroStats from "~/components/templates/home/hero-section/hero-stats";
-import Banner from "./banner";
 
 import backgroundSvg from "./assets/curve-header.svg";
+import Banner from "./banner";
 
 const HeroSection = () => {
-  const theme = useMantineTheme();
   return (
     <Box className={"relative"}>
       <Image className={"absolute inset-0"} src={backgroundSvg} />
