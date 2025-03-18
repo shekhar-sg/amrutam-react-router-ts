@@ -1,10 +1,30 @@
+import {
+  ActionIcon,
+  type ActionIconProps,
+  Box,
+  Button,
+  Flex,
+} from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import { MdEast, MdWest } from "react-icons/md";
+import Typography from "~/components/atoms/typography";
 import ExpertSlider from "~/components/templates/home/experts/expert-slider";
 import { useCallback, useState } from "react";
 import type { Swiper as SwiperClass } from "swiper/types";
 import { Link } from "react-router";
 import { IoChevronForward } from "react-icons/io5";
+
+const actionIconDefaultProps: ActionIconProps = {
+  radius: "xl",
+  bd: "1px solid",
+  variant: "outline",
+  display: "flex",
+  visibleFrom: "lg",
+  bg: "white",
+  size: "xl",
+  fz: "h5",
+  className: "aspect-square shrink-0 items-center justify-center",
+};
 
 const Experts = () => {
   const [swiper, setSwiper] = useState<SwiperClass | undefined>(undefined);
@@ -24,37 +44,46 @@ const Experts = () => {
         className: "mb-25",
       }}
     >
-      <h2 className={"text-primary-main mb-20 font-bold capitalize md:mb-13.5"}>
-        top ayurvedic experts for
-      </h2>
-      <div className={"mb-10.75 flex items-center gap-12.5"}>
-        <button
-          className={
-            "hover:text-primary-main hover:border-primary-main hidden aspect-square size-18 items-center justify-center rounded-full border-zinc-400 bg-white text-center text-4xl text-zinc-400 transition-all lg:flex"
-          }
+      <Typography
+        underline
+        fontVariant={"heading-xlarge"}
+        className={"mx-auto mb-20 md:mb-13.5"}
+      >
+        Top Ayurvedic Experts For
+      </Typography>
+      <Flex align={"center"} gap={52} mb={42}>
+        <ActionIcon
+          {...actionIconDefaultProps}
           onClick={() => handleTransition("prev")}
         >
           <MdWest />
-        </button>
+        </ActionIcon>
         <ExpertSlider onInit={setSwiper} />
-        <button
-          className={
-            "hover:text-primary-main hover:border-primary-main hidden aspect-square size-18 items-center justify-center rounded-full border-zinc-400 bg-white text-center text-4xl text-zinc-400 transition-all lg:flex"
-          }
+        <ActionIcon
+          {...actionIconDefaultProps}
           onClick={() => handleTransition("next")}
         >
           <MdEast />
-        </button>
-      </div>
-      <Link
+        </ActionIcon>
+      </Flex>
+      <Button
+        component={Link}
         to={"/"}
+        visibleFrom={"lg"}
+        variant={"transparent"}
+        w={"fit-content"}
+        h={"fit-content"}
+        px={25}
+        py={16}
+        fz={"h5"}
+        fw={"normal"}
         className={
-          "text-primary-main btn mx-auto hidden items-center gap-2 border-none bg-transparent px-6.25 py-4 text-2xl shadow-[0_2px_6px_0] shadow-black/25 md:inline-flex"
+          "mx-auto items-center gap-2 border-none shadow-[0_2px_6px_0] shadow-black/25"
         }
+        rightSection={<IoChevronForward />}
       >
         Find More Experts
-        <IoChevronForward className={"mt-1"} />
-      </Link>
+      </Button>
     </SectionWrapper>
   );
 };

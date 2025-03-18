@@ -1,3 +1,4 @@
+import { Box } from "@mantine/core";
 import {
   Swiper,
   type SwiperProps,
@@ -9,16 +10,13 @@ import ExpertCard from "~/components/templates/home/experts/expert-card";
 import { Autoplay, Pagination } from "swiper/modules";
 import type { Swiper as swiperType } from "swiper/types";
 
-export interface ExpertSliderProps
-  extends SwiperProps {
+export interface ExpertSliderProps extends SwiperProps {
   SwiperSlideProps?: SwiperSlideProps;
   spaceBetween?: number;
   setSwiper?: (are: swiperType) => void;
 }
 
-const ExpertSlider = (
-  props: ExpertSliderProps,
-) => {
+const ExpertSlider = (props: ExpertSliderProps) => {
   const {
     SwiperSlideProps,
     slidesPerView = "auto",
@@ -27,16 +25,13 @@ const ExpertSlider = (
   } = props;
 
   return (
-    <Swiper
+    <Box
+      component={Swiper}
       className={"!w-full !pb-12.5"}
       onInit={(swiper) => setSwiper && setSwiper(swiper)}
       slidesPerView={slidesPerView}
-      // freeMode={{
-      //   enabled: true,
-      //   sticky: true,
-      // }}
       loop
-      autoplay
+      // autoplay
       modules={[Autoplay, Pagination]}
       pagination={{
         clickable: true,
@@ -48,7 +43,6 @@ const ExpertSlider = (
           centeredSlides: false,
         },
       }}
-      // cssMode
       wrapperClass={"space-x-12 py-4"}
       {...rest}
     >
@@ -70,7 +64,7 @@ const ExpertSlider = (
           </SwiperSlide>
         );
       })}
-    </Swiper>
+    </Box>
   );
 };
 

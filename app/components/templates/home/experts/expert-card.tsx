@@ -1,64 +1,67 @@
-import Chip from "~/components/atoms/chip";
+import {
+  Avatar,
+  Badge,
+  Box,
+  Button,
+  Card,
+  Flex,
+  Stack,
+  useMantineTheme,
+} from "@mantine/core";
 import { IoBandageOutline } from "react-icons/io5";
 import { TbSchool } from "react-icons/tb";
 import { Link } from "react-router";
-import Badge from "~/components/atoms/badge";
-import { RiStarFill } from "react-icons/ri";
+import Typography from "~/components/atoms/typography";
 
 const ExpertCard = () => {
+  const theme = useMantineTheme();
   return (
-    <div
-      className={
-        "flex h-[446px] w-[295px] flex-col items-center gap-7 overflow-hidden rounded-[40px] pt-10.5 border-2 border-secondary-200"
-      }
+    <Card
+      bg={"transparent"}
+      radius={"40px"}
+      h={446}
+      w={295}
+      className={"items-center gap-y-6 border-2 border-gray-300/30"}
+      padding={0}
+      pt={40}
     >
-      <div
-        className={
-          "bg-primary-100 relative aspect-square size-37.5 rounded-full object-cover object-center"
-        }
-      >
-        <Badge
-          iconPosition={"right"}
-          icon={<RiStarFill className={"text-xl text-yellow-500"} />}
-          badgeContent={"4.5"}
-          className={
-            "custom-gradient-1 right-0 -bottom-2 left-0 mx-auto w-fit px-4 text-white"
-          }
-        />
-      </div>
-      <div className={"flex flex-col items-center text-center"}>
-        <h5 className={"mb-2 text-xl leading-5 font-bold"}>Name</h5>
-        <h6 className={"mb-1.5 text-[15px] leading-4 font-medium"}>
+      <Avatar size={150} className={"shrink-0 rounded-full"} />
+      <Flex direction={"column"} align={"center"} justify={"center"}>
+        <Typography fz={"h6"} mb={8}>
+          Name
+        </Typography>
+        <Typography fz={"md"} fw={500} mb={12} c={"gray.7"}>
           Qualification
-        </h6>
-        <Chip
-          as={"div"}
-          className={
-            "text-primary-main mb-1.5 flex h-min !cursor-default items-center gap-1 border-none bg-transparent py-0 text-base font-semibold"
+        </Typography>
+        <Badge
+          variant={"transparent"}
+          mb={15}
+          fw={"normal"}
+          c={"gray.9"}
+          leftSection={
+            <TbSchool fontSize={18} color={theme.colors.primary["5"]} />
           }
         >
-          <TbSchool className={"text-xl"} />
-          experience
-        </Chip>
-        <Chip
-          as={"div"}
-          className={
-            "text-primary-main bg-primary-main/12 flex h-min !cursor-default items-center gap-1 border-none px-2 py-0 text-base font-semibold"
+          25 years of experience
+        </Badge>
+        <Badge
+          variant={"light"}
+          px={12}
+          py={6}
+          h={"fit-content"}
+          fz={"md"}
+          fw={600}
+          leftSection={
+            <IoBandageOutline fontSize={18} color={theme.colors.primary["5"]} />
           }
         >
-          <IoBandageOutline className={"text-base"} />
           Speciality
-        </Chip>
-      </div>
-      <Link
-        to={"/"}
-        className={
-          "bg-primary-main mt-auto w-full p-6 text-center text-xl leading-none font-semibold text-white"
-        }
-      >
+        </Badge>
+      </Flex>
+      <Button component={Link} to={"/"} mt={'auto'} fullWidth py={24} h={"fit-content"} radius={0}>
         Book a Session
-      </Link>
-    </div>
+      </Button>
+    </Card>
   );
 };
 

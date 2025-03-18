@@ -74,6 +74,7 @@ const TypographyCustomBasic = (
       ref={ref}
       unstyled
       c={"primary"}
+      w={'fit-content'}
       fw={isHeading ? "bold" : undefined}
       fz={TypographyResponsive[fontVariant]}
       lh={isHeading ? "140%" : "100%"}
