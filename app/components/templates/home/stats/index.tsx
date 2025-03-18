@@ -12,13 +12,14 @@ const Stats = () => {
       }}
       py={70}
       gutter={70}
+      overflow={'hidden'}
     >
       {stats.map((stat) => {
         const { title, description } = stat;
         return (
           <Grid.Col
             key={title}
-            span={{ sm: 6, lg: 3 }}
+            span={{ sm: 6, xl: 3 }}
             className={"flex justify-center"}
           >
             <CountUp
