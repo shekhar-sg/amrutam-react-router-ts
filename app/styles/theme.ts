@@ -6,7 +6,6 @@ import {
   type MantineColorsTuple,
   mergeMantineTheme,
   rem,
-  Text,
 } from "@mantine/core";
 
 type ExtendedCustomColors = DefaultMantineColor | "primary" | "secondary";
@@ -15,10 +14,30 @@ declare module "@mantine/core" {
   export interface MantineThemeColorsOverride {
     colors: Record<ExtendedCustomColors, MantineColorsTuple>;
   }
+
+  export interface MantineThemeOther {
+    headerHeight: {
+      base: string;
+      lg: string;
+    };
+  }
 }
 
 const amrutamTheme = createTheme({
   primaryShade: 5,
+  other: {
+    headerHeight: {
+      base: "74px",
+      lg: "148px",
+    },
+  },
+  breakpoints: {
+    xs: "512px",
+    sm: "640px",
+    md: "768px",
+    lg: "1024px",
+    xl: "1280px",
+  },
   colors: {
     primary: [
       "#DBE3DC",
@@ -33,16 +52,16 @@ const amrutamTheme = createTheme({
       "#000000",
     ],
     secondary: [
-      "#E9DFCA",
-      "#EADFC3",
-      "#FBEECC",
-      "#F9E8B1",
-      "#F4E0A7",
-      "#F0D59A",
-      "#E8C68D",
-      "#E0B780",
-      "#D8A872",
-      "#D09B63",
+      "#fff9eb",
+      "#fdf2d5",
+      "#fde4a4",
+      "#fdd56f",
+      "#fdc846",
+      "#fdc02f",
+      "#fdbc25",
+      "#e1a51b",
+      "#c89212",
+      "#ad7e00",
     ],
   },
   primaryColor: "primary",
@@ -87,12 +106,6 @@ const amrutamTheme = createTheme({
         fz: "md",
         px: rem(16),
         py: rem(8),
-      },
-    }),
-    Text: Text.extend({
-      defaultProps: {
-        fz: "md",
-        lh:"xs"
       },
     }),
   },

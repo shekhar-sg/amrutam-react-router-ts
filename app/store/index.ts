@@ -1,8 +1,10 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import backendAPI from "~/store/apis/user.api";
+import appConfigSlice from "~/store/slices/appConfig";
 import userSlice from "~/store/slices/user";
 
 const roodReducer = combineReducers({
+  [appConfigSlice.name]: appConfigSlice.reducer,
   [userSlice.name]: userSlice.reducer,
   [backendAPI.reducerPath]: backendAPI.reducer,
 });

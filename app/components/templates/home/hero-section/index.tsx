@@ -1,11 +1,11 @@
-import SectionWrapper from "~/components/atoms/section-wrapper";
-import Banner from "./banner";
-import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsShieldCheck } from "react-icons/bs";
 import { FaPhone, FaUserDoctor } from "react-icons/fa6";
+import { IoChatbubblesOutline } from "react-icons/io5";
 import { MdEditDocument } from "react-icons/md";
 import { Link } from "react-router";
+import SectionWrapper from "~/components/atoms/section-wrapper";
 import HeroStats from "~/components/templates/home/hero-section/hero-stats";
+import Banner from "./banner";
 
 const HeroSection = () => {
   return (

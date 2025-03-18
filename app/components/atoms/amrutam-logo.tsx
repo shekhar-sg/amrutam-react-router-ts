@@ -1,0 +1,22 @@
+import {
+  Anchor,
+  type AnchorProps,
+  Image,
+  type ImageProps,
+} from "@mantine/core";
+import { Link, type LinkProps } from "react-router";
+import Amrutam from "~/components/organisms/header/assets/amrutam.png";
+
+interface AmrutamLogoProps extends Partial<AnchorProps & LinkProps> {
+  ImageProps?: ImageProps;
+}
+
+const AmrutamLogo = ({ ImageProps, ...rest }: AmrutamLogoProps) => {
+  return (
+    <Anchor component={Link} to={"/"} {...rest}>
+      <Image src={Amrutam} w={208} {...ImageProps} />
+    </Anchor>
+  );
+};
+
+export default AmrutamLogo;

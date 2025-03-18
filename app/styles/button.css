@@ -5,8 +5,6 @@
 }
 
 @utility btn {
-    --color-base: var(--color-primary-main);
-    --local-color: var(--color-base, var(--color-primary-main));
     @apply cursor-pointer px-4 py-2 rounded-lg text-base border text-center text-white w-fit;
     background-color: var(--local-color);
     border-color: var(--local-color);

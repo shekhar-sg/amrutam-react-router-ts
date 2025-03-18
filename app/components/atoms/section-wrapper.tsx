@@ -1,38 +1,48 @@
 import {
-  type ComponentProps,
-  type ComponentPropsWithoutRef,
-  type ElementType,
-  forwardRef,
-  type Ref,
-} from "react";
-import clsx from "clsx";
+  Box,
+  type BoxProps,
+  Container,
+  type ContainerProps,
+  createPolymorphicComponent,
+} from "@mantine/core";
+import { forwardRef, type Ref } from "react";
 
-type SectionWrapperProps<T extends ElementType = "section"> =
-  ComponentProps<T> & {
-    WrapperProps?: ComponentPropsWithoutRef<T>;
-    as?: T;
-  };
+interface SectionWrapperProps extends ContainerProps {
+  WrapperProps?: Omit<BoxProps, "ref">;
+  WrapperRef?: Ref<HTMLElement>;
+}
 
-const SectionWrapper = <T extends ElementType = "section">(
-  props: SectionWrapperProps<T>,
-  ref: Ref<HTMLElement>,
+const SectionWrapperBasic = (
+  props: SectionWrapperProps,
+  ref: Ref<HTMLDivElement>,
 ) => {
-  const { WrapperProps, as: Wrapper = "section", ...rest } = props;
+  const { WrapperProps, WrapperRef, ...rest } = props;
   return (
-    <Wrapper
-      ref={ref}
-      {...WrapperProps}
-      className={clsx("w-full", WrapperProps?.className)}
+    <Box
+      w={"100%"}
+      component={"section"}
+      ref={WrapperRef}
+      {...(WrapperProps as BoxProps)}
     >
-      <div
+      <Container
+        ref={ref}
+        mx={"auto"}
+        w={"100%"}
+        maw={1440}
+        px={{
+          base: 16,
+          lg: 24,
+          xl: 100,
+        }}
         {...rest}
-        className={clsx(
-          "mx-auto w-full max-w-[1440px] px-4 lg:px-6 xl:px-25",
-          rest.className,
-        )}
       />
-    </Wrapper>
+    </Box>
   );
 };
 
-export default forwardRef(SectionWrapper);
+const SectionWrapper = createPolymorphicComponent<
+  "section",
+  SectionWrapperProps
+>(forwardRef(SectionWrapperBasic));
+
+export default SectionWrapper;
