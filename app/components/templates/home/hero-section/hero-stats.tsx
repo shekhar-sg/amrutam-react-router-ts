@@ -1,10 +1,9 @@
 import { Box, Image, Rating } from "@mantine/core";
 import clsx from "clsx";
-import StarRating from "~/components/atoms/star-rating";
-import Typography from "~/components/atoms/typography";
+import appleStore from "~/assets/apple-store.webp";
 
 import googlePlayStore from "~/assets/google-play-store.webp";
-import appleStore from "~/assets/apple-store.webp";
+import Typography from "~/components/atoms/typography";
 
 const HeroStats = () => {
   return (

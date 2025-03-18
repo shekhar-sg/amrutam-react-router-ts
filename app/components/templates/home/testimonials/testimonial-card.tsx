@@ -1,5 +1,4 @@
 import { Avatar, Group, Rating, Stack } from "@mantine/core";
-import { MdStar } from "react-icons/md";
 import Typography from "~/components/atoms/typography";
 import { testimonialReviews } from "~/components/templates/home/testimonials/testimonials";
 
