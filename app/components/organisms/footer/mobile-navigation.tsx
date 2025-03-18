@@ -53,7 +53,7 @@ const MobileNavigation = () => {
           <Button
             key={label}
             component={NavLink}
-            c={"primary.2"}
+            c={"primary.1"}
             to={href}
             h={58}
             w={58}
@@ -66,7 +66,12 @@ const MobileNavigation = () => {
               label: "flex flex-col justify-evenly",
             }}
           >
-            <ActionIcon c={"inherit"} variant={"transparent"} fz={"xl"}>
+            <ActionIcon
+              c={"inherit"}
+              variant={"transparent"}
+              fz={"xl"}
+              name={label}
+            >
               <Icon />
             </ActionIcon>
             {label}
