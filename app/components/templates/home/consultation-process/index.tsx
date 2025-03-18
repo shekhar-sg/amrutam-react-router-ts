@@ -134,14 +134,14 @@ const AnimatedCard = (props: {
       initial={initial[position]}
       style={styles[position]}
       className={
-        "absolute flex h-full w-full flex-col items-center justify-center gap-y-3 text-center"
+        "absolute flex h-[90%] w-full flex-col justify-center gap-y-3 sm:items-center md:text-center"
       }
     >
-      <div
-        className={
-          "heading-large flex items-center gap-3 text-center font-semibold capitalize"
-        }
-      >
+      <Typography
+        fz={'h5'}
+        mx={'auto'}
+        c={'gray.8'}
+        className={"flex items-center gap-3 capitalize"}>
         {position}. {title}
         <Chip
           as={"span"}
@@ -150,9 +150,9 @@ const AnimatedCard = (props: {
             "bg-primary-200 md:body-xsmall rounded-lg text-[8px] font-bold whitespace-nowrap"
           }
         />
-      </div>
-      <img src={icon} alt={title} className={"w-1/2"} />
-      <p className={"text-base"}>{description}</p>
+      </Typography>
+      <img src={icon} alt={title} className={"w-full sm:w-1/2"} />
+      <p className={"mx-auto w-1/2 text-center text-base"}>{description}</p>
     </motion.div>
   );
 };
