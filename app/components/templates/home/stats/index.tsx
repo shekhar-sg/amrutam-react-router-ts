@@ -8,7 +8,7 @@ const Stats = () => {
     <SectionWrapper
       component={Grid}
       WrapperProps={{
-        className: "sm:border-2 border-gray-300/50",
+        className: "sm:border-2 border-gray-300/50 mb-20",
       }}
       py={70}
       gutter={70}
@@ -31,7 +31,7 @@ const Stats = () => {
                 once: true,
               }}
             >
-              <Typography fz={"h4"} fw={"normal"}>
+              <Typography component={"span"} fz={"h4"} fw={"normal"}>
                 {description}
               </Typography>
             </CountUp>
