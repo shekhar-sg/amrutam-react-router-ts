@@ -1,5 +1,6 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
-import Counter from "~/components/atoms/count-up";
+import CountUp from "~/components/atoms/count-up";
+import Typography from "~/components/atoms/typography";
 
 const Stats = () => {
   return (
@@ -14,18 +15,20 @@ const Stats = () => {
       {stats.map((stat) => {
         const { title, description } = stat;
         return (
-          <Counter
+          <CountUp
             key={title}
             end={title}
-            className={
-              "text-primary-main flex flex-col justify-center text-center text-[26px] font-bold"
-            }
+            fz={"h4"}
+            fw={700}
+            className={"flex flex-col justify-center text-center"}
             ViewPortProps={{
               once: true,
             }}
           >
-            <p className={"text-[26px] font-normal"}>{description}</p>
-          </Counter>
+            <Typography fz={"h4"} fw={"normal"}>
+              {description}
+            </Typography>
+          </CountUp>
         );
       })}
     </SectionWrapper>

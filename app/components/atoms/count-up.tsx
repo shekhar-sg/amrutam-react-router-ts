@@ -1,16 +1,20 @@
+import { Box, type BoxProps } from "@mantine/core";
 import {
   type SpringOptions,
   useInView,
   type UseInViewOptions,
   useSpring,
 } from "framer-motion";
-import { type HTMLAttributes, useEffect, useRef, useState } from "react";
+import { type PropsWithChildren, useEffect, useRef, useState } from "react";
+import Typography, {
+  type TypographyProps,
+} from "~/components/atoms/typography";
 
-interface CountUpProps extends HTMLAttributes<HTMLDivElement> {
+interface CountUpProps extends PropsWithChildren<TypographyProps> {
   start?: number;
   end: number;
   SpringProps?: SpringOptions;
-  countProps?: HTMLAttributes<HTMLElement>;
+  countProps?: BoxProps;
   ViewPortProps?: UseInViewOptions;
 }
 
@@ -49,10 +53,12 @@ const CountUp = (props: CountUpProps) => {
   }, [countSpring]);
 
   return (
-    <div ref={ref} {...rest}>
-      <span {...countProps}>{count}+</span>
+    <Typography ref={ref} {...rest}>
+      <Box component={"span"} {...countProps}>
+        {count}+
+      </Box>
       {rest.children}
-    </div>
+    </Typography>
   );
 };
 

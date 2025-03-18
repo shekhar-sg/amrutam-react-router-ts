@@ -66,16 +66,20 @@ const TypographyCustomBasic = (
 ) => {
   const { fontVariant = "body", underline, ...rest } = props;
 
+  const isHeading =
+    fontVariant.includes("heading") || String(rest.fz).startsWith("h");
+
   return (
     <Text
       ref={ref}
       unstyled
       c={"primary"}
-      fw={fontVariant.includes("heading") ? "bold" : undefined}
+      fw={isHeading ? "bold" : undefined}
       fz={TypographyResponsive[fontVariant]}
+      lh={isHeading ? "140%" : "100%"}
       {...rest}
       className={clsx(rest.className, {
-        "border-b-8 border-emerald-900/20 px-6 leading-10": underline,
+        "border-b-8 border-emerald-900/20 px-6 !leading-10": underline,
       })}
     />
   );
