@@ -40,9 +40,8 @@ const SectionWrapperBasic = (
   );
 };
 
-const SectionWrapper = createPolymorphicComponent<
-  "section",
-  SectionWrapperProps
->(forwardRef(SectionWrapperBasic));
+const SectionWrapper = createPolymorphicComponent<"div", SectionWrapperProps>(
+  forwardRef(SectionWrapperBasic),
+);
 
 export default SectionWrapper;

@@ -1,3 +1,4 @@
+import { Flex, Grid } from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import CountUp from "~/components/atoms/count-up";
 import Typography from "~/components/atoms/typography";
@@ -5,30 +6,35 @@ import Typography from "~/components/atoms/typography";
 const Stats = () => {
   return (
     <SectionWrapper
+      component={Grid}
       WrapperProps={{
-        className: "sm:border-2 border-secondary-200",
+        className: "sm:border-2 border-gray-300/50",
       }}
-      className={
-        "grid grid-cols-1 gap-y-14 py-17 sm:grid-cols-2 lg:grid-cols-4"
-      }
+      py={70}
+      gutter={70}
     >
       {stats.map((stat) => {
         const { title, description } = stat;
         return (
-          <CountUp
+          <Grid.Col
             key={title}
-            end={title}
-            fz={"h4"}
-            fw={700}
-            className={"flex flex-col justify-center text-center"}
-            ViewPortProps={{
-              once: true,
-            }}
+            span={{ sm: 6, lg: 3 }}
+            className={"flex justify-center"}
           >
-            <Typography fz={"h4"} fw={"normal"}>
-              {description}
-            </Typography>
-          </CountUp>
+            <CountUp
+              end={title}
+              fz={"h4"}
+              fw={700}
+              className={"flex flex-col justify-center text-center"}
+              ViewPortProps={{
+                once: true,
+              }}
+            >
+              <Typography fz={"h4"} fw={"normal"}>
+                {description}
+              </Typography>
+            </CountUp>
+          </Grid.Col>
         );
       })}
     </SectionWrapper>

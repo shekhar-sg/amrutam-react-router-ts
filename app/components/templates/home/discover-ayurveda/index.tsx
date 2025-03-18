@@ -15,8 +15,6 @@ const DiscoverAyurveda = () => {
   const theme = useMantineTheme();
   const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
 
-  console.log("isMobile", isMobile);
-
   const { scrollYProgress } = useScroll({
     target: ref,
     axis: "y",
@@ -65,7 +63,7 @@ const DiscoverAyurveda = () => {
   );
 
   return (
-    <Box ref={ref} className={"h-[400vh]"}>
+    <Box ref={ref} className={"h-[400vh]"} mb={{ base:64, xl:20 }}>
       <SectionWrapper
         WrapperProps={{
           className: "lg:h-screen sticky top-0 overflow-hidden pt-8",
