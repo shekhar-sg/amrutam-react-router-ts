@@ -77,7 +77,7 @@ const TypographyCustomBasic = (
       w={'fit-content'}
       fw={isHeading ? "bold" : undefined}
       fz={TypographyResponsive[fontVariant]}
-      lh={isHeading ? "140%" : "100%"}
+      lh={isHeading ? "140%" : "120%"}
       {...rest}
       className={clsx(rest.className, {
         "border-b-8 border-emerald-900/20 px-6 !leading-10": underline,

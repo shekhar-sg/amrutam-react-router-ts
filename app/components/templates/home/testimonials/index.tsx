@@ -1,7 +1,18 @@
+import {
+  ActionIcon,
+  BackgroundImage,
+  Box,
+  Button,
+  Center,
+  Flex,
+  Group,
+  Image,
+} from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
 import {
   testimonialReviews,
-  testimonialVideos
+  testimonialVideos,
 } from "~/components/templates/home/testimonials/testimonials";
 import TestimonialCard from "~/components/templates/home/testimonials/testimonial-card";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,17 +23,16 @@ import { Link } from "react-router";
 
 const Testimonials = () => {
   return (
-    <SectionWrapper className={"space-y-16.75 text-center"} WrapperProps={{
-      className:"mb-17"
-    }}>
-      <h2
-        className={
-          "border-primary-100/20  text-primary-main mx-auto w-fit border-b-8 px-8 font-bold capitalize"
-        }
-      >
-        customer testimonials
-      </h2>
-      <div className={"flex flex-wrap items-center justify-center gap-6"}>
+    <SectionWrapper
+      className={"space-y-16.75 text-center"}
+      WrapperProps={{
+        className: "mb-17",
+      }}
+    >
+      <Typography fontVariant={"heading-xlarge"} underline mx={"auto"}>
+        Customer Testimonials
+      </Typography>
+      <Group gap={6} wrap={"wrap"} align={"center"} justify={"center"}>
         <Swiper
           wrapperClass={"space-x-6"}
           slidesPerView={"auto"}
@@ -38,14 +48,10 @@ const Testimonials = () => {
             );
           })}
         </Swiper>
-      </div>
-      <h2
-        className={
-          "border-primary-100/20  text-primary-main mx-auto w-fit border-b-8 px-8 font-bold capitalize"
-        }
-      >
+      </Group>
+      <Typography fontVariant={"heading-xlarge"} underline mx={"auto"}>
         Hear from Our Customers
-      </h2>
+      </Typography>
       <div className={"flex flex-wrap items-center justify-center gap-6"}>
         <Swiper
           wrapperClass={"space-x-6"}
@@ -55,36 +61,43 @@ const Testimonials = () => {
           {testimonialVideos.map((video, index) => {
             return (
               <SwiperSlide key={index} className={"!w-fit"}>
-                <div
-                  className={
-                    "relative flex aspect-square h-99.5 items-center justify-center overflow-hidden rounded-3xl"
-                  }
+                <BackgroundImage
+                  src={video.thumbnail}
+                  radius={"lg"}
+                  className={"aspect-square h-99.5 overflow-hidden"}
                 >
-                  <img
-                    src={video.thumbnail}
-                    className={
-                      "absolute inset-0 -z-10 size-full object-cover object-center"
-                    }
-                    alt={""} />
-                  <button
-                    className={"rounded-full border-none bg-transparent p-0"}
-                  >
-                    <RiPlayCircleLine className={"size-20.5"} />
-                  </button>
-                </div>
+                  <Center h={"100%"}>
+                    <ActionIcon
+                      variant={"transparent"}
+                      c={"white"}
+                      size={"xl"}
+                      fz={"h1"}
+                    >
+                      <RiPlayCircleLine />
+                    </ActionIcon>
+                  </Center>
+                </BackgroundImage>
               </SwiperSlide>
             );
           })}
         </Swiper>
       </div>
-      <Link
+      <Button
+        component={Link}
+        variant={"transparent"}
         to={"/"}
+        w={"fit-content"}
+        h={"fit-content"}
+        px={25}
+        py={16}
+        fz={"h5"}
+        fw={"normal"}
         className={
-          "text-primary-main mx-auto inline-flex items-center gap-2 rounded-lg px-6.25 py-4 text-center text-2xl capitalize shadow-[0_2px_6px_0] shadow-black/25"
+          "mx-auto items-center gap-2 border-none shadow-[0_2px_6px_0] shadow-black/25"
         }
       >
         See More Reviews <IoChevronForward className={"mt-1"} />
-      </Link>
+      </Button>
     </SectionWrapper>
   );
 };
