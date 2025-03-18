@@ -5,9 +5,9 @@ import { PiWatchLight } from "react-icons/pi";
 import { Link } from "react-router";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
-import appleStore from "./assets/apple-store.png";
-import googlePlayStore from "./assets/google-play-store.png";
-import mobileApp from "./assets/mobile-app.png";
+import appleStore from "~/assets/apple-store.webp";
+import googlePlayStore from "~/assets/google-play-store.webp";
+import mobileApp from "./assets/mobile-app.webp";
 
 const DownloadApp = () => {
   return (

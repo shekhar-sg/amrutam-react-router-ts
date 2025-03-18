@@ -3,8 +3,8 @@ import clsx from "clsx";
 import StarRating from "~/components/atoms/star-rating";
 import Typography from "~/components/atoms/typography";
 
-import googlePlayStore from "./assets/google-play-store.png";
-import appleStore from "./assets/apple-store.png";
+import googlePlayStore from "~/assets/google-play-store.webp";
+import appleStore from "~/assets/apple-store.webp";
 
 const HeroStats = () => {
   return (

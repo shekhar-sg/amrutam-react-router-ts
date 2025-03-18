@@ -5,7 +5,7 @@ import {
   type ImageProps,
 } from "@mantine/core";
 import { Link, type LinkProps } from "react-router";
-import Amrutam from "~/assets/amrutam.png";
+import Amrutam from "~/assets/amrutam-text.webp";
 
 interface AmrutamLogoProps extends Partial<AnchorProps & LinkProps> {
   ImageProps?: ImageProps;
@@ -14,10 +14,14 @@ interface AmrutamLogoProps extends Partial<AnchorProps & LinkProps> {
 const AmrutamLogo = ({ ImageProps, ...rest }: AmrutamLogoProps) => {
   return (
     <Anchor component={Link} to={"/"} {...rest}>
-      <Image src={Amrutam} w={{
-        base:150,
-        md:200
-      }} {...ImageProps} />
+      <Image
+        src={Amrutam}
+        w={{
+          base: 150,
+          md: 200,
+        }}
+        {...ImageProps}
+      />
     </Anchor>
   );
 };

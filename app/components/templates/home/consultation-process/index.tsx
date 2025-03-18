@@ -1,10 +1,10 @@
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
-import onboarding from "./assets/onboarding.png";
-import chooseDoctor from "./assets/choose-doctor.png";
-import bookConsultation from "./assets/book-consultation.png";
-import getPrescription from "./assets/prescription.png";
-import followUp from "./assets/follow-up.png";
+import onboarding from "./assets/onboarding.webp";
+import chooseDoctor from "./assets/choose-doctor.webp";
+import bookConsultation from "./assets/book-consultation.webp";
+import getPrescription from "./assets/prescription.webp";
+import followUp from "./assets/follow-up.webp";
 import {
   motion,
   type MotionStyle,
@@ -21,7 +21,7 @@ const ConsultationProcess = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ["start", "end"],
   });
 
   return (

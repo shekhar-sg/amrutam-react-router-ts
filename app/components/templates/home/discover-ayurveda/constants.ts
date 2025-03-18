@@ -1,11 +1,11 @@
-import icon_1 from "./assets/disc-1.png";
-import icon_2 from "./assets/disc-2.png";
-import icon_3 from "./assets/disc-3.png";
-import icon_6 from "./assets/disc-6.png";
-import icon_5 from "./assets/disc-5.png";
-import icon_4 from "./assets/disc-4.png";
-import chakra from "./assets/chakra-min.png";
-import meditation from "./assets/meditation-min.png";
+import icon_1 from "./assets/disc-1.webp";
+import icon_2 from "./assets/disc-2.webp";
+import icon_3 from "./assets/disc-3.webp";
+import icon_4 from "./assets/disc-4.webp";
+import icon_5 from "./assets/disc-5.webp";
+import icon_6 from "./assets/disc-6.webp";
+import chakra from "./assets/chakra.webp";
+import meditation from "./assets/meditation.webp";
 
 const DiscoverSectionData = {
   heading: "Discover Ayurveda’s magic with us",

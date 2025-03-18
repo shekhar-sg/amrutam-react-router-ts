@@ -1,18 +1,17 @@
 import { motion } from "framer-motion";
 import SectionWrapper from "~/components/atoms/section-wrapper";
-import SharkTank from "./assets/shark-tank.png";
-import GQ from "./assets/gq.png";
-import BeWellbeing from "./assets/be-wellbeing.png";
-import Forbes from "./assets/forbes.png";
-import ChoiceOfFashion from "./assets/choice-of-fashion.png";
-import DeccanHerald from "./assets/deccan-herald.png";
-import HuffPost from "./assets/huffpost.png";
-import LifestyleAsia from "./assets/lifestyle-asia.png";
-import LivingEtc from "./assets/livingetc.png";
-import YourStory from "./assets/your-story.png";
-import Vogue from "./assets/vogue.png";
-import Traveller from "./assets/traveller.png";
-import TimesOfIndia from "./assets/times-of-india.png";
+import SharkTank from "./assets/shark-tank.webp";
+import GQ from "./assets/gq.webp";
+import BeWellbeing from "./assets/be-wellbeing.webp";
+import Forbes from "./assets/forbes.webp";
+import DeccanHerald from "./assets/deccan-herald.webp";
+import HuffPost from "./assets/huffpost.webp";
+import LifestyleAsia from "./assets/lifestyle-asia.webp";
+import LivingEtc from "./assets/livingetc.webp";
+import YourStory from "./assets/your-story.webp";
+import Vogue from "./assets/vogue.webp";
+import Traveller from "./assets/traveller.webp";
+import TimesOfIndia from "./assets/times-of-india.webp";
 
 const images = [
   LifestyleAsia,
@@ -26,7 +25,6 @@ const images = [
   GQ,
   LivingEtc,
   YourStory,
-  ChoiceOfFashion,
   Vogue,
 ];
 
