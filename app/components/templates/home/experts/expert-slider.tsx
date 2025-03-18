@@ -31,7 +31,7 @@ const ExpertSlider = (props: ExpertSliderProps) => {
       onInit={(swiper) => setSwiper && setSwiper(swiper)}
       slidesPerView={slidesPerView}
       loop
-      // autoplay
+      autoplay
       modules={[Autoplay, Pagination]}
       pagination={{
         clickable: true,

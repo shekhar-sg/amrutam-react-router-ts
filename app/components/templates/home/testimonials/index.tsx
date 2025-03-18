@@ -34,7 +34,7 @@ const Testimonials = () => {
           wrapperClass={"space-x-6"}
           slidesPerView={"auto"}
           loop
-          // autoplay
+          autoplay
           modules={[Autoplay]}
         >
           {testimonialReviews.map((review, index) => {
@@ -53,6 +53,8 @@ const Testimonials = () => {
         <Swiper
           wrapperClass={"space-x-6"}
           slidesPerView={"auto"}
+          loop
+          autoplay
           modules={[Autoplay]}
         >
           {testimonialVideos.map((video, index) => {
