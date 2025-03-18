@@ -3,6 +3,7 @@ import DownloadApp from "app/components/organisms/download-app";
 import Footer from "app/components/organisms/footer";
 import { type PropsWithChildren } from "react";
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
+import MobileNavigation from "~/components/organisms/footer/mobile-navigation";
 import Header from "~/components/organisms/header";
 import { useAppSelector } from "~/store/hooks";
 
@@ -40,6 +41,9 @@ const Layout = () => {
         <DownloadApp />
       </AppShell.Section>
       <Footer />
+      <AppShell.Footer component={"nav"} hiddenFrom={"lg"} className={'rounded-t-[50px] overflow-hidden'}>
+        <MobileNavigation />
+      </AppShell.Footer>
     </AppShellWrap>
   );
 };

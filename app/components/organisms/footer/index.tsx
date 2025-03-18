@@ -11,7 +11,7 @@ const Footer = () => {
     <SectionWrapper
       component={"footer"}
       WrapperProps={{ bg: "primary.1" }}
-      className={"flex flex-col gap-y-10 pt-10 pb-20 md:flex-row"}
+      className={"flex flex-col gap-y-10 pt-10 pb-40 md:pb-20 md:flex-row"}
     >
       <Stack gap={28}>
         <Typography fz={"h5"} fw={600}>
