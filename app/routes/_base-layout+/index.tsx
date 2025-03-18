@@ -13,10 +13,10 @@ const HomePage = () => {
       <HeroSection />
       {/*<DiscoverAyurveda />*/}
       <Stats />
-      <Experts />
+      {/*<Experts />*/}
       <Video />
       {/*<ConsultationProcess />*/}
-      <Testimonials />
+      {/*<Testimonials />*/}
     </>
   );
 };
