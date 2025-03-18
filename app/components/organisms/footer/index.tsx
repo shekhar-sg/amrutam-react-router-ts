@@ -1,5 +1,7 @@
-import SectionWrapper from "~/components/atoms/section-wrapper";
+import { ActionIcon, Anchor, Flex, Stack } from "@mantine/core";
 import { Link } from "react-router";
+import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
 import { FooterData } from "~/components/organisms/footer/footer-data";
 
 const { title, follow_us, otherLinkTitle, otherLinks } = FooterData;
@@ -8,67 +10,58 @@ const Footer = () => {
   return (
     <SectionWrapper
       component={"footer"}
-      WrapperProps={{ className: "bg-primary-300" }}
-      className={"flex flex-col justify-around gap-4 pt-10 pb-20 sm:flex-row"}
+      WrapperProps={{ bg: "primary.1" }}
+      className={"flex flex-col gap-y-10 pt-10 pb-20 md:flex-row"}
     >
-      <div
-        className={
-          "mb-8.5 flex w-full flex-col gap-3 text-left md:m-0 md:w-[40%]"
-        }
-      >
-        <h4 className={"text-primary-main heading-small font-medium"}>
+      <Stack gap={28}>
+        <Typography fz={"h5"} fw={600}>
           {title}
-        </h4>
-        <Link to={"/"} className={"text-primary-main heading-xsmall"}>
+        </Typography>
+        <Anchor component={Link} to={"/"} fz={"md"} fw={"bold"}>
           {follow_us.email}
-        </Link>
-        <br />
-        <p className={"heading-xsmall mb-5 text-stone-700"}>
-          {" "}
+        </Anchor>
+        <Typography fz={"md"} fw={"normal"} c={"gray.9"} maw={300}>
           {follow_us.address}
-        </p>
-        <Link
-          to={"/"}
-          className={"text-primary-main heading-xsmall hover:underline"}
-        >
+        </Typography>
+        <Anchor component={Link} fz={"md"} to={"/"} fw={"bold"}>
           {follow_us.phone}
-        </Link>
+        </Anchor>
         <div className={"flex gap-x-2"}>
           {follow_us.social.map((social) => {
             const { platform, href, icon: Icon } = social;
             return (
-              <button
+              <ActionIcon
                 key={platform}
-                className={
-                  "group border-primary-main aspect-square size-10 rounded-full p-2 text-white transition-all hover:border hover:bg-transparent"
-                }
+                component={Link}
+                to={href}
+                radius={"xl"}
+                className={"shadow shadow-black/40"}
+                size={"xl"}
+                fz={"24"}
               >
-                <Icon className={"group-hover:text-primary-main size-full"} />
-              </button>
+                <Icon />
+              </ActionIcon>
             );
           })}
         </div>
-      </div>
-      <div
-        className={"flex w-full flex-col space-y-1 text-left md:mb-0 md:w-auto"}
-      >
-        <h4 className={"heading-small text-primary-main mb-2 font-medium"}>
+      </Stack>
+      <Flex direction={"column"} mx={{ md: "auto" }}>
+        <Typography fz={"h5"} fw={600} mb={28}>
           {otherLinkTitle}
-        </h4>
+        </Typography>
         {otherLinks.map((link) => {
           return (
-            <Link
+            <Anchor
+              component={Link}
               key={link.title}
               to={link.href}
-              className={
-                "heading-xsmall block w-fit text-stone-700 no-underline transition-all hover:underline"
-              }
+              c={"gray.9"}
             >
               {link.title}
-            </Link>
+            </Anchor>
           );
         })}
-      </div>
+      </Flex>
     </SectionWrapper>
   );
 };

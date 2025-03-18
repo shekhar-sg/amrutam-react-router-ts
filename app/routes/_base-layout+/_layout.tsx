@@ -33,7 +33,6 @@ const Layout = () => {
   return (
     <AppShellWrap>
       <Header />
-      <AppShell.Navbar></AppShell.Navbar>
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>
