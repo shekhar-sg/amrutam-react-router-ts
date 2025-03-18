@@ -19,7 +19,19 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
         <Links />
       </head>
       <body>
-        <MantineProvider theme={theme} classNamesPrefix={"amrutam"}>
+        <MantineProvider
+          theme={theme}
+          classNamesPrefix={"amrutam"}
+          cssVariablesResolver={(theme) => {
+            return {
+              variables: {},
+              dark: {},
+              light: {
+                "--mantine-color-body": theme.colors.secondary[1],
+              },
+            };
+          }}
+        >
           {children}
         </MantineProvider>
         <ScrollRestoration />
