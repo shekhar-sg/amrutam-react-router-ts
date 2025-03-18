@@ -3,7 +3,6 @@ import {
   createTheme,
   DEFAULT_THEME,
   type DefaultMantineColor,
-  Image,
   type MantineColorsTuple,
   mergeMantineTheme,
   rem,
