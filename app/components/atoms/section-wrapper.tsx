@@ -4,12 +4,11 @@ import {
   Container,
   type ContainerProps,
   createPolymorphicComponent,
-  type PolymorphicComponentProps,
 } from "@mantine/core";
 import { forwardRef, type Ref } from "react";
 
 interface SectionWrapperProps extends ContainerProps {
-  WrapperProps?: Omit<PolymorphicComponentProps<typeof Box, BoxProps>, "ref">;
+  WrapperProps?: Omit<BoxProps, "ref">;
   WrapperRef?: Ref<HTMLElement>;
 }
 

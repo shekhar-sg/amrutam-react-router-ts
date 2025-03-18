@@ -81,7 +81,7 @@ const ProfileRelatedLinks = (props: GroupProps) => {
           </Anchor>
         );
       })}
-      <Button radius={"xl"} ml={"xs"}>
+      <Button component={Link} to={"/login"} radius={"xl"} ml={"xs"}>
         Login
       </Button>
     </Group>
@@ -98,7 +98,7 @@ const NavigationSection = (props: GroupProps) => {
       )}
     >
       <NavLinks />
-      <AmrutamLogo hiddenFrom={'lg'} />
+      <AmrutamLogo hiddenFrom={"lg"} />
       <ProfileRelatedLinks className={"xl:absolute xl:right-10"} />
     </Box>
   );

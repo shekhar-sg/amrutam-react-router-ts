@@ -16,37 +16,38 @@ import NavigationSection from "~/components/organisms/header/navigation-section"
 const Header = () => {
   const theme = useMantineTheme();
   return (
-    <SectionWrapper
-      component={AnimatedNavbar}
-      WrapperProps={{
-        className: `shadow-md h-fit`,
-      }}
-      h={theme.other.headerHeight}
-      px={40}
-      pos={"relative"}
-    >
-      <Group
-        h={"50%"}
-        justify={"center"}
-        className={"w-fit lg:w-full"}
-        visibleFrom={"lg"}
-      >
-        <Group gap={6} pos={"absolute"} left={40}>
-          <ThemeIcon variant={"transparent"}>
-            <LuPhone className={"text-lg"} />
-          </ThemeIcon>
-          <Typography c={"primary.5"}>+91 9826352321</Typography>
-        </Group>
-        <AmrutamLogo />
-      </Group>
-      <NavigationSection
-        h={{
-          base: "100%",
-          lg: "50%",
+    <AnimatedNavbar >
+      <SectionWrapper
+        WrapperProps={{
+          className: `shadow-md h-fit`,
         }}
-      />
-      <RouteChangeProgressBar className={"!absolute top-auto bottom-0"} />
-    </SectionWrapper>
+        h={theme.other.headerHeight}
+        px={40}
+        pos={"relative"}
+      >
+        <Group
+          h={"50%"}
+          justify={"center"}
+          className={"w-fit lg:w-full"}
+          visibleFrom={"lg"}
+        >
+          <Group gap={6} pos={"absolute"} left={40}>
+            <ThemeIcon variant={"transparent"}>
+              <LuPhone className={"text-lg"} />
+            </ThemeIcon>
+            <Typography c={"primary.5"}>+91 9826352321</Typography>
+          </Group>
+          <AmrutamLogo />
+        </Group>
+        <NavigationSection
+          h={{
+            base: "100%",
+            lg: "50%",
+          }}
+        />
+        <RouteChangeProgressBar className={"!absolute top-auto bottom-0"} />
+      </SectionWrapper>
+    </AnimatedNavbar>
   );
 };
 
