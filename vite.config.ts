@@ -13,7 +13,7 @@ export default defineConfig(() => {
       tailwindcss(),
       tsconfigPaths(),
       compression({
-        algorithm:"brotliCompress",
+        algorithm:"brotliCompress"
       }),
       visualizer({
         open: !isProduction,
@@ -22,6 +22,7 @@ export default defineConfig(() => {
       }),
     ],
     build: {
+      minify:"terser",
       ssrManifest: true,
       terserOptions: {
         compress: {
