@@ -1,63 +1,87 @@
+import {
+  ActionIcon,
+  Box,
+  Center,
+  Flex,
+  Grid,
+  Group,
+  Image,
+} from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import { IoChatbubblesOutline, IoDocumentTextOutline } from "react-icons/io5";
 import { PiWatchLight } from "react-icons/pi";
 import { BiBell } from "react-icons/bi";
+import Typography from "~/components/atoms/typography";
 import googlePlayStore from "./assets/google-play-store.png";
 import appleStore from "./assets/apple-store.png";
-import mobileAppXs from "./assets/mobile-app-sm.png";
-import mobileAppMd from "./assets/mobile-app-md.png";
+import mobileApp from "./assets/mobile-app.png";
 import { Link } from "react-router";
 
 const DownloadApp = () => {
   return (
-    <SectionWrapper className={"mb-24 flex py-19"}>
-      <div
-        className={
-          "flex w-full flex-col items-center space-y-5 text-center lg:w-[45%] lg:items-start lg:text-start"
-        }
+    <SectionWrapper component={Grid} className={"mb-24 flex py-19"}>
+      <Grid.Col
+        span={{
+          lg: 5.5,
+        }}
+        className={"flex-col items-center max-lg:flex max-lg:text-center"}
       >
-        <h1 className={"heading-large text-primary-main font-bold"}>
+        <Typography fontVariant={"heading-large"} mb={20}>
           Download Amrutam Ayurveda App Now
-        </h1>
-        <p className={"heading-xsmall mb-11 w-[60%] text-stone-600 lg:w-[80%]"}>
+        </Typography>
+        <Typography
+          fontVariant={"heading-xsmall"}
+          mb={44}
+          c={"gray.7"}
+          fw={"normal"}
+        >
           The Amrutam Ayurveda App is your one-stop app for all things Ayurveda!
           Apart from mimicking the website, the app has added benefits
-        </p>
-        <div
-          className={
-            "mb-0 grid w-fit grid-cols-2 gap-x-4 gap-y-4.25 sm:gap-x-8.5 lg:mb-14.5"
-          }
-        >
+        </Typography>
+        <Grid gutter={{ lg: 34 }} w={{ lg: "90%" }} mb={{ base: 20, lg: 60 }}>
           {features.map((feature, index) => {
             const { Icon, label } = feature;
             return (
-              <div
-                key={index}
-                className={
-                  "text-primary-main flex w-full max-w-55 items-center justify-center gap-3 rounded-2xl border border-stone-200 px-3 py-4.75 text-start"
-                }
-              >
-                <div
-                  className={
-                    "flex aspect-square size-10 rounded-full border p-1.5"
-                  }
+              <Grid.Col key={index} span={6}>
+                <Flex
+                  w={"100%"}
+                  h={"100%"}
+                  px={12}
+                  py={18}
+                  ta={"start"}
+                  c={"primary"}
+                  align={"center"}
+                  className={"gap-x-3 rounded-2xl border border-gray-300"}
                 >
-                  <Icon className={"size-full"} />
-                </div>
-                <span className={"body-small capitalize"}>{label}</span>
-              </div>
+                  <ActionIcon variant={"outline"} p={6} radius={"xl"} size={40}>
+                    <Icon className={"size-full"} />
+                  </ActionIcon>
+                  <Typography
+                    fontVariant={"body-small"}
+                    className={"capitalize"}
+                  >
+                    {label}
+                  </Typography>
+                </Flex>
+              </Grid.Col>
             );
           })}
-        </div>
-        <img
-          src={image.xs}
+        </Grid>
+        <Image
+          hiddenFrom={"lg"}
+          src={mobileApp}
           alt={"Amrutam home App"}
-          className={
-            "block h-[80vw] w-full object-contain object-center md:h-fit lg:hidden"
-          }
+          mb={80}
+          w={"max(50%, 350px)"}
         />
-        <div
-          className={"flex flex-col items-center gap-x-4 gap-y-7 sm:flex-row"}
+        <Flex
+          direction={{
+            base: "column",
+            lg: "row",
+          }}
+          align={"center"}
+          rowGap={16}
+          columnGap={28}
         >
           {mobileAppLink.map((app, index) => {
             return (
@@ -66,15 +90,18 @@ const DownloadApp = () => {
               </Link>
             );
           })}
-        </div>
-      </div>
-      <img
-        src={image.md}
-        alt={"Amrutam home App"}
-        className={
-          "hidden w-[55%] object-contain object-center lg:inline-block"
-        }
-      />
+        </Flex>
+      </Grid.Col>
+      <Grid.Col
+        ml={"auto"}
+        my={"auto"}
+        visibleFrom={"lg"}
+        span={{
+          lg: 5.5,
+        }}
+      >
+        <Image src={mobileApp} alt={"Amrutam home App"} />
+      </Grid.Col>
     </SectionWrapper>
   );
 };
@@ -100,8 +127,3 @@ const mobileAppLink = [
     href: "#",
   },
 ];
-
-const image = {
-  xs: mobileAppXs,
-  md: mobileAppMd,
-};

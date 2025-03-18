@@ -37,7 +37,7 @@ const Testimonials = () => {
           wrapperClass={"space-x-6"}
           slidesPerView={"auto"}
           loop
-          autoplay
+          // autoplay
           modules={[Autoplay]}
         >
           {testimonialReviews.map((review, index) => {
@@ -64,7 +64,11 @@ const Testimonials = () => {
                 <BackgroundImage
                   src={video.thumbnail}
                   radius={"lg"}
-                  className={"aspect-square h-99.5 overflow-hidden"}
+                  w={{
+                    base: 285,
+                    lg: 395,
+                  }}
+                  className={"aspect-square overflow-hidden"}
                 >
                   <Center h={"100%"}>
                     <ActionIcon
