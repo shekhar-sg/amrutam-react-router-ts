@@ -13,8 +13,7 @@ export default defineConfig(() => {
       tailwindcss(),
       tsconfigPaths(),
       compression({
-        include: "node_modules/**",
-        algorithm:"brotliCompress"
+        algorithm:"brotliCompress",
       }),
       visualizer({
         open: !isProduction,
