@@ -19,6 +19,15 @@ export default defineConfig(() => {
     ],
     build: {
       ssrManifest: true,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+        format: {
+          comments: false,
+        },
+      },
     },
     server: {
       proxy: {
