@@ -1,3 +1,4 @@
+import { Image } from "@mantine/core";
 import { motion } from "framer-motion";
 import doctor1 from "./assets/doctors/doctor-1.webp";
 import doctor2 from "./assets/doctors/doctor-2.webp";
@@ -62,7 +63,10 @@ const SolarSystem = () => {
               height: orbitRadius,
             }}
           >
-            <motion.img
+            <Image
+              unstyled
+              component={motion.img}
+              loading={'eager'}
               src={src}
               alt={`doctor-${index}`}
               initial={{ rotate: -initial }}

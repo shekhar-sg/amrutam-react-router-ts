@@ -34,8 +34,8 @@ const HeroStats = () => {
         </Box>
       </Box>
       <Box className={"flex h-7.75 w-full justify-center gap-1.75"}>
-        <Image unstyled loading={'lazy'} src={googlePlayStore} alt={"app store"} />
-        <Image unstyled loading={'lazy'} src={appleStore} alt={"play store"} />
+        <Image unstyled loading={'eager'} src={googlePlayStore} alt={"app store"} />
+        <Image unstyled loading={'eager'} src={appleStore} alt={"play store"} />
       </Box>
     </Box>
   );
