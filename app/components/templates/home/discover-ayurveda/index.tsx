@@ -1,4 +1,4 @@
-import { Box, useMantineTheme } from "@mantine/core";
+import { Box, useMantineTheme, Image } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import clsx from "clsx";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -63,7 +63,7 @@ const DiscoverAyurveda = () => {
   );
 
   return (
-    <Box ref={ref} className={"h-[400vh]"} mb={{ base:64, xl:20 }}>
+    <Box ref={ref} className={"h-[400vh]"} mb={{ base: 64, xl: 20 }}>
       <SectionWrapper
         WrapperProps={{
           className: "lg:h-screen sticky top-0 overflow-hidden pt-8",
@@ -142,7 +142,9 @@ const DiscoverAyurveda = () => {
                 y: chakraYPosition,
               }}
             />
-            <img
+            <Image
+              unstyled
+              loading={'lazy'}
               src={meditation}
               alt={"yoga"}
               className={"absolute -bottom-1/6 -left-2"}

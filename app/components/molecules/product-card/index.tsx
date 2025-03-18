@@ -1,3 +1,4 @@
+import { Image } from "@mantine/core";
 import type { HTMLAttributes } from "react";
 import clsx from "clsx";
 import ProductCardCartCTA from "./product-card-cart-action-cta";
@@ -40,7 +41,9 @@ const ProductCard = (props: ProductCardProps) => {
       )}
     >
       <div className={"h-[200px] overflow-hidden"}>
-        <img
+        <Image
+          loading={'lazy'}
+          unstyled
           src={image}
           alt={title}
           className={

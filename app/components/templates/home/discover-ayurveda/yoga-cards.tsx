@@ -1,4 +1,4 @@
-import { Box } from "@mantine/core";
+import { Box, Image } from "@mantine/core";
 import type { ComponentProps } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
@@ -17,17 +17,23 @@ const YogaCards = (props: DiscoverCardProps) => {
   return (
     <motion.div
       className={clsx(
-        "border-gray-300/80 flex items-center gap-4 rounded-xl border p-4 lg:border-none",
+        "flex items-center gap-4 rounded-xl border border-gray-300/80 p-4 lg:border-none",
         className,
       )}
       {...rest}
     >
-      <img src={image} alt={title} className={"aspect-square size-25"} />
+      <Image
+        unstyled
+        loading={'lazy'}
+        src={image}
+        alt={title}
+        className={"aspect-square size-25"}
+      />
       <Box className={"space-y-1"}>
         <Typography
           fontVariant={"heading-small"}
           fw={600}
-          c={'gray.9'}
+          c={"gray.9"}
           fz={{
             ...TypographyResponsive["heading-small"],
             lg: TypographyResponsive["heading-xsmall"].lg,

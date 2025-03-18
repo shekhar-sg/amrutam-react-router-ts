@@ -26,6 +26,7 @@ export default tsEslint.config(
       reactRefresh.configs.recommended,
     ],
     plugins: {
+      react: reactPlugin,
       "react-hooks": reactHooks,
     },
     rules: {
@@ -34,6 +35,13 @@ export default tsEslint.config(
         "error",
         {
           allowExportNames: ["meta", "links", "headers", "loader", "action"],
+        },
+      ],
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: "JSXOpeningElement[name.name='img']",
+          message: "Use the Image from @mantine/core component instead of img.",
         },
       ],
       "jsx-a11y/alt-text": [

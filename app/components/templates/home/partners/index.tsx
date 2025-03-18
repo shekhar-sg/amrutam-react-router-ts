@@ -47,6 +47,7 @@ const Partners = () => {
       >
         {[...images].map((src, index) => (
           <Image
+            loading={'lazy'}
             key={index}
             src={src}
             alt={`slide-${index}`}

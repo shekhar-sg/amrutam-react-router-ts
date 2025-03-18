@@ -1,3 +1,4 @@
+import { Image } from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
 import onboarding from "./assets/onboarding.webp";
@@ -138,10 +139,11 @@ const AnimatedCard = (props: {
       }
     >
       <Typography
-        fz={'h5'}
-        mx={'auto'}
-        c={'gray.8'}
-        className={"flex items-center gap-3 capitalize"}>
+        fz={"h5"}
+        mx={"auto"}
+        c={"gray.8"}
+        className={"flex items-center gap-3 capitalize"}
+      >
         {position}. {title}
         <Chip
           as={"span"}
@@ -151,7 +153,7 @@ const AnimatedCard = (props: {
           }
         />
       </Typography>
-      <img src={icon} alt={title} className={"w-full sm:w-1/2"} />
+      <Image loading={'lazy'} unstyled src={icon} alt={title} className={"w-full sm:w-1/2"} />
       <p className={"mx-auto w-1/2 text-center text-base"}>{description}</p>
     </motion.div>
   );

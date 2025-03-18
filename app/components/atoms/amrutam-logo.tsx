@@ -15,6 +15,7 @@ const AmrutamLogo = ({ ImageProps, ...rest }: AmrutamLogoProps) => {
   return (
     <Anchor component={Link} to={"/"} {...rest}>
       <Image
+        loading={'eager'}
         src={Amrutam}
         alt={"amrutam-logo"}
         w={{

@@ -1,4 +1,4 @@
-import { ActionIcon, Box } from "@mantine/core";
+import { ActionIcon, Box, Image } from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
 import GIF from "./assets/yt-video.gif";
@@ -18,12 +18,14 @@ const Video = () => {
           "relative flex aspect-video w-full items-center justify-center"
         }
       >
-        <img
+        <Image
+          unstyled
+          loading={"lazy"}
           src={GIF}
           alt={"GIF"}
           className={"absolute z-0 size-full brightness-50"}
         />
-        <ActionIcon variant={"transparent"} c={"white"} size={'xl'} fz={"h1"}>
+        <ActionIcon variant={"transparent"} c={"white"} size={"xl"} fz={"h1"}>
           <RiPlayCircleLine />
         </ActionIcon>
       </Box>
