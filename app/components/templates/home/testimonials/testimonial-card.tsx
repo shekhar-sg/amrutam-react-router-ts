@@ -1,4 +1,4 @@
-import { Avatar, Group } from "@mantine/core";
+import { Avatar, Group, Stack } from "@mantine/core";
 import { MdStar } from "react-icons/md";
 import Typography from "~/components/atoms/typography";
 import { testimonialReviews } from "~/components/templates/home/testimonials/testimonials";
@@ -11,8 +11,8 @@ const TestimonialCard = (props: TestimonialCardProps) => {
   const { data } = props;
   const { fullStars, content, photoText } = data;
   return (
-    <Group
-      gap={22}
+    <Stack
+      gap={14}
       p={26}
       w={300}
       h={300}
@@ -34,10 +34,10 @@ const TestimonialCard = (props: TestimonialCardProps) => {
           ))}
         </div>
       </Group>
-      <Typography fz={"md"} c={"gray.9"} ta={"start"} lh={"lg"}>
+      <Typography fz={"md"} c={"gray.9"} ta={"start"} lh={"sm"}>
         {content}
       </Typography>
-    </Group>
+    </Stack>
   );
 };
 
