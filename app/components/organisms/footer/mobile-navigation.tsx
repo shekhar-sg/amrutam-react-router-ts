@@ -60,7 +60,7 @@ const MobileNavigation = () => {
             fz={10}
             fw={400}
             className={
-              "!p-0 !pb-1 hover:!rounded-[20px] [&.active]:!rounded-[20px] [&.active]:!bg-green-100/20 [&.pending]:!bg-green-100/10"
+              "!p-0 !pb-1 hover:!rounded-[20px] [&.active]:!rounded-[20px] [&.active]:!bg-green-100/20 [&.active]:!text-white [&.pending]:!bg-green-100/10"
             }
             classNames={{
               label: "flex flex-col justify-evenly",
