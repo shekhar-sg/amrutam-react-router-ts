@@ -2,6 +2,7 @@ import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
+import { compression } from "vite-plugin-compression2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { isProduction } from "./app/utils/environment";
 
@@ -11,6 +12,9 @@ export default defineConfig(() => {
       reactRouter(),
       tailwindcss(),
       tsconfigPaths(),
+      compression({
+        algorithm:"brotliCompress"
+      }),
       visualizer({
         open: !isProduction,
         gzipSize: true,
