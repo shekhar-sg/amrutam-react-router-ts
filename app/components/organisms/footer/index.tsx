@@ -17,13 +17,13 @@ const Footer = () => {
         <Typography fz={"h5"} fw={600}>
           {title}
         </Typography>
-        <Anchor component={Link} to={"/"} fz={"md"} fw={"bold"}>
+        <Anchor aria-label={'email'} component={Link} to={"/"} fz={"md"} fw={"bold"}>
           {follow_us.email}
         </Anchor>
         <Typography fz={"md"} fw={"normal"} c={"gray.9"} maw={300}>
           {follow_us.address}
         </Typography>
-        <Anchor component={Link} fz={"md"} to={"/"} fw={"bold"}>
+        <Anchor aria-label={'phone number'} component={Link} fz={"md"} to={"/"} fw={"bold"}>
           {follow_us.phone}
         </Anchor>
         <div className={"flex gap-x-2"}>
@@ -31,6 +31,7 @@ const Footer = () => {
             const { platform, href, icon: Icon } = social;
             return (
               <ActionIcon
+                aria-label={platform}
                 key={platform}
                 component={Link}
                 to={href}
@@ -52,6 +53,7 @@ const Footer = () => {
         {otherLinks.map((link) => {
           return (
             <Anchor
+              aria-label={link.title}
               component={Link}
               key={link.title}
               to={link.href}

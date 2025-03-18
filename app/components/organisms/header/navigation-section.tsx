@@ -91,7 +91,7 @@ const ProfileRelatedLinks = (props: GroupProps) => {
       {rightSide.map((item) => {
         const { icon: Icon, link } = item;
         return (
-          <Anchor component={Link} to={link} key={item.name} visibleFrom={'sm'} >
+          <Anchor aria-label={item.name} component={Link} to={link} key={item.name} visibleFrom={'sm'} >
             <Indicator label={13} size={22}>
               <ThemeIcon variant={"transparent"} size={36} fz={"h5"}>
                 <Icon />
@@ -100,7 +100,7 @@ const ProfileRelatedLinks = (props: GroupProps) => {
           </Anchor>
         );
       })}
-      <Button component={Link} to={"/login"} radius={"xl"} ml={"xs"}>
+      <Button aria-label={'login'} component={Link} to={"/login"} radius={"xl"} ml={"xs"}>
         Login
       </Button>
     </Group>

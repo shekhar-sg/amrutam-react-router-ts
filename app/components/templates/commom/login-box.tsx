@@ -26,7 +26,7 @@ type LoginFlowTemplate = Record<
   0 | 1,
   {
     title: ReactNode;
-    buttonText: ReactNode;
+    buttonText: string;
     InputField: ReactNode;
     onSubmit: (values: InitialValues) => void;
   }
@@ -203,7 +203,13 @@ const LoginBox = (props: BoxProps) => {
           {error}
         </Typography>
       )}
-      <Button fullWidth mb={16} type={"submit"} disabled={isSendOtpLoading}>
+      <Button
+        aria-label={template[step].buttonText}
+        fullWidth
+        mb={16}
+        type={"submit"}
+        disabled={isSendOtpLoading}
+      >
         {template[step].buttonText}
       </Button>
       {step === 1 && (

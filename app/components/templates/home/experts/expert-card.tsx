@@ -57,6 +57,7 @@ const ExpertCard = () => {
         </Badge>
       </Flex>
       <Button
+        aria-label={'book a session'}
         component={Link}
         to={"/"}
         mt={"auto"}

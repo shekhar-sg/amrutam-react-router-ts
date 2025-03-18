@@ -44,6 +44,7 @@ const HeroSection = () => {
             care.
           </Typography>
           <Button
+            aria-label={'instant call for free'}
             component={Link}
             to={"/"}
             size={"xl"}

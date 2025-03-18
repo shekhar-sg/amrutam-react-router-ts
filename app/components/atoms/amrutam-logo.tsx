@@ -13,7 +13,7 @@ interface AmrutamLogoProps extends Partial<AnchorProps & LinkProps> {
 
 const AmrutamLogo = ({ ImageProps, ...rest }: AmrutamLogoProps) => {
   return (
-    <Anchor component={Link} to={"/"} {...rest}>
+    <Anchor aria-label={'go to home page'} component={Link} to={"/"} {...rest}>
       <Image
         loading={'eager'}
         src={Amrutam}

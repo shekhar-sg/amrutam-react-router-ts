@@ -60,7 +60,7 @@ const DownloadApp = () => {
           })}
         </Grid>
         <Image
-          loading={'lazy'}
+          loading={"lazy"}
           hiddenFrom={"lg"}
           src={mobileApp}
           alt={"Amrutam home App"}
@@ -78,8 +78,18 @@ const DownloadApp = () => {
         >
           {mobileAppLink.map((app, index) => {
             return (
-              <Link key={index} to={app.href} className={"flex w-fit"}>
-                <Image unstyled loading={'lazy'} src={app.image} alt={app.title} />
+              <Link
+                aria-label={app.title}
+                key={index}
+                to={app.href}
+                className={"flex w-fit"}
+              >
+                <Image
+                  unstyled
+                  loading={"lazy"}
+                  src={app.image}
+                  alt={app.title}
+                />
               </Link>
             );
           })}
@@ -93,7 +103,7 @@ const DownloadApp = () => {
           lg: 5.5,
         }}
       >
-        <Image src={mobileApp} loading={'lazy'} alt={"Amrutam home App"} />
+        <Image src={mobileApp} loading={"lazy"} alt={"Amrutam home App"} />
       </Grid.Col>
     </SectionWrapper>
   );

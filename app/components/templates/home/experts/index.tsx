@@ -61,6 +61,7 @@ const Experts = () => {
         </ActionIcon>
       </Flex>
       <Button
+        aria-label={"find more experts"}
         component={Link}
         to={"/"}
         visibleFrom={"lg"}

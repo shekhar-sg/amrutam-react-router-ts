@@ -24,6 +24,7 @@ const ProductCardCartCTA = ({
   if (variant === "delete") {
     return isAddedInCart ? (
       <button
+        aria-label={"remove aLl"}
         className={clsx(
           "bg-primary-main flex items-center p-1 whitespace-nowrap hover:[&_span]:w-24",
           className,
@@ -49,6 +50,7 @@ const ProductCardCartCTA = ({
       {isAddedInCart && (
         <>
           <button
+            aria-label={"remove from cart"}
             className={"p-1"}
             onClick={() => {
               dispatch(removeFromCart(String(productId)));
@@ -64,6 +66,7 @@ const ProductCardCartCTA = ({
         </>
       )}
       <button
+        aria-label={"add to cart"}
         className={"p-1"}
         onClick={() => {
           dispatch(addToCart(String(productId)));

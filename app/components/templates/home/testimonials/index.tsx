@@ -84,6 +84,7 @@ const Testimonials = () => {
         </Swiper>
       </div>
       <Button
+        aria-label={"see more reviews"}
         component={Link}
         variant={"transparent"}
         to={"/"}

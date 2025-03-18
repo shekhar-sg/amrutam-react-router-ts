@@ -12,6 +12,7 @@ const CartButton = () => {
       }
       as={Link}
       to={"/cart"}
+      aria-label={'go to cart page'}
     >
       Cart
       {cart.length > 0 && (

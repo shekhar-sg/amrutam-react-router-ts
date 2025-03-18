@@ -51,6 +51,7 @@ const MobileNavigation = () => {
         const { label, href, Icon } = item;
         return (
           <Button
+            aria-label={label}
             key={label}
             component={NavLink}
             c={"primary.1"}
