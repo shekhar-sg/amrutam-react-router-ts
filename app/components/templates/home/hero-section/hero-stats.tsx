@@ -1,4 +1,4 @@
-import { Box, Image } from "@mantine/core";
+import { Box, Image, Rating } from "@mantine/core";
 import clsx from "clsx";
 import StarRating from "~/components/atoms/star-rating";
 import Typography from "~/components/atoms/typography";
@@ -28,11 +28,7 @@ const HeroStats = () => {
         ))}
       </Box>
       <Box className={"flex w-full items-center justify-center gap-3"}>
-        <StarRating
-          rating={3.5}
-          clickable={false}
-          starClassName={"size-5 text-primary-main"}
-        />
+        <Rating defaultValue={3.5} color={"orange"} fractions={2} readOnly />
         <Box className={"text-primary-main text-xl font-bold"}>3.5</Box>
         <Box className={"inline-block text-xs font-medium text-stone-600"}>
           Average user rating

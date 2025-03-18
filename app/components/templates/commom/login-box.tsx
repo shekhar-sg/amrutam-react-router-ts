@@ -39,7 +39,7 @@ type InitialValues = {
 
 const LoginBox = (props: BoxProps) => {
   const [getOtp, { isLoading: isSendOtpLoading }] = useGetOTPMutation();
-  const [verifyOTP,{isLoading:isVerifyOtpLoading}] = useVerifyOTPMutation()
+  const [verifyOTP] = useVerifyOTPMutation();
   const [step, setStep] = useState<keyof LoginFlowTemplate>(0);
   const [otpCountDownStartTime, setOTPCountDownStartTime] = useState(
     Date.now(),
@@ -147,7 +147,7 @@ const LoginBox = (props: BoxProps) => {
             {...getInputProps("otp")}
           />
         ),
-        onSubmit: ({phoneNumber,otp}) => {
+        onSubmit: ({ phoneNumber, otp }) => {
           if (isValidPhoneNumber(phoneNumber)) {
             const parsedNumber = parsePhoneNumber(phoneNumber);
             if (parsedNumber) {
@@ -155,18 +155,25 @@ const LoginBox = (props: BoxProps) => {
               verifyOTP({
                 phoneNumber: nationalNumber,
                 countryCode: `+${countryCallingCode}`,
-                otpInput:otp
+                otpInput: otp,
               })
                 .unwrap()
                 .then((value) => {
-                  console.log("verified",value);
+                  console.log("verified", value);
                 });
             }
           }
         },
       },
     };
-  }, [errors.otp, errors.phoneNumber, getInputProps, getOtp, getValues]);
+  }, [
+    errors.otp,
+    errors.phoneNumber,
+    getInputProps,
+    getOtp,
+    getValues,
+    verifyOTP,
+  ]);
 
   return (
     <Box
