@@ -41,7 +41,7 @@ const Header = () => {
 
 export default Header;
 
-const AppShellHeader = motion(AppShell.Header);
+const AppShellHeader = motion.create(AppShell.Header);
 
 const AnimateHeader = ({ children }: PropsWithChildren) => {
   const { scrollY } = useScroll({

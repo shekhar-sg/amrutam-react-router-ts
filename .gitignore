@@ -8,3 +8,6 @@
 # IDE
 .idea/
 .env
+
+# Visualizer
+stats.html

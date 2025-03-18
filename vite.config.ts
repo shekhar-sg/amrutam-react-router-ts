@@ -1,13 +1,22 @@
 import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
-import svgR from "vite-plugin-svgr";
 import tsconfigPaths from "vite-tsconfig-paths";
+import { isProduction } from "./app/utils/environment";
 
 export default defineConfig(() => {
   return {
-    plugins: [tailwindcss(), reactRouter(), svgR(), tsconfigPaths()],
-    esbuild: {},
+    plugins: [
+      reactRouter(),
+      tailwindcss(),
+      tsconfigPaths(),
+      visualizer({
+        open: !isProduction,
+        gzipSize: true,
+        brotliSize: true,
+      }),
+    ],
     build: {
       ssrManifest: true,
     },
