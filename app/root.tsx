@@ -1,4 +1,4 @@
-// import '@fontsource-variable/dm-sans';
+import '@fontsource-variable/dm-sans';
 import { Outlet } from "react-router";
 import "./styles/global.css";
 import StoreProvider from "~/store/Provider";
