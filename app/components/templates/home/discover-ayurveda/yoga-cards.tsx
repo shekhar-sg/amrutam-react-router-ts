@@ -1,6 +1,10 @@
+import { Box } from "@mantine/core";
 import type { ComponentProps } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import Typography, {
+  TypographyResponsive,
+} from "~/components/atoms/typography";
 
 interface DiscoverCardProps extends ComponentProps<typeof motion.div> {
   image: string;
@@ -13,18 +17,26 @@ const YogaCards = (props: DiscoverCardProps) => {
   return (
     <motion.div
       className={clsx(
-        "border-secondary-100 flex items-center gap-4 rounded-xl border p-4 lg:max-w-90 lg:border-none",
+        "border-gray-300/80 flex items-center gap-4 rounded-xl border p-4 lg:border-none",
         className,
       )}
       {...rest}
     >
       <img src={image} alt={title} className={"aspect-square size-25"} />
-      <div className={"space-y-1"}>
-        <h6 className={"heading-small md:heading-xsmall font-semibold"}>
+      <Box className={"space-y-1"}>
+        <Typography
+          fontVariant={"heading-small"}
+          fw={600}
+          c={'gray.9'}
+          fz={{
+            ...TypographyResponsive["heading-small"],
+            lg: TypographyResponsive["heading-xsmall"].lg,
+          }}
+        >
           {title}
-        </h6>
+        </Typography>
         <span className={"text-text-primary-100"}>{description}</span>
-      </div>
+      </Box>
     </motion.div>
   );
 };

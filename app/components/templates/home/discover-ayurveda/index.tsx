@@ -1,9 +1,10 @@
-import { useMantineTheme } from "@mantine/core";
+import { Box, useMantineTheme } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 import clsx from "clsx";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
 import DiscoverSectionData from "~/components/templates/home/discover-ayurveda/constants";
 import YogaCards from "~/components/templates/home/discover-ayurveda/yoga-cards";
 
@@ -12,12 +13,14 @@ const { heading, chakra, meditation, description, cards } = DiscoverSectionData;
 const DiscoverAyurveda = () => {
   const ref = useRef<HTMLDivElement>(null);
   const theme = useMantineTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.md);
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.md})`);
+
+  console.log("isMobile", isMobile);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     axis: "y",
-    offset: ["start start", "end end"],
+    offset: ["start", "end"],
   });
 
   const chakraOpacity = useTransform(
@@ -62,11 +65,10 @@ const DiscoverAyurveda = () => {
   );
 
   return (
-    <div ref={ref} className={"h-[400vh]"}>
+    <Box ref={ref} className={"h-[400vh]"}>
       <SectionWrapper
         WrapperProps={{
-          className:
-            "lg:h-screen sticky top-0 overflow-hidden pt-[var(--header-height)]",
+          className: "lg:h-screen sticky top-0 overflow-hidden pt-8",
         }}
         className={"flex h-full flex-col items-center gap-5"}
       >
@@ -75,14 +77,17 @@ const DiscoverAyurveda = () => {
             "flex flex-col items-center justify-center gap-5 text-center"
           }
         >
-          <h2
-            className={
-              "text-primary-main border-primary-100/20 border-b-8 px-6 font-bold"
-            }
-          >
+          <Typography fontVariant={"heading-xlarge"} underline>
             {heading}
-          </h2>
-          <p className={"max-w-2xl"}>{description}</p>
+          </Typography>
+          <Typography
+            fontVariant={"heading-xsmall"}
+            c={"gray.7"}
+            fw={"normal"}
+            maw={650}
+          >
+            {description}
+          </Typography>
         </motion.div>
         <div
           className={
@@ -176,7 +181,7 @@ const DiscoverAyurveda = () => {
           </div>
         </div>
       </SectionWrapper>
-    </div>
+    </Box>
   );
 };
 

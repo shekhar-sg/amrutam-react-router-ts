@@ -3,6 +3,7 @@ import {
   Text,
   type TextProps,
 } from "@mantine/core";
+import clsx from "clsx";
 import { forwardRef, type Ref } from "react";
 
 export const TypographyResponsive = {
@@ -57,20 +58,25 @@ export type TypographyVariant = keyof typeof TypographyResponsive;
 
 export type TypographyProps = {
   fontVariant?: TypographyVariant;
+  underline?: boolean;
 } & TextProps;
 const TypographyCustomBasic = (
   props: TypographyProps,
   ref: Ref<HTMLParagraphElement>,
 ) => {
-  const { fontVariant = "body", ...rest } = props;
+  const { fontVariant = "body", underline, ...rest } = props;
 
   return (
     <Text
       ref={ref}
       unstyled
+      c={"primary"}
       fw={fontVariant.includes("heading") ? "bold" : undefined}
       fz={TypographyResponsive[fontVariant]}
       {...rest}
+      className={clsx(rest.className, {
+        "border-b-8 border-emerald-900/20 px-6 leading-10": underline,
+      })}
     />
   );
 };
