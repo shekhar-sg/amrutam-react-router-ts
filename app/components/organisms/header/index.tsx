@@ -62,6 +62,7 @@ const AnimateHeader = ({ children }: PropsWithChildren) => {
   }, [scrollY]);
   return (
     <AppShellHeader
+      pos={"sticky"}
       animate={{
         y: !isScrolled ? 0 : -100,
         opacity: !isScrolled ? 1 : 0,

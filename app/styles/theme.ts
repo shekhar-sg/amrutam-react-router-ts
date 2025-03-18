@@ -65,15 +65,17 @@ const amrutamTheme = createTheme({
     ],
   },
   primaryColor: "primary",
-  fontFamily: "Poppins, sans-serif",
+  fontFamily: "'DM Sans Variable', sans-serif",
   headings: {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "'DM Sans Variable', sans-serif",
     sizes: {
       h1: {
         fontSize: rem(60),
+        fontWeight: "bold",
       },
       h2: {
         fontSize: rem(48),
+        fontWeight: "bold",
       },
       h3: {
         fontSize: rem(36),

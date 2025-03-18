@@ -1,42 +1,60 @@
+import { Box, Button } from "@mantine/core";
 import { BsShieldCheck } from "react-icons/bs";
 import { FaPhone, FaUserDoctor } from "react-icons/fa6";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { MdEditDocument } from "react-icons/md";
 import { Link } from "react-router";
 import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography, {
+  TypographyResponsive,
+} from "~/components/atoms/typography";
 import HeroStats from "~/components/templates/home/hero-section/hero-stats";
 import Banner from "./banner";
 
 const HeroSection = () => {
   return (
     <SectionWrapper
-      className={"relative flex py-28 md:pb-34 lg:py-28"}
+      className={"relative flex py-14 md:py-28 md:pb-34"}
       WrapperProps={{
-        className: "hero-background relative mb-25",
+        bg: "secondary.2",
+        className: "mb-110 md:mb-60 xl:mb-40",
       }}
     >
-      <div className={"w-full space-y-4 md:w-[60%]"}>
-        <h6 className={"body-small text-stone-500"}>
+      <Box className={"w-full space-y-4 md:w-[60%]"}>
+        <Typography fontVariant={"body-small"} fw={500} c={"dark.3"}>
           Namaste, Welcome to Amrutam{" "}
-        </h6>
-        <h2 className={"heading-large leading-[140%] font-bold"}>
+        </Typography>
+        <Typography
+          fontVariant={"heading-xlarge"}
+          fz={{
+            ...TypographyResponsive["heading-xlarge"],
+            xl: "h3",
+          }}
+          c={"dark.9"}
+        >
           Struggling with Lifestyle Disorders?
           <br /> Get Expert Ayurvedic Help Today.
-        </h2>
-        <p className={"heading-xsmall text-stone-700"}>
+        </Typography>
+        <Typography fontVariant={"heading-xsmall"} c={"dark.4"}>
           Speak to Certified & Trusted Ayurvedic Doctors for personalized care.
-        </p>
-        <Link
+        </Typography>
+        <Button
+          component={Link}
           to={"/"}
-          className={
-            "btn heading-xsmall flex w-[65%] max-w-137.25 items-center justify-center gap-2.5 rounded-2xl py-4 font-bold md:w-[85%] md:py-5.5"
-          }
+          size={"xl"}
+          fullWidth
+          w={{ sm: "80%" }}
+          radius={"lg"}
+          fw={700}
+          classNames={{
+            label: "gap-x-4",
+          }}
         >
           <FaPhone />
           Instant Call for FREE
-        </Link>
+        </Button>
         <HeroStats />
-      </div>
+      </Box>
       <div></div>
       <Banner
         features={features}

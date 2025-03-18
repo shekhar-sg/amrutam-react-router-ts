@@ -87,11 +87,11 @@ const rightSide = [
 
 const ProfileRelatedLinks = (props: GroupProps) => {
   return (
-    <Group gap={16} {...props}>
+    <Group gap={16}{...props}>
       {rightSide.map((item) => {
         const { icon: Icon, link } = item;
         return (
-          <Anchor component={Link} to={link} key={item.name}>
+          <Anchor component={Link} to={link} key={item.name} visibleFrom={'sm'} >
             <Indicator label={13} size={22}>
               <ThemeIcon variant={"transparent"} size={36} fz={"h5"}>
                 <Icon />

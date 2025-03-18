@@ -5,7 +5,7 @@ import {
 } from "@mantine/core";
 import { forwardRef, type Ref } from "react";
 
-const TypographyResponsive = {
+export const TypographyResponsive = {
   "heading-xxlarge": {
     base: "h3",
     md: "h2",
@@ -27,7 +27,7 @@ const TypographyResponsive = {
     lg: "h4",
   },
   "heading-small": {
-    base: "base",
+    base: "md",
     md: "h6",
     lg: "h5",
   },
@@ -38,13 +38,13 @@ const TypographyResponsive = {
   },
   body: {
     base: "sm",
-    md: "base",
+    md: "md",
     lg: "lg",
   },
   "body-small": {
     base: "xs",
     md: "sm",
-    lg: "base",
+    lg: "md",
   },
   "body-xsmall": {
     base: "xs",
@@ -58,11 +58,21 @@ export type TypographyVariant = keyof typeof TypographyResponsive;
 export type TypographyProps = {
   fontVariant?: TypographyVariant;
 } & TextProps;
-
-const TypographyCustomBasic = (props:TypographyProps, ref:Ref<HTMLParagraphElement>) => {
+const TypographyCustomBasic = (
+  props: TypographyProps,
+  ref: Ref<HTMLParagraphElement>,
+) => {
   const { fontVariant = "body", ...rest } = props;
 
-  return <Text ref={ref} fz={TypographyResponsive[fontVariant]} {...rest} />;
+  return (
+    <Text
+      ref={ref}
+      unstyled
+      fw={fontVariant.includes("heading") ? "bold" : undefined}
+      fz={TypographyResponsive[fontVariant]}
+      {...rest}
+    />
+  );
 };
 
 /**

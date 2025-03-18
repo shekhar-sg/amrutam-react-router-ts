@@ -20,12 +20,6 @@ const DiscoverAyurveda = () => {
     offset: ["start start", "end end"],
   });
 
-  const headingMarginTop = useTransform(
-    scrollYProgress,
-    [0, 0.2],
-    ["60%", "0%"],
-  );
-
   const chakraOpacity = useTransform(
     scrollYProgress,
     [0.2, 0.55, 0.6],
@@ -78,11 +72,8 @@ const DiscoverAyurveda = () => {
       >
         <motion.div
           className={
-            "flex flex-col items-center justify-center gap-5 text-center sm:!mt-0"
+            "flex flex-col items-center justify-center gap-5 text-center"
           }
-          style={{
-            marginTop: headingMarginTop,
-          }}
         >
           <h2
             className={
