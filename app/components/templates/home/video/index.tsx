@@ -4,8 +4,8 @@ import Typography from "~/components/atoms/typography";
 import GIF from "./assets/yt-video.gif";
 import { RiPlayCircleLine } from "react-icons/ri";
 
-const VIDEO_EMBED_URL =
-  "https://www.youtube.com/embed/ZkBWy2flIUI?si=lUpsp8GrnBFVelHr";
+// const VIDEO_EMBED_URL =
+//   "https://www.youtube.com/embed/ZkBWy2flIUI?si=lUpsp8GrnBFVelHr";
 
 const Video = () => {
   return (
