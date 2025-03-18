@@ -16,7 +16,6 @@ const AppShellWrap = ({ children }: PropsWithChildren) => {
     <AppShell
       header={{
         height: theme.other.headerHeight,
-        // collapsed: isScrolled,
         offset: false,
       }}
       navbar={{
@@ -34,7 +33,7 @@ const Layout = () => {
   return (
     <AppShellWrap>
       <Header />
-      <AppShell.Navbar></AppShell.Navbar>
+      {/*<AppShell.Navbar></AppShell.Navbar>*/}
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>
