@@ -4,7 +4,7 @@ import Footer from "app/components/organisms/footer";
 import { type PropsWithChildren } from "react";
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import MobileNavigation from "~/components/organisms/footer/mobile-navigation";
-import Header from "~/components/organisms/header";
+// import Header from "~/components/organisms/header";
 import { useAppSelector } from "~/store/hooks";
 
 const AppShellWrap = ({ children }: PropsWithChildren) => {
@@ -33,7 +33,7 @@ const AppShellWrap = ({ children }: PropsWithChildren) => {
 const Layout = () => {
   return (
     <AppShellWrap>
-      <Header />
+      {/*<Header />*/}
       <AppShell.Main>
         <Outlet />
       </AppShell.Main>
