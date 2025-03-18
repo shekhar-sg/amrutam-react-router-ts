@@ -1,5 +1,5 @@
-// import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
-// import Stats from "app/components/templates/home/stats";
+import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
+import Stats from "app/components/templates/home/stats";
 // import Experts from "app/components/templates/home/experts";
 // import Video from "app/components/templates/home/video";
 // import Testimonials from "app/components/templates/home/testimonials";
@@ -11,8 +11,8 @@ const HomePage = () => {
   return (
     <>
       <HeroSection />
-      {/*<DiscoverAyurveda />*/}
-      {/*<Stats />*/}
+      <DiscoverAyurveda />
+      <Stats />
       {/*<Experts />*/}
       {/*<Video />*/}
       {/*<ConsultationProcess />*/}
