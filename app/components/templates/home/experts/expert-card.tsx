@@ -1,11 +1,9 @@
 import {
   Avatar,
   Badge,
-  Box,
   Button,
   Card,
   Flex,
-  Stack,
   useMantineTheme,
 } from "@mantine/core";
 import { IoBandageOutline } from "react-icons/io5";
@@ -58,7 +56,15 @@ const ExpertCard = () => {
           Speciality
         </Badge>
       </Flex>
-      <Button component={Link} to={"/"} mt={'auto'} fullWidth py={24} h={"fit-content"} radius={0}>
+      <Button
+        component={Link}
+        to={"/"}
+        mt={"auto"}
+        fullWidth
+        py={24}
+        h={"fit-content"}
+        radius={0}
+      >
         Book a Session
       </Button>
     </Card>

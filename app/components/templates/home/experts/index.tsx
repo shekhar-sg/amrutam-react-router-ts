@@ -1,18 +1,12 @@
-import {
-  ActionIcon,
-  type ActionIconProps,
-  Box,
-  Button,
-  Flex,
-} from "@mantine/core";
-import SectionWrapper from "~/components/atoms/section-wrapper";
+import { ActionIcon, type ActionIconProps, Button, Flex } from "@mantine/core";
+import { useCallback, useState } from "react";
+import { IoChevronForward } from "react-icons/io5";
 import { MdEast, MdWest } from "react-icons/md";
+import { Link } from "react-router";
+import type { Swiper as SwiperClass } from "swiper/types";
+import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
 import ExpertSlider from "~/components/templates/home/experts/expert-slider";
-import { useCallback, useState } from "react";
-import type { Swiper as SwiperClass } from "swiper/types";
-import { Link } from "react-router";
-import { IoChevronForward } from "react-icons/io5";
 
 const actionIconDefaultProps: ActionIconProps = {
   radius: "xl",

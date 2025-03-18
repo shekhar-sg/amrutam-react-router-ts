@@ -1,21 +1,13 @@
-import {
-  ActionIcon,
-  Box,
-  Center,
-  Flex,
-  Grid,
-  Group,
-  Image,
-} from "@mantine/core";
-import SectionWrapper from "~/components/atoms/section-wrapper";
+import { ActionIcon, Flex, Grid, Image } from "@mantine/core";
+import { BiBell } from "react-icons/bi";
 import { IoChatbubblesOutline, IoDocumentTextOutline } from "react-icons/io5";
 import { PiWatchLight } from "react-icons/pi";
-import { BiBell } from "react-icons/bi";
-import Typography from "~/components/atoms/typography";
-import googlePlayStore from "./assets/google-play-store.png";
-import appleStore from "./assets/apple-store.png";
-import mobileApp from "./assets/mobile-app.png";
 import { Link } from "react-router";
+import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
+import appleStore from "./assets/apple-store.png";
+import googlePlayStore from "./assets/google-play-store.png";
+import mobileApp from "./assets/mobile-app.png";
 
 const DownloadApp = () => {
   return (

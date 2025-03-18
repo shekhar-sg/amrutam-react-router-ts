@@ -1,6 +1,6 @@
-import { Flex, Grid } from "@mantine/core";
-import SectionWrapper from "~/components/atoms/section-wrapper";
+import { Grid } from "@mantine/core";
 import CountUp from "~/components/atoms/count-up";
+import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
 
 const Stats = () => {

@@ -1,25 +1,22 @@
 import {
   ActionIcon,
   BackgroundImage,
-  Box,
   Button,
   Center,
-  Flex,
   Group,
-  Image,
 } from "@mantine/core";
+import { IoChevronForward } from "react-icons/io5";
+import { RiPlayCircleLine } from "react-icons/ri";
+import { Link } from "react-router";
+import { Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
+import TestimonialCard from "~/components/templates/home/testimonials/testimonial-card";
 import {
   testimonialReviews,
   testimonialVideos,
 } from "~/components/templates/home/testimonials/testimonials";
-import TestimonialCard from "~/components/templates/home/testimonials/testimonial-card";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { RiPlayCircleLine } from "react-icons/ri";
-import { IoChevronForward } from "react-icons/io5";
-import { Link } from "react-router";
 
 const Testimonials = () => {
   return (
