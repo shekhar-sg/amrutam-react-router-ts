@@ -33,14 +33,14 @@ export const testimonialVideos = [
     id: 1,
     quote: "Ayurvedic cured my long term health issue PCOD",
     videoUrl: "https://www.youtube.com/embed/GqTCZH0KiBI",
-    thumbnail: "https://img.youtube.com/vi/GqTCZH0KiBI/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/GqTCZH0KiBI/hqdefault.jpg",
     videoId: "GqTCZH0KiBI",
   },
   {
     id: 2,
     quote: "Thanks to Ayurveda, my swelling has healed!",
     videoUrl: "https://www.youtube.com/embed/adHQmXlxg6c",
-    thumbnail: "https://img.youtube.com/vi/adHQmXlxg6c/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/adHQmXlxg6c/hqdefault.jpg",
     videoId: "adHQmXlxg6c",
   },
 ];

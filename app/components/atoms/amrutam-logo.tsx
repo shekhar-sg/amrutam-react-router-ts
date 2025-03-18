@@ -5,7 +5,7 @@ import {
   type ImageProps,
 } from "@mantine/core";
 import { Link, type LinkProps } from "react-router";
-import Amrutam from "~/components/organisms/header/assets/amrutam.png";
+import Amrutam from "~/assets/amrutam.png";
 
 interface AmrutamLogoProps extends Partial<AnchorProps & LinkProps> {
   ImageProps?: ImageProps;

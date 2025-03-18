@@ -1,4 +1,4 @@
-import { Box, Button, Image } from "@mantine/core";
+import { Box, Button } from "@mantine/core";
 import { BsShieldCheck } from "react-icons/bs";
 import { FaPhone, FaUserDoctor } from "react-icons/fa6";
 import { IoChatbubblesOutline } from "react-icons/io5";
@@ -10,14 +10,14 @@ import Typography, {
 } from "~/components/atoms/typography";
 import HeroStats from "~/components/templates/home/hero-section/hero-stats";
 
-import backgroundSvg from "./assets/curve-header.svg";
+// import backgroundSvg from "./assets/curve-header.svg";
 import Banner from "./banner";
 import SolarSystem from "~/components/templates/home/hero-section/solar-system";
 
 const HeroSection = () => {
   return (
     <Box className={"relative overflow-hidden"}>
-      <Image className={"absolute inset-0 -z-10"} src={backgroundSvg} />
+      {/*<Image className={"absolute inset-0 -z-10"} src={backgroundSvg} />*/}
       <SectionWrapper
         className={"relative flex py-14 md:py-28 md:pb-34"}
         WrapperProps={{
