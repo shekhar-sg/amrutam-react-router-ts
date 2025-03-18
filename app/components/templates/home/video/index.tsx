@@ -1,4 +1,6 @@
+import { ActionIcon, Box } from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
 import GIF from "./assets/yt-video.gif";
 import { RiPlayCircleLine } from "react-icons/ri";
 
@@ -7,28 +9,24 @@ const VIDEO_EMBED_URL =
 
 const Video = () => {
   return (
-    <SectionWrapper className={"space-y-10 text-center"}>
-      <h2
+    <SectionWrapper>
+      <Typography fontVariant={"heading-xlarge"} underline mb={40} mx={"auto"}>
+        How Ayurveda Transformed My life ?
+      </Typography>
+      <Box
         className={
-          "text-primary-main border-primary-200 mx-auto w-fit px-6 leading-none font-bold capitalize sm:border-b-8 sm:leading-10 md:leading-16"
+          "relative flex aspect-video w-full items-center justify-center"
         }
       >
-        How Ayurveda Transformed My life ?
-      </h2>
-      <div className={"relative w-full aspect-video flex items-center justify-center"}>
-        <button
-          className={
-            "rounded-full z-1 border-none bg-transparent p-0"
-          }
-        >
-          <RiPlayCircleLine className={"size-20.5"} />
-        </button>
         <img
           src={GIF}
           alt={"GIF"}
           className={"absolute z-0 size-full brightness-50"}
         />
-      </div>
+        <ActionIcon variant={"transparent"} c={"white"} size={'xl'} fz={"h1"}>
+          <RiPlayCircleLine />
+        </ActionIcon>
+      </Box>
     </SectionWrapper>
   );
 };
