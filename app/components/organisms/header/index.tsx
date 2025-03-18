@@ -1,11 +1,6 @@
-import { Group, ThemeIcon, useMantineTheme } from "@mantine/core";
+import { AppShell, Group, ThemeIcon } from "@mantine/core";
 import { motion, useScroll } from "framer-motion";
-import {
-  type ComponentPropsWithoutRef,
-  type PropsWithChildren,
-  useEffect,
-  useState,
-} from "react";
+import { type PropsWithChildren, useEffect, useState } from "react";
 import { LuPhone } from "react-icons/lu";
 import AmrutamLogo from "~/components/atoms/amrutam-logo";
 import SectionWrapper from "~/components/atoms/section-wrapper";
@@ -14,24 +9,17 @@ import RouteChangeProgressBar from "~/components/molecules/route-change-progress
 import NavigationSection from "~/components/organisms/header/navigation-section";
 
 const Header = () => {
-  const theme = useMantineTheme();
   return (
-    <AnimatedNavbar >
+    <AnimateHeader>
       <SectionWrapper
         WrapperProps={{
-          className: `shadow-md h-fit`,
+          className: `shadow-md h-full`,
         }}
-        h={theme.other.headerHeight}
-        px={40}
+        className={"h-full"}
         pos={"relative"}
       >
-        <Group
-          h={"50%"}
-          justify={"center"}
-          className={"w-fit lg:w-full"}
-          visibleFrom={"lg"}
-        >
-          <Group gap={6} pos={"absolute"} left={40}>
+        <Group h={"50%"} justify={"center"} visibleFrom={"lg"} pos={"relative"}>
+          <Group gap={6} pos={"absolute"} left={0}>
             <ThemeIcon variant={"transparent"}>
               <LuPhone className={"text-lg"} />
             </ThemeIcon>
@@ -47,16 +35,15 @@ const Header = () => {
         />
         <RouteChangeProgressBar className={"!absolute top-auto bottom-0"} />
       </SectionWrapper>
-    </AnimatedNavbar>
+    </AnimateHeader>
   );
 };
 
 export default Header;
 
-const AnimatedNavbar = ({
-  children,
-  ...rest
-}: PropsWithChildren<ComponentPropsWithoutRef<typeof motion.header>>) => {
+const AppShellHeader = motion(AppShell.Header);
+
+const AnimateHeader = ({ children }: PropsWithChildren) => {
   const { scrollY } = useScroll({
     axis: "y",
   });
@@ -73,10 +60,8 @@ const AnimatedNavbar = ({
       currentY = latest;
     });
   }, [scrollY]);
-
   return (
-    <motion.header
-      {...rest}
+    <AppShellHeader
       animate={{
         y: !isScrolled ? 0 : -100,
         opacity: !isScrolled ? 1 : 0,
@@ -87,6 +72,6 @@ const AnimatedNavbar = ({
       }}
     >
       {children}
-    </motion.header>
+    </AppShellHeader>
   );
 };

@@ -1,6 +1,7 @@
 import {
   Anchor,
   Box,
+  Burger,
   Button,
   Group,
   type GroupProps,
@@ -8,10 +9,13 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import clsx from "clsx";
+import { useCallback } from "react";
 import { BsBell, BsCart2 } from "react-icons/bs";
 import { IoWalletOutline } from "react-icons/io5";
 import { Link, NavLink } from "react-router";
 import AmrutamLogo from "~/components/atoms/amrutam-logo";
+import { useAppDispatch, useAppSelector } from "~/store/hooks";
+import { toggleSideNav } from "~/store/slices/appConfig";
 
 const tabs = [
   {
@@ -37,14 +41,29 @@ const tabs = [
 ];
 
 const NavLinks = (props: GroupProps) => {
+  const isSideNavOpen = useAppSelector(
+    ({ appConfig }) => appConfig.isSideNavOpen,
+  );
+  const dispatch = useAppDispatch();
+  const toggle = useCallback(() => {
+    dispatch(toggleSideNav());
+  }, [dispatch]);
   return (
-    <Group gap={40} {...props} visibleFrom={"lg"}>
-      {tabs.map((tab) => (
-        <Anchor key={tab.name} component={NavLink} to={tab.link} fz={"xl"}>
-          {tab.name}
-        </Anchor>
-      ))}
-    </Group>
+    <>
+      <Burger
+        opened={isSideNavOpen}
+        onClick={toggle}
+        hiddenFrom="lg"
+        size="sm"
+      />
+      <Group gap={40} {...props} visibleFrom={"lg"}>
+        {tabs.map((tab) => (
+          <Anchor key={tab.name} component={NavLink} to={tab.link} fz={"xl"}>
+            {tab.name}
+          </Anchor>
+        ))}
+      </Group>
+    </>
   );
 };
 
@@ -99,7 +118,7 @@ const NavigationSection = (props: GroupProps) => {
     >
       <NavLinks />
       <AmrutamLogo hiddenFrom={"lg"} />
-      <ProfileRelatedLinks className={"xl:absolute xl:right-10"} />
+      <ProfileRelatedLinks className={"xl:absolute xl:right-0"} />
     </Box>
   );
 };

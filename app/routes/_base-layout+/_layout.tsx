@@ -1,18 +1,48 @@
+import { AppShell, useMantineTheme } from "@mantine/core";
+import DownloadApp from "app/components/organisms/download-app";
+import Footer from "app/components/organisms/footer";
+import { type PropsWithChildren } from "react";
 import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import Header from "~/components/organisms/header";
-import Footer from "app/components/organisms/footer";
-import DownloadApp from "app/components/organisms/download-app";
+import { useAppSelector } from "~/store/hooks";
+
+const AppShellWrap = ({ children }: PropsWithChildren) => {
+  const isSideNavOpen = useAppSelector(
+    ({ appConfig }) => appConfig.isSideNavOpen,
+  );
+  const theme = useMantineTheme();
+
+  return (
+    <AppShell
+      header={{
+        height: theme.other.headerHeight,
+        // collapsed: isScrolled,
+        offset: false,
+      }}
+      navbar={{
+        width: 300,
+        breakpoint: "sm",
+        collapsed: { desktop: true, mobile: !isSideNavOpen },
+      }}
+    >
+      {children}
+    </AppShell>
+  );
+};
 
 const Layout = () => {
   return (
-    <>
+    <AppShellWrap>
       <Header />
-      <main>
+      <AppShell.Navbar></AppShell.Navbar>
+      <AppShell.Main>
         <Outlet />
-      </main>
-      <DownloadApp />
+      </AppShell.Main>
+      <AppShell.Section>
+        <DownloadApp />
+      </AppShell.Section>
       <Footer />
-    </>
+    </AppShellWrap>
   );
 };
 
