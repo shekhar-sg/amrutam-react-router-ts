@@ -1,10 +1,8 @@
-import "@fontsource-variable/dm-sans";
-import "@mantine/core/styles.css";
-import "tailwindcss/index.css";
 import { Outlet } from "react-router";
 import GlobalErrorBoundary from "~/components/pages/global-error-boundary";
 import GlobalLayout from "~/components/pages/global-layout";
 import StoreProvider from "~/store/Provider";
+import "./styles/global.css";
 
 export function links() {
   return [

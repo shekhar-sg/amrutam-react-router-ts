@@ -1,5 +1,6 @@
 import { Box, Image, Rating } from "@mantine/core";
 import clsx from "clsx";
+import { IoStar, IoStarOutline } from "react-icons/io5";
 import appleStore from "~/assets/apple-store.webp";
 
 import googlePlayStore from "~/assets/google-play-store.webp";
@@ -20,22 +21,37 @@ const HeroStats = () => {
             <Typography className={"text-xl font-bold"}>
               {item.title}
             </Typography>
-            <Box className={"inline-block text-xs font-medium text-stone-600"}>
+            <Typography fz={"xs"} fw={700} c={"gray.7"}>
               {item.description}
-            </Box>
+            </Typography>
           </Box>
         ))}
       </Box>
       <Box className={"flex w-full items-center justify-center gap-3"}>
-        <Rating defaultValue={3.5} color={"orange"} fractions={2} readOnly />
-        <Box className={"text-primary-main text-xl font-bold"}>3.5</Box>
-        <Box className={"inline-block text-xs font-medium text-stone-600"}>
+        <Rating
+          defaultValue={3.5}
+          fractions={2}
+          readOnly
+          c={"primary"}
+          className={"gap-x-1"}
+          emptySymbol={<IoStarOutline />}
+          fullSymbol={<IoStar />}
+        />
+        <Typography c={"primary"} fz={"xl"} fw={700}>
+          3.5
+        </Typography>
+        <Typography fz={"xs"} c={"gray.7"} fw={700}>
           Average user rating
-        </Box>
+        </Typography>
       </Box>
       <Box className={"flex h-7.75 w-full justify-center gap-1.75"}>
-        <Image unstyled loading={'eager'} src={googlePlayStore} alt={"app store"} />
-        <Image unstyled loading={'eager'} src={appleStore} alt={"play store"} />
+        <Image
+          unstyled
+          loading={"eager"}
+          src={googlePlayStore}
+          alt={"app store"}
+        />
+        <Image unstyled loading={"eager"} src={appleStore} alt={"play store"} />
       </Box>
     </Box>
   );
