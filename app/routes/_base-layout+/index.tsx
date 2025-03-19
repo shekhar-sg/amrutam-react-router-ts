@@ -6,7 +6,6 @@ import Testimonials from "app/components/templates/home/testimonials";
 import HeroSection from "app/components/templates/home/hero-section";
 import ConsultationProcess from "app/components/templates/home/consultation-process";
 import "node_modules/swiper/swiper.min.css";
-// import "node_modules/swiper/modules/autoplay.min.css";
 import "node_modules/swiper/modules/pagination.min.css";
 import Partners from "~/components/templates/home/partners";
 
