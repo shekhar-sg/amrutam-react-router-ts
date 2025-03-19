@@ -1,3 +1,4 @@
+import "@mantine/core/styles.css";
 import { AppShell, useMantineTheme } from "@mantine/core";
 import DownloadApp from "app/components/organisms/download-app";
 import Footer from "app/components/organisms/footer";
@@ -41,7 +42,11 @@ const Layout = () => {
         <DownloadApp />
       </AppShell.Section>
       <Footer />
-      <AppShell.Footer component={"nav"} hiddenFrom={"lg"} className={'rounded-t-[50px] overflow-hidden'}>
+      <AppShell.Footer
+        component={"nav"}
+        hiddenFrom={"lg"}
+        className={"overflow-hidden rounded-t-[50px]"}
+      >
         <MobileNavigation />
       </AppShell.Footer>
     </AppShellWrap>
