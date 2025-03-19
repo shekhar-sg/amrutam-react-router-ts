@@ -1,6 +1,6 @@
 import { Skeleton } from "@mantine/core";
-import ConsultationProcess from "app/components/templates/home/consultation-process";
-import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
+// import ConsultationProcess from "app/components/templates/home/consultation-process";
+// import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
 import { type ExpertDoctorsSectionProps } from "app/components/templates/home/experts";
 import HeroSection from "app/components/templates/home/hero-section";
 import Stats from "app/components/templates/home/stats";
@@ -23,7 +23,7 @@ const HomePage = ({ loaderData }: Route.ComponentProps) => {
     <>
       <HeroSection />
       <Partners />
-      <DiscoverAyurveda />
+      {/*<DiscoverAyurveda />*/}
       <Stats />
       {loaderData && (
         <Suspense fallback={<Skeleton visible h={400} py={10}  />}>
@@ -31,7 +31,7 @@ const HomePage = ({ loaderData }: Route.ComponentProps) => {
         </Suspense>
       )}
       <Video />
-      <ConsultationProcess />
+      {/*<ConsultationProcess />*/}
       <Testimonials />
     </>
   );
