@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
+    "prebuild": "npm run typegen",
     "build": "react-router build",
     "build:visualizer": "cross-env NODE_ENV=dev react-router build",
     "start": "react-router-serve ./build/server/index.js",
