@@ -8,7 +8,6 @@ import Experts from "app/components/templates/home/experts";
 import Testimonials from "app/components/templates/home/testimonials";
 import "node_modules/swiper/swiper.min.css";
 import "node_modules/swiper/modules/pagination.min.css";
-// import '@mantine/carousel/styles.css';
 
 const HomePage = () => {
   return (
