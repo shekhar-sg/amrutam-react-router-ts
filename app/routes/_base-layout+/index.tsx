@@ -5,8 +5,6 @@ import HeroSection from "app/components/templates/home/hero-section";
 import { lazy, Suspense } from "react";
 import Partners from "~/components/templates/home/partners";
 import ConsultationProcess from "app/components/templates/home/consultation-process";
-// import Experts from "app/components/templates/home/experts";
-// import Testimonials from "app/components/templates/home/testimonials";
 import "node_modules/swiper/swiper.min.css";
 import "node_modules/swiper/modules/pagination.min.css";
 
