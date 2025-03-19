@@ -50,7 +50,7 @@ const ExpertDoctorsSlider = (props: ExpertDoctorsSliderProps) => {
       wrapperClass={"space-x-12 py-4"}
       {...rest}
     >
-      {data.map((doctor, index) => {
+      {data.map((doctor) => {
         const isAutoSlidePerView = slidesPerView === "auto";
         return (
           <SwiperSlide
