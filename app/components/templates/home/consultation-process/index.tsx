@@ -1,4 +1,4 @@
-import { Image } from "@mantine/core";
+import { Badge, Image } from "@mantine/core";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
 import onboarding from "./assets/onboarding.webp";
@@ -149,22 +149,21 @@ const AnimatedCard = (props: {
         className={"flex items-center gap-3 capitalize"}
       >
         {position}. {title}
-        <Chip
-          as={"span"}
-          label={time}
-          className={
-            "bg-primary-200 md:body-xsmall rounded-lg text-[8px] font-bold whitespace-nowrap"
-          }
-        />
+        <Badge variant={"outline"} radius={"sm"} bg={"green.1"}>
+          {time}
+        </Badge>
       </Typography>
       <Image
         loading={"lazy"}
         unstyled
         src={icon}
         alt={title}
-        className={"w-full sm:w-1/2"}
+        mx={"auto"}
+        w={{ base: "100%", xs: "min(70%, 500px)" }}
       />
-      <p className={"mx-auto w-1/2 text-center text-base"}>{description}</p>
+      <Typography mx={"auto"} fz={"md"} fw={600} ta={"center"} c={"gray.8"}>
+        {description}
+      </Typography>
     </motion.div>
   );
 };
