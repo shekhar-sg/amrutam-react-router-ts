@@ -7,7 +7,7 @@ export default {
   prerender: ["/"],
   future: {
     unstable_optimizeDeps: true,
-    // unstable_middleware: true,
+    unstable_middleware: true,
     unstable_splitRouteModules: true,
   },
 } satisfies Config;
