@@ -2,6 +2,7 @@ import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
+import checker from "vite-plugin-checker";
 import { compression } from "vite-plugin-compression2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { isProduction } from "./app/utils/environment";
@@ -13,7 +14,14 @@ export default defineConfig(() => {
       tailwindcss(),
       tsconfigPaths(),
       compression({
-        algorithm:"brotliCompress"
+        algorithm: "brotliCompress",
+      }),
+      checker({
+        typescript: true,
+        eslint: {
+          useFlatConfig: true,
+          lintCommand: "eslint",
+        },
       }),
       visualizer({
         open: !isProduction,
@@ -22,7 +30,7 @@ export default defineConfig(() => {
       }),
     ],
     build: {
-      minify:"terser",
+      minify: "terser",
       ssrManifest: true,
       terserOptions: {
         compress: {
