@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { GetOTPRequest } from "~/store/types/api/requests/get-otp-request.type";
-import type { VerifyOTPRequest } from "~/store/types/api/requests/verify-otp-request.type";
+import type { GetOTPAPIRequest } from "~/store/types/api/requests/get-otp-request.type";
+import type { VerifyOTPAPIRequest } from "~/store/types/api/requests/verify-otp-request.type";
 
 const backendAPI = createApi({
   reducerPath: "backendAPI",
@@ -9,24 +9,24 @@ const backendAPI = createApi({
   }),
   endpoints: (build) => {
     return {
-      getOTP: build.mutation<object, GetOTPRequest>({
+      getOTP: build.mutation<object, GetOTPAPIRequest>({
         query: (body) => ({
           method: "POST",
           url: "patient/send-OTP",
           body,
         }),
       }),
-      verifyOTP: build.mutation<object, VerifyOTPRequest>({
+      verifyOTP: build.mutation<object, VerifyOTPAPIRequest>({
         query: (body) => ({
           method: "POST",
           url: "patient/verify-OTP",
           body,
         }),
-      })
+      }),
     };
   },
 });
 
 export default backendAPI;
 
-export const { useGetOTPMutation,useVerifyOTPMutation } = backendAPI;
+export const { useGetOTPMutation, useVerifyOTPMutation } = backendAPI;

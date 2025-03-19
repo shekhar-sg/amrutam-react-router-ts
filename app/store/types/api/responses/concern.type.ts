@@ -1,4 +1,4 @@
-export interface ConcernsResponse {
+export interface ConcernsAPIesponse {
   success: boolean;
   message: string;
   data: Concern[];

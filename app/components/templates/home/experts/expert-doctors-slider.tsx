@@ -6,21 +6,25 @@ import {
   type SwiperSlideProps,
 } from "swiper/react";
 import clsx from "clsx";
-import ExpertCard from "~/components/templates/home/experts/expert-card";
+import ExpertDoctorCard, {
+  type ExpertDoctorCardProps,
+} from "~/components/templates/home/experts/expert-doctor-card";
 import { Autoplay, Pagination } from "swiper/modules";
 import type { Swiper as swiperType } from "swiper/types";
 
-export interface ExpertSliderProps extends SwiperProps {
+export interface ExpertDoctorsSliderProps extends SwiperProps {
   SwiperSlideProps?: SwiperSlideProps;
   spaceBetween?: number;
   setSwiper?: (are: swiperType) => void;
+  data: ExpertDoctorCardProps["data"][];
 }
 
-const ExpertSlider = (props: ExpertSliderProps) => {
+const ExpertDoctorsSlider = (props: ExpertDoctorsSliderProps) => {
   const {
     SwiperSlideProps,
     slidesPerView = "auto",
     setSwiper,
+    data,
     ...rest
   } = props;
 
@@ -46,11 +50,11 @@ const ExpertSlider = (props: ExpertSliderProps) => {
       wrapperClass={"space-x-12 py-4"}
       {...rest}
     >
-      {Array.from({ length: 15 }).map((_, index) => {
+      {data.map((doctor, index) => {
         const isAutoSlidePerView = slidesPerView === "auto";
         return (
           <SwiperSlide
-            key={index}
+            key={doctor.slug}
             {...SwiperSlideProps}
             className={clsx(
               "w-fit",
@@ -60,7 +64,7 @@ const ExpertSlider = (props: ExpertSliderProps) => {
               SwiperSlideProps?.className,
             )}
           >
-            <ExpertCard />
+            <ExpertDoctorCard data={doctor} />
           </SwiperSlide>
         );
       })}
@@ -68,4 +72,4 @@ const ExpertSlider = (props: ExpertSliderProps) => {
   );
 };
 
-export default ExpertSlider;
+export default ExpertDoctorsSlider;

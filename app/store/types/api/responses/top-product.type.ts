@@ -1,4 +1,4 @@
-export interface TopProductResponse {
+export interface TopProductAPIResponse {
   data: Datum[];
   status: string;
 }

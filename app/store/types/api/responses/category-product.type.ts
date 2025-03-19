@@ -1,4 +1,4 @@
-export interface CategoryProductResponse {
+export interface CategoryProductAPIResponse {
   status: string;
   message: string;
   length: number;

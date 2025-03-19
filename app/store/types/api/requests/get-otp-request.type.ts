@@ -1,4 +1,4 @@
-export type GetOTPRequest = {
+export type GetOTPAPIRequest = {
   phoneNumber: string;
   countryCode: string;
 };

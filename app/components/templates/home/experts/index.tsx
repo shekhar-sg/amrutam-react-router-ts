@@ -6,7 +6,9 @@ import { Link } from "react-router";
 import type { Swiper as SwiperClass } from "swiper/types";
 import SectionWrapper from "~/components/atoms/section-wrapper";
 import Typography from "~/components/atoms/typography";
-import ExpertSlider from "~/components/templates/home/experts/expert-slider";
+import ExpertDoctorsSlider, {
+  type ExpertDoctorsSliderProps,
+} from "~/components/templates/home/experts/expert-doctors-slider";
 
 const actionIconDefaultProps: ActionIconProps = {
   radius: "xl",
@@ -20,7 +22,11 @@ const actionIconDefaultProps: ActionIconProps = {
   className: "aspect-square shrink-0 items-center justify-center",
 };
 
-const Experts = () => {
+export interface ExpertDoctorsSectionProps {
+  data: ExpertDoctorsSliderProps["data"];
+}
+
+const ExpertDoctorsSection = ({ data }: ExpertDoctorsSectionProps) => {
   const [swiper, setSwiper] = useState<SwiperClass | undefined>(undefined);
 
   const handleTransition = useCallback(
@@ -52,7 +58,7 @@ const Experts = () => {
         >
           <MdWest />
         </ActionIcon>
-        <ExpertSlider onInit={setSwiper} />
+        <ExpertDoctorsSlider data={data} onInit={setSwiper} />
         <ActionIcon
           {...actionIconDefaultProps}
           onClick={() => handleTransition("next")}
@@ -83,4 +89,4 @@ const Experts = () => {
   );
 };
 
-export default Experts;
+export default ExpertDoctorsSection;
