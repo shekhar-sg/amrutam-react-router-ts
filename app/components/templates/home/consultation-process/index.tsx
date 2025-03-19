@@ -40,7 +40,7 @@ const ConsultationProcess = () => {
         >
           Consultation Process
         </Typography>
-        <motion.div className={"relative flex h-[calc(100%_-_100px)] lg:h-full w-full"}>
+        <motion.div className={"relative flex h-[calc(100%_-_200px)] lg:h-full w-full"}>
           {process.map((step, index) => {
             return (
               <AnimatedCard
