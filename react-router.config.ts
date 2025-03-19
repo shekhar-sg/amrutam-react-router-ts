@@ -8,6 +8,6 @@ export default {
   future: {
     unstable_optimizeDeps: true,
     unstable_middleware: true,
-    unstable_splitRouteModules: true,
+    // unstable_splitRouteModules: true,
   },
 } satisfies Config;
