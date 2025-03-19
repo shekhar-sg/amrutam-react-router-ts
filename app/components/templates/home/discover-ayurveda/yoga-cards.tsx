@@ -2,9 +2,8 @@ import { Box, Image } from "@mantine/core";
 import type { ComponentProps } from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import Typography, {
-  TypographyResponsive,
-} from "~/components/atoms/typography";
+import Typography from "~/components/atoms/typography";
+import { TypographyResponsive } from "~/styles/typography";
 
 interface DiscoverCardProps extends ComponentProps<typeof motion.div> {
   image: string;
@@ -24,7 +23,7 @@ const YogaCards = (props: DiscoverCardProps) => {
     >
       <Image
         unstyled
-        loading={'lazy'}
+        loading={"lazy"}
         src={image}
         alt={title}
         className={"aspect-square size-25"}

@@ -5,10 +5,9 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { MdEditDocument } from "react-icons/md";
 import { Link } from "react-router";
 import SectionWrapper from "~/components/atoms/section-wrapper";
-import Typography, {
-  TypographyResponsive,
-} from "~/components/atoms/typography";
+import Typography from "~/components/atoms/typography";
 import HeroStats from "~/components/templates/home/hero-section/hero-stats";
+import { TypographyResponsive } from "~/styles/typography";
 
 import backgroundSvg from "./assets/curve-header.svg";
 import Banner from "./banner";
@@ -17,7 +16,11 @@ import SolarSystem from "~/components/templates/home/hero-section/solar-system";
 const HeroSection = () => {
   return (
     <Box className={"relative overflow-hidden"}>
-      <Image alt={"background image"} className={"absolute inset-0 -z-10"} src={backgroundSvg} />
+      <Image
+        alt={"background image"}
+        className={"absolute inset-0 -z-10"}
+        src={backgroundSvg}
+      />
       <SectionWrapper
         className={"relative flex py-14 md:py-28 md:pb-34"}
         WrapperProps={{
@@ -44,7 +47,7 @@ const HeroSection = () => {
             care.
           </Typography>
           <Button
-            aria-label={'instant call for free'}
+            aria-label={"instant call for free"}
             component={Link}
             to={"/"}
             size={"xl"}
