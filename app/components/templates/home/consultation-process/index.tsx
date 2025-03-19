@@ -25,7 +25,7 @@ const ConsultationProcess = () => {
   });
 
   return (
-    <div ref={containerRef} className={"h-[800vh]"}>
+    <div ref={containerRef} className={"h-[400vh]"}>
       <SectionWrapper
         WrapperProps={{
           className: "h-screen sticky top-0 overflow-hidden pt-10",
