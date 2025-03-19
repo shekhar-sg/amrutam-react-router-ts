@@ -21,6 +21,7 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
       <body>
         <MantineProvider
           theme={theme}
+          forceColorScheme={"light"}
           classNamesPrefix={"amrutam"}
           cssVariablesResolver={(theme) => {
             return {
