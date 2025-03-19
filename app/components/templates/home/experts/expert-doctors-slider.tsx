@@ -1,4 +1,5 @@
 import { Box } from "@mantine/core";
+import { useLoaderData } from "react-router";
 import {
   Swiper,
   type SwiperProps,
@@ -27,6 +28,7 @@ const ExpertDoctorsSlider = (props: ExpertDoctorsSliderProps) => {
     data,
     ...rest
   } = props;
+
 
   return (
     <Box
