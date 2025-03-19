@@ -10,8 +10,8 @@ import { isProduction } from "./app/utils/environment";
 export default defineConfig(() => {
   return {
     plugins: [
-      reactRouter(),
       tailwindcss(),
+      reactRouter(),
       tsconfigPaths(),
       compression({
         algorithm: "brotliCompress",

@@ -5,9 +5,9 @@ export default {
   // Server-side render by default, to enable SPA mode set this to `false`
   ssr: true,
   prerender: ["/"],
-  // future: {
-  //   unstable_optimizeDeps: true,
-  //   // unstable_middleware: true,
-  //   unstable_splitRouteModules: true,
-  // },
+  future: {
+    unstable_optimizeDeps: true,
+    // unstable_middleware: true,
+    unstable_splitRouteModules: true,
+  },
 } satisfies Config;
