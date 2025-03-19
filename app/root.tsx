@@ -1,9 +1,9 @@
 import '@fontsource-variable/dm-sans';
 import { Outlet } from "react-router";
-import "./styles/global.css";
 import StoreProvider from "~/store/Provider";
 import GlobalErrorBoundary from "~/components/pages/global-error-boundary";
 import GlobalLayout from "~/components/pages/global-layout";
+import 'tailwindcss/index.css'
 
 export function links() {
   return [
