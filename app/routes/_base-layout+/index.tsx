@@ -13,7 +13,6 @@ import { backendClient } from "~/axios-clients/backend.server";
 import Partners from "~/components/templates/home/partners";
 import type { Route } from "~/route-types/types/app/routes/_base-layout+/+types";
 import type { AllDoctorsAPIResponse } from "~/store/types/api/responses/all-doctors";
-import { logger } from "~/utils/logger";
 
 const HomePage = ({ loaderData }: Route.ComponentProps) => {
   return (
