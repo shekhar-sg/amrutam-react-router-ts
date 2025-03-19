@@ -2,7 +2,7 @@ import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
 import Stats from "app/components/templates/home/stats";
 import Video from "app/components/templates/home/video";
 import HeroSection from "app/components/templates/home/hero-section";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import Partners from "~/components/templates/home/partners";
 import ConsultationProcess from "app/components/templates/home/consultation-process";
 // import Experts from "app/components/templates/home/experts";
@@ -22,10 +22,14 @@ const HomePage = () => {
       <Partners />
       <DiscoverAyurveda />
       <Stats />
-      <Experts />
+      <Suspense>
+        <Experts />
+      </Suspense>
       <Video />
       <ConsultationProcess />
-      <Testimonials />
+      <Suspense>
+        <Testimonials />
+      </Suspense>
     </>
   );
 };
