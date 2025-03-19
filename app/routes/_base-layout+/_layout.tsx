@@ -1,4 +1,3 @@
-import "@mantine/core/styles.css";
 import { AppShell, useMantineTheme } from "@mantine/core";
 import DownloadApp from "app/components/organisms/download-app";
 import Footer from "app/components/organisms/footer";
