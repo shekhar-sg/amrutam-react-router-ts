@@ -1,17 +1,16 @@
 import { Box } from "@mantine/core";
-import { useLoaderData } from "react-router";
+import clsx from "clsx";
+import { Autoplay, Pagination } from "swiper/modules";
 import {
   Swiper,
   type SwiperProps,
   SwiperSlide,
   type SwiperSlideProps,
 } from "swiper/react";
-import clsx from "clsx";
+import type { Swiper as swiperType } from "swiper/types";
 import ExpertDoctorCard, {
   type ExpertDoctorCardProps,
 } from "~/components/templates/home/experts/expert-doctor-card";
-import { Autoplay, Pagination } from "swiper/modules";
-import type { Swiper as swiperType } from "swiper/types";
 
 export interface ExpertDoctorsSliderProps extends SwiperProps {
   SwiperSlideProps?: SwiperSlideProps;
@@ -28,7 +27,6 @@ const ExpertDoctorsSlider = (props: ExpertDoctorsSliderProps) => {
     data,
     ...rest
   } = props;
-
 
   return (
     <Box
