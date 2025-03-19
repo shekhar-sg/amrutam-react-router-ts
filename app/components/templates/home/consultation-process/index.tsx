@@ -35,13 +35,12 @@ const ConsultationProcess = () => {
         <Typography
           fontVariant={"heading-xlarge"}
           underline
-          className={
-            "text-primary-main border-primary-100/20 mx-auto w-fit border-b-8 px-6 leading-15 font-bold"
-          }
+          mx={"auto"}
+          ta={"center"}
         >
           Consultation Process
         </Typography>
-        <motion.div className={"relative flex h-full w-full"}>
+        <motion.div className={"relative flex h-[calc(100%_-_100px)] lg:h-full w-full"}>
           {process.map((step, index) => {
             return (
               <AnimatedCard
