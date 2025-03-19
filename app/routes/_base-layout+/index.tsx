@@ -2,16 +2,16 @@ import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
 import Stats from "app/components/templates/home/stats";
 import Video from "app/components/templates/home/video";
 import HeroSection from "app/components/templates/home/hero-section";
-import { lazy, Suspense } from "react";
+// import { lazy, Suspense } from "react";
 import Partners from "~/components/templates/home/partners";
 import ConsultationProcess from "app/components/templates/home/consultation-process";
-import "node_modules/swiper/swiper.min.css";
-import "node_modules/swiper/modules/pagination.min.css";
+// import "node_modules/swiper/swiper.min.css";
+// import "node_modules/swiper/modules/pagination.min.css";
 
-const Experts = lazy(() => import("app/components/templates/home/experts"));
-const Testimonials = lazy(
-  () => import("app/components/templates/home/testimonials"),
-);
+// const Experts = lazy(() => import("app/components/templates/home/experts"));
+// const Testimonials = lazy(
+//   () => import("app/components/templates/home/testimonials"),
+// );
 
 const HomePage = () => {
   return (
@@ -20,14 +20,14 @@ const HomePage = () => {
       <Partners />
       <DiscoverAyurveda />
       <Stats />
-      <Suspense>
-        <Experts />
-      </Suspense>
+      {/*<Suspense>*/}
+      {/*  <Experts />*/}
+      {/*</Suspense>*/}
       <Video />
       <ConsultationProcess />
-      <Suspense>
-        <Testimonials />
-      </Suspense>
+      {/*<Suspense>*/}
+      {/*  <Testimonials />*/}
+      {/*</Suspense>*/}
     </>
   );
 };
