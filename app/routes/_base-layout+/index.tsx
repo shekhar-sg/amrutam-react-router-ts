@@ -2,8 +2,8 @@
 // import ConsultationProcess from "app/components/templates/home/consultation-process";
 // import DiscoverAyurveda from "app/components/templates/home/discover-ayurveda";
 // import { type ExpertDoctorsSectionProps } from "app/components/templates/home/experts";
-import HeroSection from "app/components/templates/home/hero-section";
-// import Stats from "app/components/templates/home/stats";
+// import HeroSection from "app/components/templates/home/hero-section";
+import Stats from "app/components/templates/home/stats";
 // import Testimonials from "app/components/templates/home/testimonials";
 // import "node_modules/swiper/swiper.min.css";
 // import "node_modules/swiper/modules/pagination.min.css";
@@ -23,10 +23,10 @@ const HomePage = (
 ) => {
   return (
     <>
-      <HeroSection />
+      {/*<HeroSection />*/}
       <Partners />
       {/*<DiscoverAyurveda />*/}
-      {/*<Stats />*/}
+      <Stats />
       {/*{loaderData && (*/}
       {/*  <Suspense fallback={<Skeleton visible h={400} py={10}  />}>*/}
       {/*    <ExpertDoctorsSection data={loaderData} />*/}
