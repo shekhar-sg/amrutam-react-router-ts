@@ -17,8 +17,7 @@ export default defineConfig(() => {
         algorithm: "brotliCompress",
       }),
       checker({
-        enableBuild:!isProduction,
-        typescript: true,
+        typescript: !isProduction,
         eslint: {
           useFlatConfig: true,
           lintCommand: "eslint",
