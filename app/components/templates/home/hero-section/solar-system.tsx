@@ -1,4 +1,4 @@
-import { Image } from "@mantine/core";
+import { Avatar, Image } from "@mantine/core";
 import { motion } from "framer-motion";
 import doctor1 from "./assets/doctors/doctor-1.webp";
 import doctor2 from "./assets/doctors/doctor-2.webp";
@@ -28,13 +28,9 @@ const doctors = [
 
 const SolarSystem = () => {
   return (
-    <div className="absolute right-[-25%] -z-1 flex size-100 items-center justify-center rounded-full bg-transparent max-md:top-[-25%] max-sm:top-[-30%] sm:right-[-15%] sm:size-115 md:right-0 lg:right-[5%] lg:size-125">
-      {/* Center PD */}
-      <div className="flex size-1/7 items-center justify-center rounded-full bg-green-400 font-bold text-white">
-        PD
-      </div>
+    <div className="absolute right-[-25%] -z-1 flex size-100 items-center justify-center rounded-full bg-transparent max-md:top-[-25%] sm:size-115 md:right-0 lg:right-[5%] lg:size-125">
+      <Avatar variant={"light"} bg={"green.2"} />
 
-      {/* Orbits */}
       {doctors.map(({ src, orbitRadius, initial }, index, arr) => {
         const duration = 25;
         const isFirstOfTypeOrbit =
@@ -66,7 +62,7 @@ const SolarSystem = () => {
             <Image
               unstyled
               component={motion.img}
-              loading={'eager'}
+              loading={"eager"}
               src={src}
               alt={`doctor-${index}`}
               initial={{ rotate: -initial }}

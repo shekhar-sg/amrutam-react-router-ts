@@ -26,10 +26,10 @@ const ConsultationProcess = () => {
   });
 
   return (
-    <div ref={containerRef} className={"h-[400vh]"}>
+    <div ref={containerRef} className={"h-[800vh]"}>
       <SectionWrapper
         WrapperProps={{
-          className: "h-screen sticky top-0 overflow-hidden pt-20",
+          className: "h-screen sticky top-0 overflow-hidden pt-10",
         }}
         className={"h-full"}
       >
@@ -95,20 +95,24 @@ const AnimatedCard = (props: {
   const card1Opacity = useTransform(scrollYProgress, [0, 0.1, 0.2], [1, 1, 0]);
   const card2Opacity = useTransform(
     scrollYProgress,
-    [0.2, 0.3, 0.4],
-    [0, 1, 0],
+    [0.2, 0.22, 0.38, 0.4],
+    [0, 1, 1, 0],
   );
   const card3Opacity = useTransform(
     scrollYProgress,
-    [0.4, 0.5, 0.6],
-    [0, 1, 0],
+    [0.4, 0.42, 0.58, 0.6],
+    [0, 1, 1, 0],
   );
   const card4Opacity = useTransform(
     scrollYProgress,
-    [0.6, 0.7, 0.8],
-    [0, 1, 0],
+    [0.6, 0.62, 0.78, 0.8],
+    [0, 1, 1, 0],
   );
-  const card5Opacity = useTransform(scrollYProgress, [0.8, 0.9, 1], [0, 1, 1]);
+  const card5Opacity = useTransform(
+    scrollYProgress,
+    [0.8, 0.82, 0.98, 1],
+    [0, 1, 1, 1],
+  );
 
   const styles = useMemo<Record<number, MotionStyle>>(() => {
     return {
@@ -153,7 +157,13 @@ const AnimatedCard = (props: {
           }
         />
       </Typography>
-      <Image loading={'lazy'} unstyled src={icon} alt={title} className={"w-full sm:w-1/2"} />
+      <Image
+        loading={"lazy"}
+        unstyled
+        src={icon}
+        alt={title}
+        className={"w-full sm:w-1/2"}
+      />
       <p className={"mx-auto w-1/2 text-center text-base"}>{description}</p>
     </motion.div>
   );
