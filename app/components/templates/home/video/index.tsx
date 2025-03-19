@@ -10,7 +10,7 @@ import { RiPlayCircleLine } from "react-icons/ri";
 const Video = () => {
   return (
     <SectionWrapper>
-      <Typography fontVariant={"heading-xlarge"} underline mb={40} mx={"auto"}>
+      <Typography fontVariant={"heading-xlarge"} underline mb={40} mx={"auto"} ta={'center'}>
         How Ayurveda Transformed My life ?
       </Typography>
       <Box
