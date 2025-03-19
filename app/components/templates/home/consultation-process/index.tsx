@@ -1,11 +1,4 @@
 import { Badge, Image } from "@mantine/core";
-import SectionWrapper from "~/components/atoms/section-wrapper";
-import Typography from "~/components/atoms/typography";
-import onboarding from "./assets/onboarding.webp";
-import chooseDoctor from "./assets/choose-doctor.webp";
-import bookConsultation from "./assets/book-consultation.webp";
-import getPrescription from "./assets/prescription.webp";
-import followUp from "./assets/follow-up.webp";
 import {
   motion,
   type MotionStyle,
@@ -15,8 +8,14 @@ import {
   useTransform,
   type VariantLabels,
 } from "framer-motion";
-import Chip from "~/components/atoms/chip";
 import { useMemo, useRef } from "react";
+import SectionWrapper from "~/components/atoms/section-wrapper";
+import Typography from "~/components/atoms/typography";
+import bookConsultation from "./assets/book-consultation.webp";
+import chooseDoctor from "./assets/choose-doctor.webp";
+import followUp from "./assets/follow-up.webp";
+import onboarding from "./assets/onboarding.webp";
+import getPrescription from "./assets/prescription.webp";
 
 const ConsultationProcess = () => {
   const containerRef = useRef(null);
