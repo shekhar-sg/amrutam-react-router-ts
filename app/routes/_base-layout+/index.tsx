@@ -65,7 +65,7 @@ export const loader = async () => {
           );
       }
     })
-    .catch((reason) => {
-      logger.error(reason);
+    .catch(() => {
+      return undefined;
     });
 };

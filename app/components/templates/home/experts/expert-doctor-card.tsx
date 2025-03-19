@@ -44,6 +44,9 @@ const ExpertDoctorCard = (props: ExpertDoctorCardProps) => {
         color={"initials"}
         variant={"filled"}
         alt={name}
+        classNames={{
+          image: "bg-green-100/80 !flex items-center justify-center",
+        }}
         imageProps={{
           loading: "lazy",
         }}
