@@ -1,3 +1,4 @@
+import "@fontsource-variable/dm-sans";
 import { Outlet } from "react-router";
 import GlobalErrorBoundary from "~/components/pages/global-error-boundary";
 import GlobalLayout from "~/components/pages/global-layout";
