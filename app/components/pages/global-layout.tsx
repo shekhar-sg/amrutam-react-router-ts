@@ -1,7 +1,8 @@
 import {
   ColorSchemeScript,
   mantineHtmlProps,
-  MantineProvider,
+  HeadlessMantineProvider,
+  // MantineProvider,
 } from "@mantine/core";
 import type { PropsWithChildren } from "react";
 import { Links, Meta, Scripts, ScrollRestoration } from "react-router";
@@ -19,22 +20,9 @@ const GlobalLayout = ({ children }: PropsWithChildren) => {
         <Links />
       </head>
       <body>
-        <MantineProvider
-          theme={theme}
-          forceColorScheme={"light"}
-          classNamesPrefix={"amrutam"}
-          cssVariablesResolver={(theme) => {
-            return {
-              variables: {},
-              dark: {},
-              light: {
-                "--mantine-color-body": theme.colors.secondary[1],
-              },
-            };
-          }}
-        >
+        <HeadlessMantineProvider theme={theme}>
           {children}
-        </MantineProvider>
+        </HeadlessMantineProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
