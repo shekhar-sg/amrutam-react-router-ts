@@ -11,14 +11,16 @@ import Video from "app/components/templates/home/video";
 // import { lazy, Suspense } from "react";
 // import { backendClient } from "~/axios-clients/backend.server";
 import Partners from "~/components/templates/home/partners";
-import type { Route } from "~/route-types/types/app/routes/_base-layout+/+types";
+// import type { Route } from "~/route-types/types/app/routes/_base-layout+/+types";
 // import type { AllDoctorsAPIResponse } from "~/store/types/api/responses/all-doctors";
 
 // const ExpertDoctorsSection = lazy(
 //   () => import("app/components/templates/home/experts"),
 // );
 
-const HomePage = ({ loaderData }: Route.ComponentProps) => {
+const HomePage = (
+  // { loaderData }: Route.ComponentProps
+) => {
   return (
     <>
       <HeroSection />
