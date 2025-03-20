@@ -3,7 +3,6 @@ import tailwindcss from "@tailwindcss/vite";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
-import { compression } from "vite-plugin-compression2";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { isProduction } from "./app/utils/environment";
 
@@ -13,9 +12,6 @@ export default defineConfig(() => {
       tailwindcss(),
       reactRouter(),
       tsconfigPaths(),
-      compression({
-        algorithm: "brotliCompress",
-      }),
       checker({
         typescript: !isProduction,
         eslint: {
@@ -31,7 +27,8 @@ export default defineConfig(() => {
     ],
     build: {
       minify: "terser",
-      ssrManifest: true,
+      sourcemap:"inline",
+      cssMinify:"lightningcss",
       terserOptions: {
         compress: {
           drop_console: true,
