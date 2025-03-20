@@ -6,6 +6,7 @@ import { isRouteErrorResponse, Outlet, useRouteError } from "react-router";
 import MobileNavigation from "~/components/organisms/footer/mobile-navigation";
 import Header from "~/components/organisms/header";
 import { useAppSelector } from "~/store/hooks";
+import "@mantine/core/styles.css"
 
 const AppShellWrap = ({ children }: PropsWithChildren) => {
   const isSideNavOpen = useAppSelector(
